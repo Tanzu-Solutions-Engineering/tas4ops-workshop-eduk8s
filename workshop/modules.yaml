@@ -2,9 +2,9 @@ modules:
     index:
         name: Workshop Overview
         exit_sign: Start Workshop
-    concepts/02_what-is-it-slide.en:
+    concepts/02_what-is-it-slide:
         name: What is BOSH
-    exercises/03_stemcells-slide.en:
+    concepts/03_stemcells-slide:
         name: Stemcells
     exercises/03-creating-the-resources:
         name: Creating the Resources

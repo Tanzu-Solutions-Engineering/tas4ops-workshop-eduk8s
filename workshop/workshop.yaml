@@ -3,8 +3,8 @@ name: Kubernetes Fundamentals
 modules:
     activate:
     - index
-    - concepts/02_what-is-it-slide.en
-    - concepts/03_stemcells-slide.en
+    - concepts/02_what-is-it-slide
+    - concepts/03_stemcells-slide
     - exercises/03-creating-the-resources
     - exercises/04-querying-the-resources
     - exercises/05-labelling-of-resources
