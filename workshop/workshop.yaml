@@ -3,8 +3,8 @@ name: Kubernetes Fundamentals
 modules:
     activate:
     - index
-    - exercises/01-accessing-the-cluster
-    - exercises/02-deploying-an-application
+    - concepts/02_what-is-it-slide.en
+    - concepts/03_stemcells-slide.en
     - exercises/03-creating-the-resources
     - exercises/04-querying-the-resources
     - exercises/05-labelling-of-resources
