@@ -3,8 +3,8 @@ name: Kubernetes Fundamentals
 modules:
     activate:
     - index
-    - concepts/02_what-is-it-slide
-    - concepts/03_stemcells-slide
+    - concepts/02_bosh_what-is-it-slide
+    - concepts/03_bosh_stemcells-slide
     - concepts/04_bosh_cloud-providers-slide
     - concepts/05_bosh_releases-slide
     - concepts/06_bosh_manifests-slide
