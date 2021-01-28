@@ -2,11 +2,11 @@ modules:
     index:
         name: Workshop Overview
         exit_sign: Start Workshop
-    concepts/02_what-is-it-slide:
+    concepts/02_bosh_what-is-it-slide:
         name: What is BOSH
     labs/00_bosh_lab-connect:
         name: Workshop Lab Connectivity        
-    concepts/03_stemcells-slide:
+    concepts/03_bosh_stemcells-slide:
         name: BOSH Stemcells
     labs/01_bosh_example-stemcell:
         name: BOSH Stemcells Lab
