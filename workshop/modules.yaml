@@ -4,38 +4,30 @@ modules:
         exit_sign: Start Workshop
     concepts/02_what-is-it-slide:
         name: What is BOSH
+    labs/00_bosh_lab-connect:
+        name: Workshop Lab Connectivity        
     concepts/03_stemcells-slide:
-        name: Stemcells
-    exercises/03-creating-the-resources:
-        name: Creating the Resources
-    exercises/04-querying-the-resources:
-        name: Querying the Resources
-    exercises/05-labelling-of-resources:
-        name: Labelling of Resources
-    exercises/06-deployment-resource:
-        name: Deployment Resource
-    exercises/07-replicasets-and-pods:
-        name: ReplicaSets and Pods
-    exercises/08-replicas-and-scaling:
-        name: Replicas and Scaling
-    exercises/09-pods-and-containers:
-        name: Pods and Containers
-    exercises/10-application-logging:
-        name: Application Logging
-    exercises/11-accessing-containers:
-        name: Accessing Containers
-    exercises/12-service-networking:
-        name: Service Networking
-    exercises/13-exposing-the-service:
-        name: Exposing the Service
-    exercises/14-linking-the-database:
-        name: Linking the Database
-    exercises/15-setting-up-database:
-        name: Setting up Database
-    exercises/16-persistent-volumes:
-        name: Persistent Volumes
-    # exercises/17-application-health:
-    #     name: Application Health
+        name: BOSH Stemcells
+    labs/01_bosh_example-stemcell:
+        name: BOSH Stemcells Lab
+    concepts/04_bosh_cloud-providers-slide:
+        name: Cloud Config
+    labs/02_bosh_inspect-cloud-config:
+        name: Cloud Config Lab    
+    concepts/05_bosh_releases-slide:
+        name: BOSH Releases
+    labs/03_bosh_examine-bosh-release:
+        name: BOSH Releases Lab
+    concepts/06_bosh_manifests-slide:
+        name: BOSH Manifests
+    labs/04_bosh_access-managed-instance:
+        name: Access Managed Instances Lab
+    labs/05_bosh_instance-internals:
+        name: BOSH Instances Internals Lab 
+    labs/06_bosh_errands:
+        name: BOSH Errands Lab 
+    labs/07_bosh_tasks:
+        name: BOSH Tasks Lab 
     finish:
         name: Workshop Summary
         exit_sign: Finish Workshop

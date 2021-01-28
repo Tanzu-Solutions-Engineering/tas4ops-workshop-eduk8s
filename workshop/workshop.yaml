@@ -5,19 +5,15 @@ modules:
     - index
     - concepts/02_what-is-it-slide
     - concepts/03_stemcells-slide
-    - exercises/03-creating-the-resources
-    - exercises/04-querying-the-resources
-    - exercises/05-labelling-of-resources
-    - exercises/06-deployment-resource
-    - exercises/07-replicasets-and-pods
-    - exercises/08-replicas-and-scaling
-    - exercises/09-pods-and-containers
-    - exercises/10-application-logging
-    - exercises/11-accessing-containers
-    - exercises/12-service-networking
-    - exercises/13-exposing-the-service
-    - exercises/14-linking-the-database
-    - exercises/15-setting-up-database
-    - exercises/16-persistent-volumes
-    - exercises/17-application-health
+    - concepts/04_bosh_cloud-providers-slide
+    - concepts/05_bosh_releases-slide
+    - concepts/06_bosh_manifests-slide
+    - labs/00_bosh_lab-connect
+    - labs/01_bosh_example-stemcell
+    - labs/02_bosh_inspect-cloud-config
+    - labs/03_bosh_examine-bosh-release
+    - labs/04_bosh_access-managed-instance
+    - labs/05_bosh_instance-internals
+    - labs/06_bosh_errands
+    - labs/07_bosh_tasks
     - finish

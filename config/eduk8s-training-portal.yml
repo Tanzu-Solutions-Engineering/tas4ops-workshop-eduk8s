@@ -8,19 +8,14 @@ spec:
     catalog:
       visibility: public
     password: VMware
-    registration:
+    # registration:
       # type: anonymous
-      type: one-step
-      enabled: false
+      # type: one-step
+      # enabled: false
   workshops:
-  - name: lab-tas-fundamentals
-    capacity: 3
-    reserved: 1
-    expires: 1h
-    orphaned: 5m
   - name: tas4ops-fundamentals
-    capacity: 3
+    capacity: 10
     reserved: 1
-    expires: 1h
-    orphaned: 5m
+    expires: 4h
+    orphaned: 15m
     
