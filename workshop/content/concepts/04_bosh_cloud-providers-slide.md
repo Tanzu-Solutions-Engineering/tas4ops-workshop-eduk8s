@@ -8,13 +8,13 @@
 - https://bosh.io/docs/cpi-api-v2/
 - https://github.com/cloudfoundry/bosh-cli/blob/master/docs/architecture.md#deploy-command-flow
 
-<img src="/images/Bosh_IaaS-support.png" alt="Bosh IaaS support"/>
+<img src="../images/Bosh_IaaS-support.png" alt="Bosh IaaS support"/>
 
 --- 
 
 ## BOSH Component Architecture (Simplified) 
 
-<img src="/images/Bosh_CPI_architecture.png" alt="Bosh CPI"/>
+<img src="../images/Bosh_CPI_architecture.png" alt="Bosh CPI"/>
 
 ---
 
@@ -77,9 +77,3 @@ compilation:
   network: default
 ```
 --- 
-
-## Recommended activity
-
-- View and try out the [Inspect the Cloud Config Definition](/demos/03_inspect-cloud-config) exercise lab
-
----

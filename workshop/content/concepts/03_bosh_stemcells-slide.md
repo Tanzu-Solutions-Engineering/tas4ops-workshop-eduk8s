@@ -41,11 +41,11 @@
   - SoftLayer
 
 - Does not contain the OS image rather references the OS image hosted by the IaaS provider   
-  <img src="/images/Bosh_lightstemcell-1.png" alt="Bosh Light Stemcells"/>
+  <img src="../images/Bosh_lightstemcell-1.png" alt="Bosh Light Stemcells"/>
 
 - Small size file only about 20KB thus the name light stemcell
 
-<img src="/images/Bosh_lightstemcell-2.png" alt="Bosh Light Stemcells"/>
+<img src="../images/Bosh_lightstemcell-2.png" alt="Bosh Light Stemcells"/>
 
 ## The concept of stemcell solves the following problems
 
@@ -66,10 +66,6 @@
 - Stemcells are pre-hardened according to security best practices   
   - Building on top of a stemcells means more secure software
   - https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/stemcell-hardening.html  
-
-## Recommended activity
-
-- View and try out the [Inspecting Stemcells](/demos/02_example-stemcell) exercise lab.
 
 ---
 

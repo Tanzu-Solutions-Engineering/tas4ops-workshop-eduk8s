@@ -65,6 +65,3 @@ Since BOSH deploys instances behind firewalls, without public IPs, and with secu
     - If successful you should now be inside the instance and have full `root` access via `sudo su`.
 
 ---
-
-Next, examine the [BOSH Instance Internals](/demos/08_bosh-instance-internals).
-

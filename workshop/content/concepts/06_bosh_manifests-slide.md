@@ -5,7 +5,7 @@ Hint: manifests
 
 ## Deployment Steps Mapped to BOSH Concepts 
 
-<img src="/images/Bosh_Releases_02.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases"/>
 
 
 ### Manifests 
@@ -54,9 +54,5 @@ instance_groups:
   stemcell: trusty
   vm_type: default
 ```
-
-## Recommended activity
-
-- View and try out the [Access Managed Instances](/demos/07_access-managed-instance/) exercise lab
 
 ---

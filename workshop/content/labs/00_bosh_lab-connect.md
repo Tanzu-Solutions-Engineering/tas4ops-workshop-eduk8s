@@ -4,7 +4,7 @@ Familiarization with Workshop Lab environment.
 
 ## Workshop Lab Architecture: Tanzu Application Service
 
-<img src="/images/Workshop_architecture1.png" alt="Workshop Lab Architecture"/>
+<img src="../images/Workshop_architecture1.png" alt="Workshop Lab Architecture"/>
 
 ### Using the TAS Operations Manager VM as a Jumpbox
 

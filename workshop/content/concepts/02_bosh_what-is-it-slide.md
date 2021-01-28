@@ -14,31 +14,31 @@
 ## What can BOSH Deploy & Manage?
 
 - Cloud Foundry Application Runtime  
-  <img src="/images/Bosh_CF-mgmt.png" alt="Bosh Manages Cloud Foundry Application Runtime "/>
+  <img src="../images/Bosh_CF-mgmt.png" alt="Bosh Manages Cloud Foundry Application Runtime "/>
 
 - Kubernetes  
-  <img src="/images/Bosh_K8s-mgmt.png" alt="Bosh manages Kubernetes Clusters VMs"/>
+  <img src="../images/Bosh_K8s-mgmt.png" alt="Bosh manages Kubernetes Clusters VMs"/>
 
 - Databases  
-  <img src="/images/Bosh_DB-mgmt.png" alt="Bosh manages Database servers"/>
+  <img src="../images/Bosh_DB-mgmt.png" alt="Bosh manages Database servers"/>
 
 - Messaging Clusters  
-  <img src="/images/Bosh_Messaging-mgmt.png" alt="Bosh manages Messaging Clusters"/>
+  <img src="../images/Bosh_Messaging-mgmt.png" alt="Bosh manages Messaging Clusters"/>
 
 - CI/CD Servers  
-  <img src="/images/Bosh_CICD-mgmt.png" alt="Bosh manages CI/CD servers"/>
+  <img src="../images/Bosh_CICD-mgmt.png" alt="Bosh manages CI/CD servers"/>
 
 ---
 
 ## What IaaS providers does BOSH support?
 
-  <img src="/images/Bosh_IaaS-support.png" alt="Bosh IaaS support"/>
+  <img src="../images/Bosh_IaaS-support.png" alt="Bosh IaaS support"/>
 
 ---
 
 ## What Operating Systems Does BOSH Support?
 
-  <img src="/images/Bosh_OS-support.png" alt="Bosh OS support"/>
+  <img src="../images/Bosh_OS-support.png" alt="Bosh OS support"/>
 
 ---
 
@@ -63,7 +63,7 @@
 
 ## BOSH User Interaction
 
-<img src="/images/Bosh_Interaction.png" alt="Bosh User Interaction"/>
+<img src="../images/Bosh_Interaction.png" alt="Bosh User Interaction"/>
 
 - The BOSH director is a collection of components that orchestrates the initial deployments and ongoing updates of bosh managed services 
 - BOSH is a distributed system that can be deployed on multiple VM’s. However it is commonly deployed on a single VM
@@ -72,7 +72,7 @@
 
 ---
 
-# Installing the BOSH CLI
+# Reference: Installing the BOSH CLI
 
 - https://www.bosh.io/docs/cli-v2-install/
 

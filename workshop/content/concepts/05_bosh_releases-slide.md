@@ -1,7 +1,7 @@
 
 ## Suppose you deploying a very simple 2 VM service 
 
-<img src="/images/Bosh_Releases_01.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_01.png" alt="Bosh Releases"/>
 
 ---
 
@@ -31,7 +31,7 @@
 
 ## Deployment Steps Mapped to BOSH Concepts 
 
-<img src="/images/Bosh_Releases_02.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases"/>
 
 ---
 
@@ -160,10 +160,3 @@ case $1 in
 esac
 ```
 ---
-
-## Recommended activity
-
-- View and try out the [Examine Bosh Releases](/demos/05_examine-bosh-release) exercise lab
-
----
-

@@ -8,10 +8,16 @@
 
 kubectl apply -k "github.com/eduk8s/eduk8s?ref=20.12.03.1"
 
+sleep 1000
+
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_DOMAIN=eduk8s.azure.yourcompany.pw
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_CLASS=nginx
 
+sleep 2000
+
 kubectl apply -f eduk8s-tas4ops-workshop.yml
 kubectl apply -f eduk8s-training-portal.yml
+
+sleep 2000
 
 kubectl get trainingportals
