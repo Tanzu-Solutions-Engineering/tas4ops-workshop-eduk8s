@@ -1,0 +1,30 @@
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: tas4ops-fundamentals
+spec:
+  title: TAS for Operators Fundamentals
+  description: Workshop on the Fundamentals of Bosh and TAS
+  url: https://github.com/Tanzu-Solutions-Engineering/tas4ops-workshop-eduk8s
+  vendor: eduk8s.azure.yourcompany.pw
+  authors:
+  - Luciano Silva
+  - James Robinson
+  difficulty: intermediate
+  duration: 1h
+  tags:
+  - bosh
+  content:
+    image: jrobinson/eduk8s-tas:latest
+    files: github.com/Tanzu-Solutions-Engineering/tas4ops-workshop-eduk8s 
+  session:
+    namespaces:
+      budget: medium
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+      editor:
+        enabled: true
