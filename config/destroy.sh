@@ -1,3 +1,4 @@
+#!/bin/bash
 kubectl delete -f eduk8s-training-portal.yml
 kubectl delete -f eduk8s-tas4ops-workshop.yml
 

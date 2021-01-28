@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # 1. Deploy a k8s cluster
 # Eduk8s Install Docs  https://docs.edukates.io/en/latest/getting-started/installing-operator.html#
 # 2. Setup Ingress Controller, e.g. Nginx -  
@@ -12,3 +14,4 @@ kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_CLASS=nginx
 kubectl apply -f eduk8s-tas4ops-workshop.yml
 kubectl apply -f eduk8s-training-portal.yml
 
+kubectl get trainingportals
