@@ -4,23 +4,23 @@ modules:
     activate:
     - index
     - concepts/02_bosh_what-is-it-slide
-    - concepts/03_bosh_stemcells-slide
-    - concepts/04_bosh_cloud-providers-slide
-    - concepts/05_bosh_releases-slide
-    - concepts/06_bosh_manifests-slide
     - labs/00_bosh_lab-connect
+    - concepts/03_bosh_stemcells-slide
     - labs/01_bosh_example-stemcell
+    - concepts/04_bosh_cloud-providers-slide
     - labs/02_bosh_inspect-cloud-config
+    - concepts/05_bosh_releases-slide
     - labs/03_bosh_examine-bosh-release
+    - concepts/06_bosh_manifests-slide
     - labs/04_bosh_access-managed-instance
     - labs/05_bosh_instance-internals
     - labs/06_bosh_errands
     - labs/07_bosh_tasks
-    - labs/08_tas_intro.md
-    - labs/09_tas_cfpushfailure.md
-    - labs/10_tas_app_connectivity.md
-    - labs/11_tas_slow_requests.md
-    - labs/12_tas_healthcheck.md
-    - labs/13_tas_check_expired_certs.md
-    - labs/14_tas_cert_rotation.md
+    - labs/08_tas_intro
+    - labs/09_tas_cfpushfailure
+    - labs/10_tas_app_connectivity
+    - labs/11_tas_slow_requests
+    - labs/12_tas_healthcheck
+    - labs/13_tas_check_expired_certs
+    - labs/14_tas_cert_rotation
     - finish

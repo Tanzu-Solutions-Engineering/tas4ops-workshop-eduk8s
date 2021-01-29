@@ -1,6 +1,6 @@
-<img src="../images/tanzu01.png" alt="VMware Tanzu" align="left" style="padding-right:40px;width:100px;" />
+<img src="images/tanzu01.png" alt="VMware Tanzu" align="left" style="padding-right:40px;width:100px;" />
 
-[Tanzu Application Service](https://docs.pivotal.io/application-service/2-10/concepts/overview.html) is a modern runtime for applications built for developers to boost feature velocity and for operations teams to deliver world-class uptime.
+[Tanzu Application Service](https://docs.pivotal.io/application-service/2-10/concepts/overview.html) is a modern runtime for applications, built for developers to boost feature velocity and for operations teams to deliver world-class uptime.
 
 <br/>
 

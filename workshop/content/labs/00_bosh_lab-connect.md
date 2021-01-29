@@ -15,23 +15,31 @@ Familiarization with Workshop Lab environment.
 
 1. Provide TAS Ops Manager VM's fully-qualified domain name from provided pre-workshop email
 
-2. Provide corresponding ssh private key content from provided pre-workshop email
+1. Provide corresponding ssh private key content from provided pre-workshop email
 
-3. SSH into the OpsMgr VM
+1. SSH into the jumpbox VM of your Lab environment
 
-    `ssh -i ~/.ssh/haas.key ubuntu@<opsmgr-fqdn>`   e.g. opsmgr-01.haas-236.pez.pivotal.io
+    ```execute
+    ssh ubuntu@ubuntu-236.haas-236.pez.pivotal.io
+    ```
+1. Once into the jumpbox, SSH into the Ops Manager VM of your environment
 
-4. Configure alias for BOSH commands  
+    ```execute
+    ssh ubuntu@opsmgr-01.haas-236.pez.pivotal.io
+    ```
+
+
+1. Configure alias for BOSH commands  
    - From the Ops Mgr web UI > Bosh Tile > Credentials tab, copy the contents of <"Bosh Commandline Credentials"  
    - `alias bosh="<data-from-previous-step>"`
 
 ## Part 2: Inspect the Bosh Director environment
 
-5. Check which BOSH deployments exist 
+1. Check which BOSH deployments exist 
 
     `bosh deployments`
 
-6. Check for BOSH managed VMs for the existing deployments
+1. Check for BOSH managed VMs for the existing deployments
 
     `bosh vms`
 
