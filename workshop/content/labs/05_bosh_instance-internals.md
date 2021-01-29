@@ -44,6 +44,9 @@ Lets explore how both of these are done, and where the important files are by ex
 
     ```execute
     sudo su
+    ```
+
+    ```execute
     monit summary
     ```
 
@@ -67,6 +70,9 @@ Lets explore how both of these are done, and where the important files are by ex
 
     ```execute 
     monit restart metrics-agent
+    ```
+
+    ```execute
     monit summary
     ```
 
@@ -80,6 +86,9 @@ Lets explore how both of these are done, and where the important files are by ex
 
 ```execute
 sudo apt-get install tree
+```
+
+```execute
 tree /var/vcap
 ```
 

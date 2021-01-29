@@ -65,5 +65,3 @@ See product documentation for more details:
     ```
 
     Notice the utilities which come pre-installed on the stemcell
-
----

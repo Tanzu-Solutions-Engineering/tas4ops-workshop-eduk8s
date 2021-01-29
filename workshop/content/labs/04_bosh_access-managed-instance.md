@@ -56,7 +56,7 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
 
    By the way, you can also check the vitals information of the instances with the `--vitals` option added to the command above.
 
-   ```bash
+   ```execute
       bosh -d $(bosh deployments --json | jq .Tables[0].Rows[0].name) instances --vitals
     ```
 

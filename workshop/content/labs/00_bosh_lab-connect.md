@@ -8,8 +8,8 @@ Familiarization with Workshop Lab environment.
 
 ### Using the TAS Operations Manager VM as a Jumpbox
 
-- The TAS Operations Manager VM can be used as a jump box to access and inspect a TAS deployment infrastructure, given that it is usually deployed inside of the TAS infrastructure network along with the BOSH Director VM and that it contains PCF and BOSH management tools pre-installed (e.g. uaac and bosh CLI's).
-- [TAS Knowledge Base article](https://community.pivotal.io/s/article/Using-bosh-and-uaac-cli-to-inspect-and-manage-pivotal-cloud-foundry-from-an-ops-manager-vm)
+The TAS Operations Manager VM can be used as a jump box to access and inspect a TAS deployment infrastructure, given that it is usually deployed inside of the TAS infrastructure network along with the BOSH Director VM and that it contains PCF and BOSH management tools pre-installed (e.g. uaac and bosh CLI's). ([TAS Knowledge Base article](https://community.pivotal.io/s/article/Using-bosh-and-uaac-cli-to-inspect-and-manage-pivotal-cloud-foundry-from-an-ops-manager-vm)).
+
 
 ## Part 1: Connect to the Ops Manager VM
 
@@ -34,7 +34,7 @@ Familiarization with Workshop Lab environment.
 
 1. Test connectivity with the Ops Mgr web interface
 
-    [Click here to launch the Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+    [Click here to launch the Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }})
 
     Login with credentials: `admin` / `<the same password provided by your instructor>`
 
@@ -53,9 +53,13 @@ Familiarization with Workshop Lab environment.
 
 1. Check which BOSH deployments exist 
 
-    `bosh deployments`
+    ```execute
+    bosh deployments
+    ```
 
 1. Check for BOSH managed VMs for the existing deployments
 
-    `bosh vms`
+    ```execute
+    bosh vms
+    ```
 

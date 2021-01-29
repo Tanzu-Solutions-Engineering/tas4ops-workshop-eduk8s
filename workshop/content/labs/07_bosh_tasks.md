@@ -31,7 +31,7 @@ To inspect those individual task log files with the BOSH CLI, in the same termin
    bosh tasks
    ```
 
-1. To look at the logs of a task, issue the following command: `bosh task <task-ID>` or `bosh task` to look at the logs of last one executed.
+1. To look at the logs of a task, issue the following command: `bosh task <task-ID>` or `bosh task` to look at the logs of one under execution (if any).
 
    ```execute
    bosh task
