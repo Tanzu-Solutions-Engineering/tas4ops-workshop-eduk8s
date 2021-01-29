@@ -32,15 +32,15 @@ modules:
         name: TAS Intro
     labs/09_tas_cfpushfailure: 
         name: CF Push Failure
-   labs/10_tas_app_connectivity:
+    labs/10_tas_app_connectivity:
         name: App Connectivity
-   labs/11_tas_slow_requests:
+    labs/11_tas_slow_requests:
         name: Slow Requests
-   labs/12_tas_healthcheck:
+    labs/12_tas_healthcheck:
         name: Health Checks
-   labs/13_tas_check_expired_certs:
+    labs/13_tas_check_expired_certs:
         name: Expired Certs 
-   labs/14_tas_cert_rotation:
+    labs/14_tas_cert_rotation:
         name: Rotate Certs
 
     finish:
