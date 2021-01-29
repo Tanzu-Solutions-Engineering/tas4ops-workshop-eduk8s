@@ -16,4 +16,7 @@ modules:
     - labs/05_bosh_instance-internals
     - labs/06_bosh_errands
     - labs/07_bosh_tasks
+    - labs/08_tas_intro.md
+    - labs/09_tas_cfpushfailure.md
+    - labs/10_tas_app_connectivity.md
     - finish
