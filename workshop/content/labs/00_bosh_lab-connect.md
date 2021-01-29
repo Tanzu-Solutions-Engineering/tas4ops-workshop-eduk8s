@@ -28,6 +28,26 @@ Familiarization with Workshop Lab environment.
     ssh ubuntu@opsmgr-01.haas-236.pez.pivotal.io
     ```
 
+1. Test connection to Ops Mgr web interface
+
+    Hardcoded:  
+    ```dashboard:create-dashboard
+    name: OpsMgr
+    url: https://opsmgr-01.haas-236.pez.pivotal.io
+    ```
+
+    With LAB_SLOT_ID:
+    ```dashboard:create-dashboard
+    name: OpsMgr
+    url: https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io
+    ```
+
+    With ENV_LAB_SLOT_ID:
+    ```dashboard:create-dashboard
+    name: OpsMgr
+    url: https://opsmgr-01.haas-{{ LAB_SLENV_LAB_SLOT_IDOT_ID }}.pez.pivotal.io
+    ```
+
 
 1. Configure alias for BOSH commands  
    - From the Ops Mgr web UI > Bosh Tile > Credentials tab, copy the contents of <"Bosh Commandline Credentials"  
