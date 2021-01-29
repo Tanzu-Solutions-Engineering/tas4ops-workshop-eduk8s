@@ -13,7 +13,7 @@ sleep 2
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_DOMAIN=eduk8s.azure.yourcompany.pw
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_CLASS=nginx
 
-sleep 3
+sleep 5
 
 kubectl apply -f eduk8s-tas4ops-workshop.yml
 
