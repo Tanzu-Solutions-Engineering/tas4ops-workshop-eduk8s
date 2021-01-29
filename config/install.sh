@@ -4,7 +4,7 @@
 
 # Domain: tasws.azure.yourcompany.pw
 
-kubectl apply -k "github.com/eduk8s/eduk8s?ref=20.12.03.1"
+kubectl apply -k eduk8s-operator
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_DOMAIN=tasws.azure.yourcompany.pw
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_CLASS=nginx
 
