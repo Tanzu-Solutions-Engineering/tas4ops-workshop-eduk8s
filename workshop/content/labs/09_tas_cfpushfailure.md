@@ -27,6 +27,15 @@ vi manifest.yml
 
 4. Run "cf push" to deploy the app
 
+   But before we can do cf push, we must first authenticate ourselves via cf login.  
+   Please refer to login instructions which were sent prior to the lab.  
+   
+```execute
+cf login -a https://api.run.haas-<yourNumber>.pez.pivotal.io -u admin  --skip-ssl-validation
+```
+
+   Now you should be able to run cf push 
+   
 ```execute
 cf push
 ```
