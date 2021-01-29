@@ -6,9 +6,9 @@ BOSH Stemcells contain both metadata and the raw image. Lets take some time to e
 
 ## Part 1: Inspect the stemcells on your lab environment
 
-After you [connect to your Lab jumpbox](/demos/00_lab-connect/), inspect the stemcells with the following command:
+In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), inspect the stemcells with the following command:
 
-```
+```execute
 bosh stemcells
 ```
 
@@ -35,30 +35,34 @@ See product documentation for more details:
 
 ---
 
-## Part 2: (Optional) Downloading and inspecting the contents of a stemcell image
+## Part 2: Downloading and inspecting the contents of a stemcell image
 
-### Pre-requisites
+1. Download an AWS Light Stemcell - [list of stemcells](https://bosh.io/stemcells/bosh-aws-xen-hvm-ubuntu-xenial-go_agent)
 
-1. A file archiver to extract files with.
+   ```execute-2
+   wget https://bosh-aws-light-stemcells.s3-accelerate.amazonaws.com/621.99/light-bosh-stemcell-621.99-aws-xen-hvm-ubuntu-xenial-go_agent.tgz
+   ```
+   
 
-    Windows - [7 Zip](http://www.7-zip.org/)  
-    Mac/Linux - [Tar](https://superuser.com/a/46521) - (Factory Installed)
-
-### Extracting the stemcell image
-
-1. Download the latest vSphere Stemcell [here](https://bosh.io/stemcells/bosh-vsphere-esxi-ubuntu-xenial-go_agent)
 2. Extract the downloaded stemcell
 
-    `tar -xvf bosh-stemcell-621.41-vsphere-esxi-ubuntu-xenial-go_agent.tgz`
-3. Take a look at the contents of the `stemcell.MF` file
+   ```execute-2
+   tar -xvf light-bosh-stemcell-621.99-aws-xen-hvm-ubuntu-xenial-go_agent.tgz
+   ```
 
-    `cat stemcell.MF`
+3. Check file `stemcell.MF` to inspect the contents of the stemcell files 
+
+    ```execute-2
+    cat stemcell.MF
+    ```
 
     Notice versioning, and specific metadata for the stemcell
 
-4. Take a look at the contents of the `stemcell_dpkg_l.txt` file
+4. Inspect file `packages.txt`
 
-    `cat stemcell_dpkg_l.txt`
+    ```execute-2
+    cat packages.txt
+    ```
 
     Notice the utilities which come pre-installed on the stemcell
 

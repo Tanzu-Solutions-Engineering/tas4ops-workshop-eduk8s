@@ -2,9 +2,6 @@
 
 Learn how to inspect BOSH tasks as updates are applied to deployments.
 
-## Prerequisites
-
-You are in the [jumpbox and logged into BOSH](/demos/00_lab-connect/).
 
 ## Inspect BOSH tasks when changes are applied to BOSH deployments
 
@@ -25,10 +22,19 @@ You are in the [jumpbox and logged into BOSH](/demos/00_lab-connect/).
 
 After you trigger the Apply Changes process in Ops Mgr, the Apply Changes log view is displayed.
 The output of each section of this window is basically the output of a distinct BOSH task output.
-To inspect those individual task log files with the BOSH CLI, from the jumpbox shell:
+
+To inspect those individual task log files with the BOSH CLI, in the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
 1. Issue 'bosh tasks` commands to visualize the current tasks being executed
 
-1. To look at the logs of a task, issue the following command: `bosh task <task-ID>`
+   ```execute
+   bosh tasks
+   ```
+
+1. To look at the logs of a task, issue the following command: `bosh task <task-ID>` or `bosh task` to look at the logs of last one executed.
+
+   ```execute
+   bosh task
+   ```
 
 ---

@@ -7,29 +7,35 @@ Since BOSH deploys instances behind firewalls, without public IPs, and with secu
 
 ## Part 1: Inspect the manifest file of a BOSH deployment
 
-1. Login to [the jumpbox and into BOSH](/demos/00_lab-connect/).
+In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
-2. List all of BOSH deployments  
+1. List all of BOSH deployments  
   
-   `bosh deployments`   
+   ```execute
+   bosh deployments --column name
+   ```
   
    Get the name of a deployment from the output of the command above.
 
 
-3. Get and inspect the full manifest file of the selected deployment with the following command   
-   `bosh manifest -d <name-of-deployment>`
+3. Inspect the full manifest file of the selected deployment with the `bosh manifest -d <name-of-deployment>` command   
+
+   ```execute
+   bosh manifest -d $(bosh deployments --json | jq .Tables[0].Rows[0].name)
+   ```
 
 ---
 
 ## Part 2: Accessing a deployed instance
 
-1. Find the instance we want to SSH into by listing all instances in the selected deployment from Part 1.
+1. Find the instance we want to SSH into by listing all instances in the selected deployment from Part 1. Use command `bosh -d <name-of-deployment> instances`.
 
-    ```bash
-    bosh -d <name-of-deployment> instances
+    ```execute
+    bosh -d $(bosh deployments --json | jq .Tables[0].Rows[0].name) instances
     ```
 
-    - You should see something like the following, note down the `instance_name/uuid`:
+    - You should see something like the following, note down the `instance_name/uuid`:  
+
   ```bash
     Using environment '192.168.1.11' as client 'ops_manager'
 
@@ -51,15 +57,16 @@ Since BOSH deploys instances behind firewalls, without public IPs, and with secu
    By the way, you can also check the vitals information of the instances with the `--vitals` option added to the command above.
 
    ```bash
-      bosh -d <name-of-deployment> instances --vitals
+      bosh -d $(bosh deployments --json | jq .Tables[0].Rows[0].name) instances --vitals
     ```
 
    This option will also show each instance's load, cpu and memory information.
 
-1. Using the `instance_name/uuid` utilize the BOSH CLI to access the instance via the `ssh` subcommand.
+1. Using the `instance_name/uuid` utilize the BOSH CLI to access the instance via the `ssh` sub-command. For example `bosh -d <name-of-deployment> ssh <instance-name-and-id>`
 
-    ```bash
-    bosh -d <name-of-deployment> ssh backup_restore/f256d66b-d083-4f9d-8efc-2e2726c4b890
+    ```execute
+    DEPLOYMENT=$(bosh deployments --json | jq .Tables[0].Rows[0].name) && 
+    bosh -d $DEPLOYMENT ssh backup_restore
     ```
 
     - If successful you should now be inside the instance and have full `root` access via `sudo su`.

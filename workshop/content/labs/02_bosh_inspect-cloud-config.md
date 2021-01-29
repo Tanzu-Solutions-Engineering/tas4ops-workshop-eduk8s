@@ -5,9 +5,9 @@ Lets inspect the Cloud Config defined in the BOSH director.
 
 ## Part 1: Inspecting the Cloud Config
 
-After you [connect to your Lab jumpbox](/demos/00_lab-connect/), inspect the cloud config with the following command:
+In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), inspect the cloud config with the following command:
 
-```
+```execute
 bosh cloud-config
 ```
 
@@ -15,11 +15,13 @@ The command output should be the YAML content currently defined for the BOSH Dir
 
 Inspect the output and find the contents for the following main sections:
 
+```
 - azs
 - disk_types
 - networks
 - vm_types
+```
 
-Then visit the corresponding environment's Ops Manager web interface, click on the "Bosh Director tile" configuration and compare it with the inspected cloud-config content obtained in the previous step.
+Then visit the [Ops Manager web interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials), click on the "Bosh Director tile" configuration and compare it with the inspected cloud-config content obtained in the previous step.
 
 ---

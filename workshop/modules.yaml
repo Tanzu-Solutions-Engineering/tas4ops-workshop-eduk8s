@@ -50,3 +50,5 @@ config:
     vars:
     - name: LAB_SLOT_ID
       value: 236
+    - name: LAB_DOMAIN
+      value: pez.pivotal.io

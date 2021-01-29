@@ -114,7 +114,7 @@ properties: {}
 
 ## Monit script and templates
 
-<img src="https://mmonit.com/monit/img/logo.png" alt="Monit" align="left" width="50px" style="padding-right:10px"/> 
+<img src="https://mmonit.com/monit/img/logo.png" alt="Monit" align="left" width="50px" style="background-color:transparent;border:none;"/> 
 Monit is a small Open Source utility for managing and monitoring Unix systems. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations.
 
 https://mmonit.com/monit/ 

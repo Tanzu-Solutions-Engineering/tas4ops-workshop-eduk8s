@@ -4,15 +4,11 @@ Deploying software systems with BOSH is done with BOSH Releases.
 Releases abstract code away from the underlying OS and create a specific packing structure all software systems must adhere to. 
 Lets explore the BOSH Releases currently available on your environment.
 
-## Prerequisites
-
-You are in the [jumpbox and logged into BOSH](/demos/00_lab-connect/).
-
 ## Exploring the BOSH Releases
 
-1. Issue the following bosh command:
+1. In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), issue the following bosh command:
 
-```
+```execute
 bosh releases
 ```
 
@@ -34,7 +30,7 @@ bpm                            1.1.5*           98f635b
 Notice that the release versions listed with asterisks are currently in use by the deployments.
 You can only delete BOSH releases that are not currently in use.
 
-### Best Practice
+*Best Practice*
 
 BOSH Directors deployed by OpsMgr for a TAS installation should not be used for ad-hoc release deployments to minimize the risk of deployment misconfiguration accidents (e.g. delete the TAS deployment by accident).
 
@@ -43,13 +39,11 @@ If you planning to deploy BOSH releases that are not deployed by OpsMgr tiles (e
 
 2. Inspect jobs and packages of a release
 
-Pick the name and version of one of the releases listed in the previous step and issue the following command:
+Pick the name and version of one of the releases listed in the previous step and issue the `bosh inspect-release` command:
 
+```execute
+bosh inspect-release backup-and-restore-sdk/1.17.2
 ```
-bosh inspect-release <name>/<version>
-```
-
-e.g. `bosh inspect-release backup-and-restore-sdk/1.17.2`
 
 The [inspect-release](https://bosh.io/docs/cli-v2/#inspect-release) sub-command lists all jobs and packages associated with a release version.
 

@@ -34,17 +34,9 @@ Familiarization with Workshop Lab environment.
 
 1. Test connectivity with the Ops Mgr web interface
 
-    Launch [Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io){:target="opsmgr"}
+    [Click here to launch the Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
 
-    ```dashboard:create-dashboard
-    name: MyOpsMgr
-    url: "https://opsmgr-01.haas-236.pez.pivotal.io"
-    ```
-
-    ```dashboard:create-dashboard
-    name: MyTest
-    url: "https://google.com"
-    ```
+    Login with credentials: `admin` / `<the same password provided by your instructor>`
 
 1. Configure an alias for BOSH commands  
 
@@ -52,7 +44,7 @@ Familiarization with Workshop Lab environment.
 
     To make that easier, you can define an alias containing all of those parameters and the Ops Manager web interface makes the content for that alias readily available in its credentials tab page.
 
-    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io/api/v0/deployed/director/credentials/bosh_commandline_credentials){:target="opsmgr"}), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
 
    `alias bosh="<command-from-ops-mgr-panel>"`
 
