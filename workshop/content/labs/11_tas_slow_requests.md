@@ -255,11 +255,101 @@ Example Output:
         }
     ```
     
+    Let's use bosh to filter our vms with the above IP Address 
     
-    Now we will use bosh to ssh back into our router VM
+    
+    ```
+    bosh vms  |grep <DiegoCellIPAddress>
+    ```
+    
+    Example Output: 
+    ```
+    ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms  |grep 192.168.2.38
+    diego_cell/551314d8-f176-4450-8627-8431564d1b79   running	pas-az3	192.168.2.38	vm-88d020de-1b00-4009-8db8-fc4d8a05730b	xlarge.disk	true
+    ```
+    
+    Lets now SSH into our diego cell. 
+    
+    ```
+    bosh ssh -d <deploymentID> diego_cell/<GUID>
+    ```
+    
+    Example Output: 
+    ```
+      bosh ssh -d cf-a801abefab398f5d1a82 diego_cell/551314d8-f176-4450-8627-8431564d1b79
+      Using environment '192.168.1.11' as client 'ops_manager'
+
+      Using deployment 'cf-a801abefab398f5d1a82'
+
+      Task 272. Done
+      Unauthorized use is strictly prohibited. All access and activity
+      is subject to logging and monitoring.
+      Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-72-generic x86_64)
+
+      Last login: Fri Jan 29 14:39:06 2021 from 192.168.1.10
+      To run a command as administrator (user "root"), use "sudo <command>".
+      See "man sudo_root" for details.
+      diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ 
+
+    ```
+    
+    Once inside of the diego cell, let's run env to get a list of our current environment variables.   
+    
+    
+    Let's run env with grep to check if cfdot is setup. 
+    ```
+    env |grep cfdot
+    ```
+    
+    If cfdot is setup properly you will see the following output
+    
+   
+    Example Output: 
+    ```
+   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ env |grep cfdot
+   CA_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/ca.crt
+   PATH=/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/bin:/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/.local/bin:/var/vcap/packages/cfdot/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
+   CLIENT_KEY_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.key
+   CLIENT_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.crt
+
+    ```
+    
+    If it is not setup, please run the following command to source the cfdot binary to your PATH
+    
+    ```
+    source /var/vcap/jobs/cfdot/bin/setup
+    ```
+    
+    Just for kicks, let's run a few cfdot commands to see what to expect.
+    
+    The following command will list the number of desired number of application instanes on your diego cell.  
+    
+    ```
+    cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+    ```
+    
+    Example Output: 
+    ```
+    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+    26
+    ```
+    
+    
+    The following command will list the actual state of your application instanes on this diego cell.  
+    
+    ```
+    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
+    RUNNING: 26
+    ```
+    
+
+
+   We will also use bosh to ssh back into our router VM
     ```
     bosh ssh -d <deploymentID> router/<GUID>
     ```
+
+
     Now determine the amount of time a request takes when it skips Gorouter.  
     Run the following command. Replacing the variable with the IP Address we obtained earlier. 
     ```
