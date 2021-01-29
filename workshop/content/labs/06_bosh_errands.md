@@ -18,7 +18,7 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
    
    ```execute
    DEPLOYMENT=$(bosh deployments --json | jq .Tables[0].Rows[0].name) &&
-   bosh -d $DEPLOYMENT errands`
+   bosh -d $DEPLOYMENT errands
    ```
 
 

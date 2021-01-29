@@ -27,4 +27,6 @@ spec:
       console:
         enabled: false
       editor:
-        enabled: true
+        enabled: false
+      slides:
+        enabled: false        
