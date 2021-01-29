@@ -72,8 +72,10 @@
 
 ---
 
-# Reference: Installing the BOSH CLI
+## Reference: Installing the BOSH CLI
 
+Your workshop environment has the BOSH CLI already installed. 
+For future reference on how to install it on your local environment, here is the documentation link for the setup steps:
 - https://www.bosh.io/docs/cli-v2-install/
 
 ---

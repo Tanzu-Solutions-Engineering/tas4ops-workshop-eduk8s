@@ -20,38 +20,44 @@ Familiarization with Workshop Lab environment.
 1. SSH into the jumpbox VM of your Lab environment
 
     ```execute
-    ssh ubuntu@ubuntu-236.haas-236.pez.pivotal.io
+    ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-236.haas-236.pez.pivotal.io
     ```
-1. Once into the jumpbox, SSH into the Ops Manager VM of your environment
+1. Once logged in to the jumpbox, SSH into the Ops Manager VM of your environment
 
     ```execute
     ssh ubuntu@opsmgr-01.haas-236.pez.pivotal.io
     ```
 
-1. Test connection to Ops Mgr web interface
+1. Test connectivity with Ops Mgr web interface
 
-    Hardcoded:  
-    ```dashboard:create-dashboard
+    <!-- Hardcoded:  
+    ` ` ` dashboard:create-dashboard
     name: OpsMgr
+    url: https://opsmgr-01.haas-236.pez.pivotal.io
+    ` ` ` -->
+
+    ``` dashboard:create-dashboard
+    name: MyOpsMgr
     url: https://opsmgr-01.haas-236.pez.pivotal.io
     ```
 
-    With LAB_SLOT_ID:
-    ```dashboard:create-dashboard
-    name: OpsMgr
-    url: https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io
+    ``` dashboard:create-dashboard
+    name: MyTest
+    url: https://google.com
     ```
 
-    With ENV_LAB_SLOT_ID:
-    ```dashboard:create-dashboard
-    name: OpsMgr
-    url: https://opsmgr-01.haas-{{ LAB_SLENV_LAB_SLOT_IDOT_ID }}.pez.pivotal.io
-    ```
 
+    Launch [Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io){:target="opsmgr"}
 
 1. Configure alias for BOSH commands  
-   - From the Ops Mgr web UI > Bosh Tile > Credentials tab, copy the contents of <"Bosh Commandline Credentials"  
-   - `alias bosh="<data-from-previous-step>"`
+
+    The BOSH CLI requires several parameters to run commands, such as the targeted BOSH Director environment and authentication credentials. 
+
+    To make that easier, you can define an alias containing all of those parameters and the Ops Manager web interface makes the content for that alias readily available in its credentials tab page.
+
+    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io/api/v0/deployed/director/credentials/bosh_commandline_credentials){:target="opsmgr"}), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+
+   `alias bosh="<command-from-ops-mgr-panel>"`
 
 ## Part 2: Inspect the Bosh Director environment
 
