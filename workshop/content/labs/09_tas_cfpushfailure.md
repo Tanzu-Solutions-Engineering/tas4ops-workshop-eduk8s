@@ -96,9 +96,9 @@ Get https://log-cache.run.haas-236.pez.pivotal.io/api/v1/read/8dac8193-ee26-44ec
 
 Please try running the cf events command to get a list of key events with their corresponding timestamps.   
 
-`
+```execute
 cf events spring-music-<team name>
-`
+```
 
 Example Output:
     
