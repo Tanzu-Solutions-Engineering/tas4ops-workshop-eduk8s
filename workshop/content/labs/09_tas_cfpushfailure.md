@@ -8,24 +8,33 @@ As a platform engineer or operator it's important to understand various troubles
 Let's begin by cloning a repository of a broken springboot application.   
 
 1. Clone the broken-spring-music git repo. 
-```
+
+```execute
 git clone https://github.com/jrobinsonvm/broken-spring-music.git
 ```
-2. CD into broken-spring-music directory  
-```
+
+2. CD into broken-spring-music directory 
+
+```execute
 cd broken-spring-music
 ```
+
 3. Change the name of your app to your team name. (Edit the manifest.yml file) 
-```
+
+```execute
 vi manifest.yml
 ```
+
 4. Run "cf push" to deploy the app
-```
+
+```execute
 cf push
 ```
+
 It looks like our app didn't start.  Let's see what could be the issue.   
 Typically the first thing to check are the logs.  This can be done with the following command.  
-```
+
+```execute
 cf logs spring-music-<team name> --recent
 ```
 
@@ -40,7 +49,8 @@ In another scanario where our logs are not as straight forward we could use othe
 
 If a command fails or produces unexpected results, re-run it with HTTP tracing enabled to view requests and responses between the cf CLI and the Cloud Controller REST API.
 To do this simply rerun cf push with -v for verbose output.  
-```
+
+```execute
 cf push -v 
 ```
 
