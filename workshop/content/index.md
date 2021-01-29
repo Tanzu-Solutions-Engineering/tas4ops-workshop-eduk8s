@@ -1,7 +1,7 @@
-The [Kubernetes](https://kubernetes.io/) web site describes Kubernetes as:
+<img src="../images/tanzu01.png" alt="VMware Tanzu" align="left" style="padding-right:40px;width:100px;" />
 
-> an open-source system for automating deployment, scaling, and management of containerized applications.
+[Tanzu Application Service](https://docs.pivotal.io/application-service/2-10/concepts/overview.html) is a modern runtime for applications built for developers to boost feature velocity and for operations teams to deliver world-class uptime.
 
-![Kubernetes](kubernetes-flower.png)
+<br/>
 
-This workshop is intended to give you a quick hands on introduction with using Kubernetes. In the process you will learn about some of the fundamental concepts of Kubernetes when deploying applications to it. The focus will be on what a developer would need to know to use the platform. It is not a workshop on how to run the Kubernetes platform.
+This workshop is intended to give you a quick hands introduction to BOSH, one of the foundation components of Tanzu Application Service, and to common tasks performed by platform engineers to inspect, diagnose and troubleshoot issues with the runtime. 

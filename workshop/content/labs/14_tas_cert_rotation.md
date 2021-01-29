@@ -49,7 +49,7 @@ One of the worst thing that could happen to your platform is letting your certif
         type: certificate
         value:
           ca: |
-            -----BEGIN CERTIFICATE-----
+            -----BEGIN CERTIFICATE-----example
             MIIDIzCCAgugAwIBAgIUBM+AhSr3/udKrVEQ6jtul+LpAO0wDQYJKoZIhvcNAQEL
             BQAwITEfMB0GA1UEAxMWb3BzbWdyLXNlcnZpY2VzLXRscy1jYTAeFw0yMTAxMjkw
             NDUyNDVaFw0yNjAxMjgwNDUyNDVaMCExHzAdBgNVBAMTFm9wc21nci1zZXJ2aWNl
@@ -69,7 +69,7 @@ One of the worst thing that could happen to your platform is letting your certif
             vTUEqpZ/LH53vsnjuErr7wWd99qUsWMh5FWxDlttxz8Zju15+u9D
             -----END CERTIFICATE-----
           certificate: |
-            -----BEGIN CERTIFICATE-----
+            -----BEGIN CERTIFICATE-----example
             MIIDIzCCAgugAwIBAgIUBM+AhSr3/udKrVEQ6jtul+LpAO0wDQYJKoZIhvcNAQEL
             BQAwITEfMB0GA1UEAxMWb3BzbWdyLXNlcnZpY2VzLXRscy1jYTAeFw0yMTAxMjkw
             NDUyNDVaFw0yNjAxMjgwNDUyNDVaMCExHzAdBgNVBAMTFm9wc21nci1zZXJ2aWNl
@@ -89,7 +89,7 @@ One of the worst thing that could happen to your platform is letting your certif
             vTUEqpZ/LH53vsnjuErr7wWd99qUsWMh5FWxDlttxz8Zju15+u9D
             -----END CERTIFICATE-----
           private_key: |
-            -----BEGIN RSA PRIVATE KEY-----
+            -----BEGIN RSA PRIVATE KEY-----example
             MIIEowIBAAKCAQEAozQNx2ftIwwV8BDtJSvKF45lQK6JRrObY5cR3jjhsHGvwJLp
             +S98OSF73oF+ehpt/NX+I6HRvVXPwGdu57POcTJvRfRmqeugzFZgHyMqgj6vjHzQ
             NodCrdiUWdG35sLSwMwUUykmzPDHwuQ9fgP3BoqLV9C1a5v316+qCwzpYnCHuy27
@@ -117,7 +117,7 @@ One of the worst thing that could happen to your platform is letting your certif
     
     ```
     ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ credhub get --name=/services/new_ca -k ca
-        -----BEGIN CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----example
         MIIDIzCCAgugAwIBAgIUI1QddY+HSj7uF4FnyoMTlt0ldGQwDQYJKoZIhvcNAQEL
         BQAwITEfMB0GA1UEAxMWb3BzbWdyLXNlcnZpY2VzLXRscy1jYTAeFw0yMTAxMjkw
         NDU1MzdaFw0yNjAxMjgwNDU1MzdaMCExHzAdBgNVBAMTFm9wc21nci1zZXJ2aWNl

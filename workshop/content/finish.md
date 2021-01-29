@@ -1,13 +1,9 @@
-In this workshop you have had an opportunity to get hands on with Kubernetes. In the workshop you deployed an application consisting of a front end web application implementing a blog site, using a back end PostrgreSQL database for storage of posts. For storage of images attached to posts, a persistent volume was used.
+In this workshop you have had an opportunity to get hands on with BOSH and Tanzu Application Service components. 
 
-For general information on Kubernetes see:
+For general information on BOSH and Tanzu Application Service see:
 
-* https://kubernetes.io/
+* [BOSH Documentation](https://bosh.io/)
 
-If you want to try Kubernetes on your own computer, see Minikube:
+* [Tanzu Application Service](https://docs.pivotal.io/application-service/concepts/overview.html)
 
-* https://kubernetes.io/docs/setup/minikube/
-
-If you want to see further simple examples of using Kubernetes:
-
-* http://kubernetesbyexample.com/
+Thanks!
