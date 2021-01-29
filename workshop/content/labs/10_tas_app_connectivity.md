@@ -10,27 +10,27 @@ Let's see what steps we can take to get to a resolution.
 If no other apps are available for testing you can deploy a test app to test connectivity to our spring-music app
 
 1. First, let's clone our test-app repo. 
-    ```
+    ```execute
     git clone https://github.com/jrobinsonvm/test-app.git
     ```
 2. Now let's deploy our test app.  Change directories to the test-app 
-    ```
+    ```execute
     cd test-app 
     ```
 3. Change the name of your app to your team name. (Edit the manifest.yml file) 
-    ```
+    ```execute
     vi manifest.yml
     ```
 4. Run "cf push" to deploy the app
-    ```
+    ```execute
     cf push
     ```
 5. Run cf apps to view your newly deployed app.   
-    ```
+    ```execute
     cf apps
     ```
 6. Let's get the GUID of our spring-music app.  Save this for later 
-    ```
+    ```execute
     cf app spring-music-<team name> --guid
     ```
     
@@ -46,13 +46,13 @@ Example Output:
    But before we do this, let's scale our app so that we can see multiple instances of it.
    
    Let's scale spring music up to 3 instances  
-    ```
+    ```execute
     cf scale spring-music-<team name> -i 3
     ```
   
    Now let's view one of our instances by running the command below. 
     
-    ```
+    ```execute
     cf app spring-music-<team name> 
     ```
     
@@ -80,18 +80,18 @@ Example Output:
 8. In the command below replace the variables with your spring-music app's route, guid and instance index number. 
    
    (Save this command for later) 
-    ```
+    ```execute
     curl <app.vmware.com>  -H "X-Cf-App-Instance":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
     ```
 9. Let's ssh into our test app 
-    ```
+    ```execute
     cf ssh test-app-<team name>
     ```
 10. Now run the curl command we created earlier to send a request to the app.   
     You should see the html content of your web app endpoint now.   
     This proves that other apps within the same network should be able to successfully reach your spring-music app.   
     
-    ```
+    ```execute
     curl <app.vmware.com>  -H "X-Cf-App-Instance":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
     ```
     
