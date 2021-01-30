@@ -41,7 +41,7 @@ If no other apps are available for testing you can deploy a test app to test con
     ```
 6. Let's get the GUID of our spring-music app.  Save this for later 
 
-    ```execute-2
+    ```copy-and-edit
     cf app spring-music-<team name> --guid
     ```
     
@@ -58,13 +58,13 @@ If no other apps are available for testing you can deploy a test app to test con
    
    Let's scale spring music up to 3 instances  
    
-    ```execute
+    ```copy-and-edit
     cf scale spring-music-<team name> -i 3
     ```
   
    Now let's view one of our instances by running the command below. 
     
-    ```execute
+    ```copy-and-edit
     cf app spring-music-<team name> 
     ```
     
@@ -92,18 +92,18 @@ Example Output:
 8. In the command below replace the variables with your spring-music app's route, guid and instance index number. 
    
    (Save this command for later) 
-    ```execute
+    ```copy-and-edit
     curl <app.vmware.com>  -H "X-Cf-App-Instance":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
     ```
 9. Let's ssh into our test app 
-    ```execute
+    ```copy-and-edit
     cf ssh test-app-<team name>
     ```
 10. Now run the curl command we created earlier to send a request to the app.   
     You should see the html content of your web app endpoint now.   
     This proves that other apps within the same network should be able to successfully reach your spring-music app.   
     
-    ```execute
+    ```copy-and-edit
     curl <app.vmware.com>  -H "X-Cf-App-Instance":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
     ```
     
