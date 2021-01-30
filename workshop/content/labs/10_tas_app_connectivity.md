@@ -45,7 +45,7 @@ If no other apps are available for testing you can deploy a test app to test con
     cf app spring-music-<team name> --guid
     ```
     
-Example Output: 
+    Example Output: 
 
     ```
         bash-5.0$ cf app spring-music-fixme --guid
