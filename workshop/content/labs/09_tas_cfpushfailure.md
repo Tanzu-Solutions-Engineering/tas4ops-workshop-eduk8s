@@ -30,7 +30,7 @@ vi manifest.yml
    But before we can do cf push, we must first authenticate ourselves via cf login.  
    Please refer to login instructions which were sent prior to the lab.  
    
-```execute-2
+```copy-and-edit
 cf login -a https://api.run.haas-<yourNumber>.pez.pivotal.io -u admin  --skip-ssl-validation
 ```
 
@@ -43,7 +43,7 @@ cf push
 It looks like our app didn't start.  Let's see what could be the issue.   
 Typically the first thing to check are the logs.  This can be done with the following command.  
 
-```execute-2
+```copy-and-edit
 cf logs spring-music-<team name> --recent
 ```
 
@@ -105,7 +105,7 @@ Get https://log-cache.run.haas-236.pez.pivotal.io/api/v1/read/8dac8193-ee26-44ec
 
 Please try running the cf events command to get a list of key events with their corresponding timestamps.   
 
-```execute-2
+```copy-and-edit
 cf events spring-music-<team name>
 ```
 
