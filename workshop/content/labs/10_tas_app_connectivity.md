@@ -9,7 +9,13 @@ Let's see what steps we can take to get to a resolution.
 
 If no other apps are available for testing you can deploy a test app to test connectivity to our spring-music app
 
-1. First, let's clone our test-app repo. 
+0. First change out of the current app's directory 
+
+    ```execute-2
+    cd ..
+    ```
+
+1. Next, let's clone our test-app repo. 
     ```execute-2
     git clone https://github.com/jrobinsonvm/test-app.git
     ```
