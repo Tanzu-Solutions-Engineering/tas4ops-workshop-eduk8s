@@ -15,7 +15,7 @@ Let's begin by cloning a repository of a broken springboot application.
    ```
 
    Change directories 
-   ```
+   ```execute-2
    cd myApps
    ```
 1. Clone the broken-spring-music git repo. 
