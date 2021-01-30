@@ -7,6 +7,17 @@ As a platform engineer or operator it's important to understand various troubles
 ## Application fails to start after issuing cf push command.  
 Let's begin by cloning a repository of a broken springboot application.   
 
+0. Create new directory and CD into it.   
+
+Create new Directory 
+```execute-2
+mkdir -p myApps
+```
+
+Change directories 
+```
+cd myApps
+```
 1. Clone the broken-spring-music git repo. 
 
 ```execute-2
@@ -195,17 +206,17 @@ Controls the maximum time that TAS allows to elapse between starting an app and 
     
 
 5. To increase the memory limit edit the mainifest.yaml file and replace 0.5G with 1G.  
-    
-    ```execute-2
-    vi manifest.yml 
-    ```
+
+ ```execute-2
+ vi manifest.yml 
+ ```
 
 6.  Now redeploy the application 
     
     
-    ```execute-2
-    cf push 
-    ```
+ ```execute-2
+ cf push 
+ ```
     
     
  For additional details on troubleshooting your application starting please see the following.  
