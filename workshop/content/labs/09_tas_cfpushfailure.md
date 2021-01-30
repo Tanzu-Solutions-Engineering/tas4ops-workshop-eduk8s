@@ -7,17 +7,17 @@ As a platform engineer or operator it's important to understand various troubles
 ## Application fails to start after issuing cf push command.  
 Let's begin by cloning a repository of a broken springboot application.   
 
-0. Create new directory and CD into it.   
+0. Create new directory and switch to it.   
 
-Create new Directory 
-```execute-2
-mkdir -p myApps
-```
+   Create new directory 
+   ```execute-2
+   mkdir -p myApps
+   ```
 
-Change directories 
-```
-cd myApps
-```
+   Change directories 
+   ```
+   cd myApps
+   ```
 1. Clone the broken-spring-music git repo. 
 
 ```execute-2
