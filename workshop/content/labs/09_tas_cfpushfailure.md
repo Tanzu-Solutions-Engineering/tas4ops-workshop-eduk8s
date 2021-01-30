@@ -9,19 +9,19 @@ Let's begin by cloning a repository of a broken springboot application.
 
 1. Clone the broken-spring-music git repo. 
 
-```execute
+```execute-2
 git clone https://github.com/jrobinsonvm/broken-spring-music.git
 ```
 
 2. CD into broken-spring-music directory 
 
-```execute
+```execute-2
 cd broken-spring-music
 ```
 
 3. Change the name of your app to your team name. (Edit the manifest.yml file) 
 
-```execute
+```execute-2
 vi manifest.yml
 ```
 
@@ -30,20 +30,20 @@ vi manifest.yml
    But before we can do cf push, we must first authenticate ourselves via cf login.  
    Please refer to login instructions which were sent prior to the lab.  
    
-```execute
+```execute-2
 cf login -a https://api.run.haas-<yourNumber>.pez.pivotal.io -u admin  --skip-ssl-validation
 ```
 
    Now you should be able to run cf push 
    
-```execute
+```execute-2
 cf push
 ```
 
 It looks like our app didn't start.  Let's see what could be the issue.   
 Typically the first thing to check are the logs.  This can be done with the following command.  
 
-```execute
+```execute-2
 cf logs spring-music-<team name> --recent
 ```
 
@@ -59,7 +59,7 @@ In another scanario where our logs are not as straight forward we could use othe
 If a command fails or produces unexpected results, re-run it with HTTP tracing enabled to view requests and responses between the cf CLI and the Cloud Controller REST API.
 To do this simply rerun cf push with -v for verbose output.  
 
-```execute
+```execute-2
 cf push -v 
 ```
 
@@ -105,7 +105,7 @@ Get https://log-cache.run.haas-236.pez.pivotal.io/api/v1/read/8dac8193-ee26-44ec
 
 Please try running the cf events command to get a list of key events with their corresponding timestamps.   
 
-```execute
+```execute-2
 cf events spring-music-<team name>
 ```
 
@@ -131,10 +131,10 @@ Example Output:
     
     
 Use the cf env command to view the environment variables that you have set using the cf set-env command and the variables in the container environment:
-
-
+execute-2
+```
     cf env
-    
+```    
 Example Output: 
             
             {
@@ -195,12 +195,15 @@ Controls the maximum time that TAS allows to elapse between starting an app and 
     
 
 5. To increase the memory limit edit the mainifest.yaml file and replace 0.5G with 1G.  
-    ```
+    
+    ```execute-2
     vi manifest.yml 
     ```
 
 6.  Now redeploy the application 
-    ```
+    
+    
+    ```execute-2
     cf push 
     ```
     
