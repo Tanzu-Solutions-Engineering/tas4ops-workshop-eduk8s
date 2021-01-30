@@ -131,9 +131,9 @@ Example Output:
     
     
 Use the cf env command to view the environment variables that you have set using the cf set-env command and the variables in the container environment:
-execute-2
-```
-    cf env
+
+```copy-and-edit
+    cf env spring-music-<team-name> 
 ```    
 Example Output: 
             
