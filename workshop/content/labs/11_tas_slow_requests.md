@@ -44,14 +44,17 @@ Let's imagine our spring-music app is experiencing latency.
 
 
    From one terminal enter the following command:
+
     ```copy-and-edit
     cf logs spring-music-<team name>
     ```
     
     From another terminal send a request to the app using the same curl command from earlier:  
+    
     ```copy-and-edit
     curl -v <your-app-spring-music.vmware.com>
     ```
+    
     You should now see the requst in your terminal with the logs.   
     Type ctrl+c to exit the streaming logs.   
     
