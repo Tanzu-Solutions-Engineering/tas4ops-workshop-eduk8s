@@ -106,7 +106,7 @@ Example Output:
     
 9. Let's ssh into our test app 
     ```copy-and-edit
-    cf ssh test-app-<team name>
+    cf ssh test-app
     ```
     
 10. Now run the curl command we created earlier to send a request to the app.   
