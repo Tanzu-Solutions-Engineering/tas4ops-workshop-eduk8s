@@ -8,7 +8,7 @@ One of the worst thing that could happen to your platform is letting your certif
   Since this is a very disruptive process we will NOT implement these steps during the workshop.   
   The following steps will show you how to rotate your Services TLS Certificate.  
 1. Check if CredHub has a new temporary certificate from a previous rotation attempt.
-    ```
+    ```execute
     credhub get -n /services/new_ca
     ```
     
@@ -19,12 +19,12 @@ One of the worst thing that could happen to your platform is letting your certif
 
     ```
 2. If any older temporary certificate exists, delete it before proceeding. 
-    ```
+    ```execute
     credhub delete -n /services/new_ca
     ```
 3. You have the option to bring your own certificate or use a self signed certificate. 
     If you select to use a self signed certificate, please see the following command to create the self signed certificate.  
-    ```
+    ```copy-and-edit
         credhub generate \
         --name="/services/new_ca" \
         --type="certificate" \
@@ -36,7 +36,7 @@ One of the worst thing that could happen to your platform is letting your certif
     This will create a self signed certificate called opsmgr-services-tls-ca which expires in 5 years.
     Default duration is 1 year if no input is given.   
 4. Now retrieve the current TLS CA Certificate 
-    ```
+    ```execute
     credhub get --name=/services/tls_ca -k ca
     ```
     
@@ -109,7 +109,7 @@ One of the worst thing that could happen to your platform is letting your certif
 
     ```
 5. Retrieve the new certificate from a pre-existing file or from your new CredHub location
-    ```
+    ```execute
     credhub get --name=/services/new_ca -k ca
     ```
     
@@ -142,7 +142,7 @@ One of the worst thing that could happen to your platform is letting your certif
 7. From the Tas for VMs tile, paste both certificates into the Networking > Certificate Authorities trusted by the Gorouter and Certificate Authorities trusted by the HAProxy fields and click save.  
 8. From Ops Manager, click Review Pending Changes. 
 9. Before applying any changes, identify which service tiles are using the Services TLS CA certificate
-    ```
+    ```execute
     credhub curl -p /api/v1/certificates?name=%2Fservices%2Ftls_ca
     ```
     
@@ -184,7 +184,7 @@ One of the worst thing that could happen to your platform is letting your certif
 ## Part 2 of Cert Rotation 
 12. After changes have been successfully applied we will need to set the new Services TLS Certificate. 
     If you are using an exisiting certificate use the following command. 
-    ```
+    ```copy-and-edit
         credhub set \
         --name="/services/tls_ca" \
         --type="certificate" \
@@ -192,7 +192,7 @@ One of the worst thing that could happen to your platform is letting your certif
         --private=<CERT-KEY>
     ```
     If you are using a self signed certificate use the following command.  
-    ```
+    ```copy-and-edit
         credhub get -n /services/new_ca -k ca > new_ca.ca
         credhub get -n /services/new_ca -k certificate > new_ca.certificate
         credhub get -n /services/new_ca -k private_key > new_ca.private_key
@@ -204,7 +204,7 @@ One of the worst thing that could happen to your platform is letting your certif
     ```
 13. Now navigate back to the Ops Manager and select Review Changes.  
 14. As a precautionary step before applying any changes, identify which service tiles are using the Services TLS CA certificate
-    ```
+    ```execute
     credhub curl -p /api/v1/certificates?name=%2Fservices%2Ftls_ca
     ```
 15. Now for each service tile listed in the previous output 
