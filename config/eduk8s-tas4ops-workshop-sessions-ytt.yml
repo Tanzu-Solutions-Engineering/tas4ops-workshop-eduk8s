@@ -1,0 +1,22 @@
+#! Example: ytt -f eduk8s-tas4ops-workshop-ytt-sessions.yml -f credentials.yml
+
+#@ load("@ytt:data", "data")
+
+#@ for/end labenv in data.values.credentials:
+---    
+apiVersion: training.eduk8s.io/v1alpha1
+kind: WorkshopSession
+metadata:
+  name: #@ "tas4ops-" + labenv.env_id + "-" + labenv.env_instance
+spec:
+  environment:
+    name: tas4ops-fundamentals-env
+  session:
+    username: tas4ops
+    password: #@ labenv.env_password
+    id: #@ labenv.env_id + "-" + labenv.env_instance
+    env:
+    - name: LAB_SLOT_ID
+      value: #@ labenv.env_id
+    - name: LAB_DOMAIN
+      value: pez.pivotal.io      

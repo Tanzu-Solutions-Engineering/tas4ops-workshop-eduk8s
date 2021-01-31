@@ -4,7 +4,7 @@ metadata:
   name: tas4ops-fundamentals
 spec:
   title: TAS for Operators Fundamentals
-  description: Workshop on the Fundamentals of Bosh and TAS
+  description: Fundamentals of Bosh and TAS Troubleshooting for Platform Engineers 
   url: https://github.com/Tanzu-Solutions-Engineering/tas4ops-workshop-eduk8s
   vendor: eduk8s.azure.yourcompany.pw
   authors:

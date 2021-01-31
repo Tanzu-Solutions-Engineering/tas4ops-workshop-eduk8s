@@ -1,0 +1,7 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: WorkshopEnvironment
+metadata:
+  name: tas4ops-fundamentals-env
+spec:
+  workshop:
+    name: tas4ops-fundamentals
