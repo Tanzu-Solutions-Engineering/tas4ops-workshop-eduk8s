@@ -1,14 +1,17 @@
 
-## How does BOSH know what we want to deploy?
+### How does BOSH know what we want to deploy?
+
+<br/>
 
 Hint: manifests
 
-## Deployment Steps Mapped to BOSH Concepts 
+### Deployment Steps Mapped to BOSH Concepts 
 
-<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases" style="width:100%;max-width: 800px;border:none;" />
 
+<br/>
 
-### Manifests 
+#### Manifests 
 
 Typically when creating a machine to run software on you perform the following:
 - Open an admin console to a server virtualization platform.
@@ -21,9 +24,11 @@ With BOSH this is all encapsulated into a deployment manifest.
 
 A deployment manifest is the explicit declaration of what a software system requires to run successfully.
 
-Tip: The same deployment manifest deployed today should produce the same running system if you deployed it again in five years time.
+The same deployment manifest deployed today should produce the same running system if you deployed it again in five years time.
 
-## Example sample-bosh-manifest.yml
+<br/>
+
+#### Example sample-bosh-manifest.yml
 
 ```
 name: sample-bosh-deployment
@@ -54,5 +59,7 @@ instance_groups:
   stemcell: trusty
   vm_type: default
 ```
+
+<br/>
 
 ---

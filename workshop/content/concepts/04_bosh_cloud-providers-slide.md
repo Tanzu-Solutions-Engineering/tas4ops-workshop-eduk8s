@@ -1,5 +1,5 @@
 
-## Cloud Provider Interface (CPI)
+### Cloud Provider Interface (CPI)
 
 - The bosh director uses the CPI to interact with an IaaS to create and manage stemcells, VMs, and disks. 
 - The CPI abstracts infrastructure differences from the rest of BOSH.
@@ -8,17 +8,21 @@
 - https://bosh.io/docs/cpi-api-v2/
 - https://github.com/cloudfoundry/bosh-cli/blob/master/docs/architecture.md#deploy-command-flow
 
-<img src="../images/Bosh_IaaS-support.png" alt="Bosh IaaS support"/>
+<img src="../images/Bosh_IaaS-support.png" alt="Bosh IaaS support" style="width:100%;max-width: 600px;border:none;"/>
+
+<br/>
 
 --- 
 
-## BOSH Component Architecture (Simplified) 
+### BOSH Component Architecture (Simplified) 
 
-<img src="../images/Bosh_CPI_architecture.png" alt="Bosh CPI"/>
+<img src="../images/Bosh_CPI_architecture.png" alt="Bosh CPI" style="border:none;"/>
+
+<br/>
 
 ---
 
-## How do I abstract the cloud away?
+### How do I abstract the cloud away?
 
 - The specific details about the size of the servers is specific to each cloud infrastructure. 
 
@@ -29,9 +33,11 @@
 
 - The Cloud Config is where BOSH takes specific infrastructure details to configure the CPI being used while abstracting the complexities away from the software you are deploying.
 
+<br/>
+
 --- 
 
-## Example GCP cloud-config.yml
+### Example GCP cloud-config.yml
 
 ```
 azs:
@@ -76,4 +82,7 @@ compilation:
   vm_type: default
   network: default
 ```
+
+<br/>
+
 --- 

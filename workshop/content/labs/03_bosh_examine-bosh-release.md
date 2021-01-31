@@ -1,10 +1,13 @@
-## Goal
+### Goal
 
 Deploying software systems with BOSH is done with BOSH Releases. 
 Releases abstract code away from the underlying OS and create a specific packing structure all software systems must adhere to. 
+
 Lets explore the BOSH Releases currently available on your environment.
 
-## Exploring the BOSH Releases
+<br/>
+
+### Exploring BOSH Releases
 
 1. In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), issue the following bosh command:
 
@@ -36,6 +39,7 @@ Lets explore the BOSH Releases currently available on your environment.
 
     If you planning to deploy BOSH releases that are not deployed by OpsMgr tiles (e.g. Concourse), it is highly recommended to have a separate BOSH Director instance to be created for such purposes. 
 
+    <br/>
 
 2. Inspect jobs and packages of a release
 
@@ -47,8 +51,9 @@ Lets explore the BOSH Releases currently available on your environment.
 
     The [inspect-release](https://bosh.io/docs/cli-v2/#inspect-release) sub-command lists all jobs and packages associated with a release version.
 
+<br/>
 
-## Unused Releases Clean-up
+### Clean-up of Unused Releases 
 
 As new versions of releases are uploaded and upgraded in the system, a clean-up is recommended to be done in BOSH on a regular basis, since it does not do it automatically.
 
@@ -56,3 +61,6 @@ Preferably, use Ops Mgr's "DELETE UNUSED PRODUCTS" from its web interface for th
 
 Alternatively, `bosh clean-up` ([docs](https://bosh.io/docs/cli-v2/#clean-up)) and `bosh delete-release` ([docs](https://bosh.io/docs/cli-v2/#delete-release)) can also be used for that purpose.
 
+<br/>
+
+---

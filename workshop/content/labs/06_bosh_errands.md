@@ -1,8 +1,12 @@
-## Goal
+### Goal
 
-BOSH Errands enable on demand execution of tasks within the deployment. This could be checking the status on a resource, adding a new user, running tests, or even when doing a `cf push` for an application! Let's inspect the errands of your current deployments.
+BOSH Errands enable on demand execution of tasks within the deployment. 
 
-## List the errands of a deployment
+This could be checking the status on a resource, adding a new user, running tests, or even when doing a `cf push` for an application! Let's inspect the errands of your current deployments.
+
+<br/>
+
+### List the errands of a deployment
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
@@ -21,8 +25,9 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
    bosh -d $DEPLOYMENT errands
    ```
 
+<br/>
 
-*Best Practice*
+**Best Practice**
 
 For TAS deployments, the execution of errands should be controlled through Ops Mgr web interface only.
 
@@ -33,7 +38,7 @@ Enageld errands are executed automatically with the corresponding tile's process
 The section below is provided just for training purposes.
 
 
-## Run a BOSH Errand
+### Run a BOSH Errand
 
 1. Run the CF release's smoke-test errand.
 
@@ -56,5 +61,7 @@ The section below is provided just for training purposes.
    ```
 
    Examine the Output, you will notice that the  `stdout` and `stderr` is separated into multiple sections, each one with its own execution status.
+
+<br/>
 
 ---

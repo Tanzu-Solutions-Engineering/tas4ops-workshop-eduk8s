@@ -43,10 +43,6 @@ This workshop is intended to give you a quick hands introduction to BOSH, one of
 
 7: Cloud Config Lab
 
-8: BOSH Releases
-
-9: BOSH Releases Lab
-
 <br/>
 
 **2:30pm – 2:40pm**  
@@ -57,15 +53,15 @@ Break
 
 **2:40pm – 4:00pm**
 
+8: BOSH Releases
+
+9: BOSH Releases Lab
+
 10: BOSH Manifests
 
 11: Access Managed Instances Lab
 
 12: BOSH Instances Internals Lab
-
-13: BOSH Errands Lab
-
-14: BOSH Tasks Lab
 
 <br/>
 
@@ -77,9 +73,9 @@ Break
 
 **4:10pm – 5:00pm**
 
-15: TAS Intro and Whiteboard
+13: BOSH Errands Lab
 
-16: CF Push Failure
+14: BOSH Tasks Lab
 
 <br/>
 
@@ -108,11 +104,13 @@ Recap and Q&A
 
 **1:15apm – 2:30pm**  
 
+15: TAS Intro and Whiteboard
+
+16: CF Push Failure
+
 17: App Connectivity
 
 18: Slow Requests
-
-19: Health Checks
 
 <br/>
 
@@ -123,6 +121,8 @@ Break
 <br/>
 
 **2:40pm – 4:00pm**
+
+19: Health Checks
 
 20: Expired Certs
 

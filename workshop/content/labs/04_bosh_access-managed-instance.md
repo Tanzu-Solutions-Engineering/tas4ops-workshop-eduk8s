@@ -1,11 +1,14 @@
-## Goal
+### Goal
 
 BOSH runs software systems on virtual machines referred to as BOSH instances. 
+
 Since BOSH deploys instances behind firewalls, without public IPs, and with secured ssh keys, it can be hard to get access to these machines via the typical SSH client. Lets explore how to access these machines via the BOSH CLI directly.
+
+<br/>
 
 ---
 
-## Part 1: Inspect the manifest file of a BOSH deployment
+### Part 1: Inspect the manifest file of a BOSH deployment
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
@@ -17,16 +20,17 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
   
    Get the name of a deployment from the output of the command above.
 
-
-3. Inspect the full manifest file of the selected deployment with the `bosh manifest -d <name-of-deployment>` command   
+2. Inspect the full manifest file of the selected deployment with the `bosh manifest -d <name-of-deployment>` command   
 
    ```execute
    bosh manifest -d $(bosh deployments --json | jq .Tables[0].Rows[0].name)
    ```
 
+<br/>
+
 ---
 
-## Part 2: Accessing a deployed instance
+### Part 2: Accessing a deployed instance
 
 1. Find the instance we want to SSH into by listing all instances in the selected deployment from Part 1. Use command `bosh -d <name-of-deployment> instances`.
 
@@ -62,7 +66,10 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
 
    This option will also show each instance's load, cpu and memory information.
 
-1. Using the `instance_name/uuid` utilize the BOSH CLI to access the instance via the `ssh` sub-command. For example `bosh -d <name-of-deployment> ssh <instance-name-and-id>`
+   <br/>
+
+1. Using the `instance_name/uuid` utilize the BOSH CLI to access the instance via the `ssh` sub-command.   
+   For example `bosh -d <name-of-deployment> ssh <instance-name-and-id>`
 
     ```execute
     DEPLOYMENT=$(bosh deployments --json | jq .Tables[0].Rows[0].name) && 
@@ -70,5 +77,7 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
     ```
 
     - If successful you should now be inside the instance and have full `root` access via `sudo su`.
+
+<br/>
 
 ---

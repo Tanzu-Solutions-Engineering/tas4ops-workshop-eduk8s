@@ -1,11 +1,13 @@
 
-## Suppose you deploying a very simple 2 VM service 
+### Suppose you deploying a very simple 2 VM service 
 
-<img src="../images/Bosh_Releases_01.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_01.png" alt="Bosh Releases" style="width:100%;max-width: 600px;border:none;"/>
+
+<br/>
 
 ---
 
-## Typical Deployment Steps 
+### Typical Deployment Steps 
 
 - Setup Postgres  
   - We need CentOS 7 machine  
@@ -27,15 +29,18 @@
   - Deploy app into Tomcat   
   - Start tomcat  
 
+<br/>
 ---
 
-## Deployment Steps Mapped to BOSH Concepts 
+### Deployment Steps Mapped to BOSH Concepts 
 
-<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases"/>
+<img src="../images/Bosh_Releases_02.png" alt="Bosh Releases" style="width:100%;max-width: 900px;border:none;"/>
+
+<br/>
 
 ---
 
-## BOSH Release
+### BOSH Release
 
 - A BOSH release is similar to a collection of traditional software packages, such as Debian APT or MacOS Homebrew packages.
 
@@ -54,9 +59,11 @@
   - Configuring the software (clustering)  
   - Initialize, and run processes using Monit (monitoring system)
 
+<br/>
+
 ---
 
-## release.MF - A YAML metadata file describing the release
+### release.MF - A YAML metadata file describing the release
 
 ```
 name: sample-bosh-release
@@ -75,18 +82,23 @@ packages:
  sha1: d224739b881e9dd957988bcd7513a37edff69205
  dependencies: []
 ```
+
+<br/>
+
 ---
 
-## BOSH Packages
+### BOSH Packages
 
 - A BOSH release contains a set of software packages that can be installed 
 - Each package is stored as a single .tgz file inside of the packages/ directory of the release  
 - A BOSH package must contain a shell script called packaging that will invoked to produce the binaries that will be installed on a VM
 - A BOSH package must contain the code/binaries that the packaging script uses to produce the bosh package  
 
+<br/>
+
 ---
 
-## BOSH Jobs
+### BOSH Jobs
 
 - A BOSH job is a set of processes that are configured on a VM 
 - Each job is stored as a single .tgz file inside of the jobs/ directory of the release 
@@ -94,9 +106,11 @@ packages:
 - A job must contain a monit file that describes how to run and monitor the job 
 - A job may contain a collect of ruby ERB templates that are used to generate the startup and configuration scripts for job 
 
+<br/>
+
 ---
 
-## JOB.MF - A YAML metadata file describing the release
+### JOB.MF - A YAML metadata file describing the release
 
 ```
 ---
@@ -110,20 +124,25 @@ packages:
 
 properties: {}
 ```
----
-
-## Monit script and templates
-
-<img src="https://mmonit.com/monit/img/logo.png" alt="Monit" align="left" width="50px" style="background-color:transparent;border:none;"/> 
-Monit is a small Open Source utility for managing and monitoring Unix systems. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations.
-
-https://mmonit.com/monit/ 
 
 <br/>
 
 ---
 
-#### Monit Control script
+### Monit script and templates
+
+<img src="https://mmonit.com/monit/img/logo.png" alt="Monit" align="left" width="100px" style="background-color:transparent;border:none;"/> 
+Monit is a small Open Source utility for managing and monitoring Unix systems. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations.
+
+<br/>
+
+https://mmonit.com/monit/ 
+
+<br/>
+<br/>
+---
+
+##### Monit Control script
 
 ```
 check process sample_app
@@ -159,4 +178,7 @@ case $1 in
    echo "Usage: ctl {start|stop}" ;;
 esac
 ```
+
+<br/>
+
 ---

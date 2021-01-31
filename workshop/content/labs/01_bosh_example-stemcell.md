@@ -1,10 +1,12 @@
-## Goal
+### Goal
 
 BOSH Stemcells contain both metadata and the raw image. Lets take some time to examine what is contained in the metadata and how a Stemcell is organized.
 
+<br/>
+
 ---
 
-## Part 1: Inspect the stemcells on your lab environment
+### Part 1: Inspect the stemcells on your lab environment
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), inspect the stemcells with the following command:
 
@@ -27,15 +29,19 @@ bosh-vsphere-esxi-ubuntu-xenial-go_agent  621.41*  ubuntu-xenial  fffb4dfb7562eb
 Succeeded
 ```
 
-### Best Practice
+<br/>
+
+*Best Practice*
 
 On a Tanzu Application Service environment, stemcells should be managed through the Ops Manager user interface.
 See product documentation for more details: 
 - [Importing and Managing Stemcells](https://docs.pivotal.io/ops-manager/opsguide/managing-stemcells.html)
 
+<br/>
+
 ---
 
-## Part 2: Downloading and inspecting the contents of a stemcell image
+### Part 2: Downloading and inspecting the contents of a stemcell image
 
 1. Download an AWS Light Stemcell - [list of stemcells](https://bosh.io/stemcells/bosh-aws-xen-hvm-ubuntu-xenial-go_agent)
 
@@ -65,3 +71,7 @@ See product documentation for more details:
     ```
 
     Notice the utilities which come pre-installed on the stemcell
+
+<br/>
+
+---

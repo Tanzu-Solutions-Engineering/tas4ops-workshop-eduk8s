@@ -1,5 +1,5 @@
 
-## What is a Stemcell?
+### What is a Stemcell?
 
 - In biology a stemcell is a cell that can morph into a specialized cell  
   - stemcell → bone cell  
@@ -11,9 +11,12 @@
   - stemcell → VM running HAProxy 
   - stemcell → VM running all the components of a Kubernetes worker node 
 
-## BOSH Stemcell
+<br/>
+
+### BOSH Stemcell
 
 - Secured, hardened, and versioned operating system image wrapped with IaaS specific packaging
+
 - Contains a bare minimum OS skeleton with a few common utilities pre-installed, a BOSH Agent, and a few configuration files to securely configure the OS by default
 - Stemcells are Windows or Linux based
 - Maintained by BOSH team and available at http://bosh.io/stemcells  
@@ -22,8 +25,9 @@
   - Official Stemcell documentation: https://bosh.io/docs/stemcell/  
   - Stemcell Builder: https://github.com/cloudfoundry/bosh-linux-stemcell-builder   
 
+<br/>
 
-## Stemcell Metadata
+### Stemcell Metadata
 
 - stemcell.MF
 - stemcell_dpkg_l.txt
@@ -32,7 +36,9 @@
 - Minor versions are incremented if certain security fixes backported on top of existing stemcell line. 
 - We recommend to continuously bump to the latest major stemcell version to receive latest updates.
 
-## Light Stemcells
+<br/>
+
+### Light Stemcells
 
 - Available for public IaaS providers only 
   - AWS  
@@ -41,15 +47,20 @@
   - SoftLayer
 
 - Does not contain the OS image rather references the OS image hosted by the IaaS provider   
-  <img src="../images/Bosh_lightstemcell-1.png" alt="Bosh Light Stemcells"/>
+  <img src="../images/Bosh_lightstemcell-1.png" alt="Bosh Light Stemcells" style="width:100%;max-width: 400px;border:none;" />
+
+<br/>
 
 - Small size file only about 20KB thus the name light stemcell
 
-<img src="../images/Bosh_lightstemcell-2.png" alt="Bosh Light Stemcells"/>
+<img src="../images/Bosh_lightstemcell-2.png" alt="Bosh Light Stemcells" style="width:100%;max-width: 400px;border:none;" />
 
-## The concept of stemcell solves the following problems
+<br/>
+
+### The concept of stemcell solves the following problems
 
 - Provides a base operating system image for installing software packages on 
+
 - Versions changes to the OS image.   
   - If a library is changed for example openssl a new stemcell version is released  
   - Provides traceability of what is running on a VM  
@@ -67,5 +78,6 @@
   - Building on top of a stemcells means more secure software
   - https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/stemcell-hardening.html  
 
+<br/>
 ---
 

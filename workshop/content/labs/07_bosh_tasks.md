@@ -1,11 +1,12 @@
-## Goal
+### Goal
 
 Learn how to inspect BOSH tasks as updates are applied to deployments.
 
+<br/>
 
-## Inspect BOSH tasks when changes are applied to BOSH deployments
+### Inspect BOSH tasks when changes are applied to BOSH deployments
 
-### Change the number of Compilation Jobs VMs
+#### Change the number of Compilation Jobs VMs
 
 1. Access the Ops Mgr web interface > BOSH Director tile > Resource Config panel
 
@@ -17,10 +18,12 @@ Learn how to inspect BOSH tasks as updates are applied to deployments.
 
 1. Click the "Apply Changes" Button
 
+<br/>
 
-###  Monitor the logs of tasks
+####  Monitor the logs of tasks
 
 After you trigger the Apply Changes process in Ops Mgr, the Apply Changes log view is displayed.
+
 The output of each section of this window is basically the output of a distinct BOSH task output.
 
 To inspect those individual task log files with the BOSH CLI, in the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
@@ -36,5 +39,7 @@ To inspect those individual task log files with the BOSH CLI, in the same termin
    ```execute
    bosh task
    ```
+
+<br/>
 
 ---
