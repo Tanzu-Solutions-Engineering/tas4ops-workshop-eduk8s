@@ -29,7 +29,7 @@ The TAS Operations Manager VM can be used as a jump box to access and inspect a 
 1. Once logged in to the jumpbox, SSH into the Ops Manager VM of your environment
 
     ```execute
-    ssh ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+    ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
     ```
 
 1. Test connectivity with the Ops Mgr web interface
