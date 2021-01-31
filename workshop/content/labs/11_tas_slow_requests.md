@@ -50,7 +50,7 @@ Let's imagine our spring-music app is experiencing latency.
    cf logs spring-music-<team name>
    ```
    
-   From any web browswer navigate to your app's route:  
+   From any web browser navigate to your app's route:  
    
    You could also do this via curl 
    ```copy-and-edit
