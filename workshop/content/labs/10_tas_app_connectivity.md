@@ -105,7 +105,7 @@ Example Output:
     ```
     
 9. Let's ssh into our test app 
-    ```copy-and-edit
+    ```execute-2
     cf ssh test-app
     ```
     
