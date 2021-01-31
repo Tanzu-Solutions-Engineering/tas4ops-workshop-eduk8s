@@ -4,7 +4,67 @@ As a platform engineer or operator it's important to understand various troubles
 
 ---  
 
-## Application fails to start after issuing cf push command.  
+## Lab Prep Work 
+Before we begin this excercise, let's make sure we have our ORG and Space setup so that we don't collide with other team member's activities.   
+
+Please target the Workshop Org
+
+```execute-2
+cf target org Workshop 
+```
+
+Example Output: 
+```
+[~/myApps] $ cf target org Workshop
+api endpoint:   https://api.run.haas-236.pez.pivotal.io
+api version:    2.142.0
+user:           admin
+org:            workshop
+No space targeted, use 'cf target -s SPACE'
+```
+
+Now let's create a new Space within our Workshop Org.   
+Please give this any unique name.   
+
+To view a list of current spaces, run the following command.  
+
+```execute-2
+cf spaces 
+```
+
+Now create a space with a unique name.   
+
+```copy-and-edit
+cf create-space <New Space Name>
+```
+
+
+Example Output: 
+
+```
+[~/myApps] $ cf create-space test
+Creating space test in org workshop as admin...
+OK
+
+Assigning role SpaceManager to user admin in org workshop / space test as admin...
+OK
+
+Assigning role SpaceDeveloper to user admin in org workshop / space test as admin...
+OK
+
+TIP: Use 'cf target -o "workshop" -s "test"' to target new space
+```
+
+We can now target our space, which ensures we are deploying to the appropriate environment.   
+(Use the space name you created in the previous step).  
+
+```copy-and-edit
+cf target -o "workshop" -s <Your Space Name>
+```
+
+
+## Application fails to start after issuing cf push command.  Let's troubleshoot this issue to get to a root cause and resolution.     
+
 Let's begin by cloning a repository of a broken springboot application.   
 
 0. Create new directory and switch to it.   
