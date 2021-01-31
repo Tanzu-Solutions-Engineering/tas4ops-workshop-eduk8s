@@ -9,7 +9,7 @@ Our application is experiencing extreme latency and causing our systems to becom
 Let's imagine our spring-music app is experiencing latency.  
 
 0. Let's exit the previous SSH Session. 
-   ```
+   ```execute-2
    exit
    ```
    
