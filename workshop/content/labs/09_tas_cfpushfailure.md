@@ -7,6 +7,15 @@ As a platform engineer or operator it's important to understand various troubles
 ## Lab Prep Work 
 Before we begin this excercise, let's make sure we have our ORG and Space setup so that we don't collide with other team member's activities.   
 
+But before we can target anything, we must first authenticate ourselves via cf login while pointing to our TAS API.  
+Please refer to login instructions which were sent prior to the lab.  
+
+Please ensure the url matches your TAS environment. (Make sure to enter your slot number)
+
+```copy-and-edit
+cf login -a https://api.run.haas-<Your Slot Number>.pez.pivotal.io -u admin  --skip-ssl-validation
+```
+
 Please target the Workshop Org
 
 ```execute-2
@@ -98,14 +107,6 @@ vi manifest.yml
 
 4. Run "cf push" to deploy the app
 
-   But before we can do cf push, we must first authenticate ourselves via cf login.  
-   Please refer to login instructions which were sent prior to the lab.  
-   
-```copy-and-edit
-cf login -a https://api.run.haas-<yourNumber>.pez.pivotal.io -u admin  --skip-ssl-validation
-```
-
-   Now you should be able to run cf push 
    
 ```execute-2
 cf push
