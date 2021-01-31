@@ -35,14 +35,16 @@ If no other apps are available for testing you can deploy a test app to test con
     ```execute-2
     cf push
     ```
+    
 5. Run cf apps to view your newly deployed app.   
     ```execute-2
     cf apps
     ```
+    
 6. Let's get the GUID of our spring-music app.  Save this for later 
 
-    ```copy-and-edit
-    cf app spring-music-<team name> --guid
+    ```execute-2
+    cf app spring-music --guid
     ```
     
     Example Output: 
@@ -58,20 +60,20 @@ If no other apps are available for testing you can deploy a test app to test con
    
    Let's scale spring music up to 3 instances  
    
-    ```copy-and-edit
-    cf scale spring-music-<team name> -i 3
+    ```execute-2
+    cf scale spring-music -i 3
     ```
     
    Let's watch as our spring-music app is scaled from 1 to 3 instances.   
    
-   ```copy-and-edit
-   watch -n 0.5 cf app spring-music-<team name> 
+   ```execute-2
+   watch -n 0.5 cf app spring-music
    ```
   
    Same command without watch enabled  
     
-    ```copy-and-edit
-    cf app spring-music-<team name> 
+    ```execute-2
+    cf app spring-music 
     ```
     
 Example Output: 
@@ -101,10 +103,12 @@ Example Output:
     ```copy-and-edit
     curl <app.vmware.com>  -H "X-Cf-App-Instance":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
     ```
+    
 9. Let's ssh into our test app 
     ```copy-and-edit
     cf ssh test-app-<team name>
     ```
+    
 10. Now run the curl command we created earlier to send a request to the app.   
     You should see the html content of your web app endpoint now.   
     This proves that other apps within the same network should be able to successfully reach your spring-music app.   
