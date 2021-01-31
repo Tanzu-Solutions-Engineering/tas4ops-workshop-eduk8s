@@ -61,8 +61,14 @@ If no other apps are available for testing you can deploy a test app to test con
     ```copy-and-edit
     cf scale spring-music-<team name> -i 3
     ```
+    
+   Let's watch as our spring-music app is scaled from 1 to 3 instances.   
+   
+   ```
+   watch -n 0.5 cf app spring-music-<team name> 
+   ```
   
-   Now let's view one of our instances by running the command below. 
+   Same command without watch enabled  
     
     ```copy-and-edit
     cf app spring-music-<team name> 
