@@ -64,7 +64,7 @@ If no other apps are available for testing you can deploy a test app to test con
     
    Let's watch as our spring-music app is scaled from 1 to 3 instances.   
    
-   ```
+   ```copy-and-edit
    watch -n 0.5 cf app spring-music-<team name> 
    ```
   
