@@ -93,46 +93,44 @@ Let's imagine our spring-music app is experiencing latency.
        * If so, is there a problem in a downstream app?
    * Does your app log where it spends time? 
     
-    
+       
 4. Remove the load balancer from the request path 
 
-    In order to do this we will need to obtain the deployment id and router guid using bosh 
+   In order to do this we will need to obtain the deployment id and router guid using bosh 
+   
+   This means we need to SSH to our Jumphost which has connectivity to our Bosh Director.   
+   Please use the instructions which were provided prior to the lab starting.   
     
-    This means we need to SSH to our Jumphost which has connectivity to our Bosh Director.   
-    Please use the instructions which were provided prior to the lab starting.   
+   ```copy-and-edit
+   ssh -i privatekey ubuntu@server.vmware.com 
+   ```    
     
-    ```copy-and-edit
-    ssh -i privatekey ubuntu@server.vmware.com 
-    ```
-    
-    
-    Once inside the jumphost we will need to SSH to our BOSH Director.  
-    ```copy-and-edit
-    ssh ubuntu@BoshDirector.vmware.com 
-    ```
+   Once inside the jumphost we will need to SSH to our BOSH Director.  
+   ```copy-and-edit
+   ssh ubuntu@BoshDirector.vmware.com 
+   ```
     
     
-    Once inside of the BOSH Director we will need to authenticate.
-    ```copy-and-edit
-    export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=<BOSHSECRETHERE> BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate                                 BOSH_ENVIRONMENT=<BOSH-IPADDRESS> bosh
-    ```
-    Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
+   Once inside of the BOSH Director we will need to authenticate.
+   ```copy-and-edit
+   export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=<BOSHSECRETHERE> BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate                                BOSH_ENVIRONMENT=<BOSH-IPADDRESS> bosh
+   ```
+   Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
+   
+   List the vms within your bosh environment 
+   ```execute
+   bosh vms 
+   ```
+   Select one of your router vms and record its GUID and deployment ID. 
     
-    List the vms within your bosh environment 
-    ```execute
-    bosh vms 
-    ```
-    Select one of your router vms and record its GUID and deployment ID. 
+   Example Output: 
     
-    Example Output: 
-    
-    ```
-        ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms
-        Using environment '192.168.1.11' as client 'ops_manager'
+   ```
+       ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms
+       Using environment '192.168.1.11' as client 'ops_manager'
 
-        Task 241. Done
-
-        Deployment 'cf-a801abefab398f5d1a82'
+       Task 241. Done
+       Deployment 'cf-a801abefab398f5d1a82'
 
         Instance                                                            Process State  AZ       IPs           VM CID                                   VM Type      Active  Stemcell  
         backup_restore/f256d66b-d083-4f9d-8efc-2e2726c4b890                 running        pas-az1  192.168.2.23  vm-38d6e4f5-b9af-400a-a16e-249e0b1f58a6  micro        true    -  
@@ -150,16 +148,17 @@ Let's imagine our spring-music app is experiencing latency.
         uaa/43eeb350-a5b6-4e47-9f03-c799603632ec                            running        pas-az2  192.168.2.28  vm-fbb8230b-baee-4b65-b74b-4e85ea0e272f  medium.disk  true    -  
         36 vms
         Succeeded
-    ```
+   ```
     
+   Since this list may be extensive, use grep to filter your options.  
+   
+   ```execute
+   bosh vms |grep router
+   ```
     
-    Since this list may be extensive, use grep to filter your options.  
-    ```execute
-    bosh vms |grep router
-    ```
-    
-    Example Output: 
-    ```
+   Example Output: 
+   
+   ```
         ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms |grep router
         router/15ffac5d-c64a-4863-8566-0dd241517ce1                       	running	pas-az2	192.168.2.12	vm-6e71953b-222c-460b-a28b-9f7a2eece286	micro.ram  	true	-	
         router/43b99b4f-29ba-4483-bccc-9d3823207c66                       	running	pas-az1	192.168.2.11	vm-8575084f-04fb-4fb9-aafc-a8c88754c18f	micro.ram  	true	-	
@@ -169,11 +168,13 @@ Let's imagine our spring-music app is experiencing latency.
     
     Now run the following command to ssh into one of your routers.  
     Replace the variables below with your router's GUID and deployment ID.  
+    
     ```copy-and-edit
     bosh ssh -d <deploymentID> router/<GUID>
     ```
     
     Example Output: 
+    
     ```
         ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh ssh -d cf-a801abefab398f5d1a82 router/15ffac5d-c64a-4863-8566-0dd241517ce1
         Using environment '192.168.1.11' as client 'ops_manager'
@@ -214,22 +215,22 @@ Let's imagine our spring-music app is experiencing latency.
     ```copy-and-edit
     time curl -v <your-app-spring-music.vmware.com> 
     ```
+      
 5. Remove Gorouter from the request path 
 
    (From the second terminal)
    
    Retrieve the IP Address and Port number of the Diego Cell where your app is running 
    
-    ```copy-and-edit
-    cf ssh spring-music-<team name> -c "env |grep CF_INSTANCE_ADDR"
-    ```
-    The output should provide you with an IP address (Save this for later) 
+   ```copy-and-edit
+   cf ssh spring-music-<team name> -c "env |grep CF_INSTANCE_ADDR"
+   ```
+   The output should provide you with an IP address (Save this for later) 
     
-    ```
-    bash-5.0$ cf ssh spring-music-fixme -c "env |grep CF_INSTANCE_ADDR"
-    CF_INSTANCE_ADDR=192.168.2.38:61012
-
-    ```
+   ```
+   bash-5.0$ cf ssh spring-music-fixme -c "env |grep CF_INSTANCE_ADDR"
+   CF_INSTANCE_ADDR=192.168.2.38:61012
+   ```
     
     You could have also ran the following command which provides slightly more detail.  
     ```copy-and-edit
@@ -272,21 +273,23 @@ Let's imagine our spring-music app is experiencing latency.
     ```copy-and-edit
     bosh vms  |grep <DiegoCellIPAddress>
     ```
+          
+   Example Output: 
     
-    Example Output: 
-    ```
-    ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms  |grep 192.168.2.38
-    diego_cell/551314d8-f176-4450-8627-8431564d1b79   running	pas-az3	192.168.2.38	vm-88d020de-1b00-4009-8db8-fc4d8a05730b	xlarge.disk	true
-    ```
+   ```
+   ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ bosh vms  |grep 192.168.2.38
+   diego_cell/551314d8-f176-4450-8627-8431564d1b79   running	pas-az3	192.168.2.38	vm-88d020de-1b00-4009-8db8-fc4d8a05730b	xlarge.disk	true
+   ```
     
-    Lets now SSH into our diego cell. 
+   Lets now SSH into our diego cell. 
+   
+   ```copy-and-edit
+   bosh ssh -d <deploymentID> diego_cell/<GUID>
+   ```
     
-    ```copy-and-edit
-    bosh ssh -d <deploymentID> diego_cell/<GUID>
-    ```
-    
-    Example Output: 
-    ```
+   Example Output: 
+   
+   ```
       bosh ssh -d cf-a801abefab398f5d1a82 diego_cell/551314d8-f176-4450-8627-8431564d1b79
       Using environment '192.168.1.11' as client 'ops_manager'
 
@@ -303,70 +306,72 @@ Let's imagine our spring-music app is experiencing latency.
       diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ 
 
     ```
+       
+   Once inside of the diego cell, let's run env to get a list of our current environment variables.   
     
-    Once inside of the diego cell, let's run env to get a list of our current environment variables.   
     
+   Let's run env with grep to check if cfdot is setup. 
+   
+   ```execute
+   env |grep cfdot
+   ```
     
-    Let's run env with grep to check if cfdot is setup. 
-    ```execute
-    env |grep cfdot
-    ```
-    
-    If cfdot is setup properly you will see the following output
+   If cfdot is setup properly you will see the following output
     
    
-    Example Output: 
-    ```
+   Example Output: 
+   
+   ```
    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ env |grep cfdot
    CA_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/ca.crt
    PATH=/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/bin:/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/.local/bin:/var/vcap/packages/cfdot/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
    CLIENT_KEY_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.key
    CLIENT_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.crt
+   ```
+       
+   If it is not setup, please run the following command to source the cfdot binary to your PATH
+       
+   ```execute
+   source /var/vcap/jobs/cfdot/bin/setup
+   ```
+    
+   Just for kicks, let's run a few cfdot commands to see what to expect.
+   
+   The following command will list the number of desired number of application instanes on your diego cell.  
+    
+   ```execute
+   cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+   ```
+    
+   Example Output: 
+   ```
+   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+   26
+   ```
+    
+    
+   The following command will list the actual state of your application instanes on this diego cell.  
+    
+   ```
+   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
+   RUNNING: 26
+   ```
+    
 
-    ```
-    
-    If it is not setup, please run the following command to source the cfdot binary to your PATH
-    
-    ```execute
-    source /var/vcap/jobs/cfdot/bin/setup
-    ```
-    
-    Just for kicks, let's run a few cfdot commands to see what to expect.
-    
-    The following command will list the number of desired number of application instanes on your diego cell.  
-    
-    ```execute
-    cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
-    ```
-    
-    Example Output: 
-    ```
-    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
-    26
-    ```
-    
-    
-    The following command will list the actual state of your application instanes on this diego cell.  
-    
-    ```
-    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
-    RUNNING: 26
-    ```
-    
-
-
+   
    We will also use bosh to ssh back into our router VM
-    ```copy-and-edit
-    bosh ssh -d <deploymentID> router/<GUID>
-    ```
+   ```copy-and-edit
+   bosh ssh -d <deploymentID> router/<GUID>
+   ```
 
-
-    Now determine the amount of time a request takes when it skips Gorouter.  
-    Run the following command. Replacing the variable with the IP Address we obtained earlier. 
-    ```copy-and-edit
-    time curl <IPaddressOfDiegoCellforSpringMusicApp>
-    ```
+   
+   Now determine the amount of time a request takes when it skips Gorouter.  
+   Run the following command. Replacing the variable with the IP Address we obtained earlier. 
+   ```copy-and-edit
+   time curl <IPaddressOfDiegoCellforSpringMusicApp>
+   ```
     
+
 For additional detail on troubleshooting slow connectivity please see the following url. 
 
 https://docs.pivotal.io/application-service/2-10/adminguide/troubleshooting-router-error-responses.html
