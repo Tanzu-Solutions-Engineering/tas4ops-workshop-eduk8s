@@ -19,13 +19,13 @@ In this lab we will understand how to implement health checks when deploying new
 - First we will configure a health check for our test-app application that's already deployed.   
 
 1.  Run cf apps to get a list of your running applications.   You should see your test-app application deployed.   
-    ```
+    ```execute-2
     cf a
     ```
 2. TAS supports configuring 3 different types of health checks.  Port, Process and HTTP.   
 - First let's implement a HTTP Health Check for your test-app application.    
    
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> http --endpoint /
     ```
     The output from the above command should look similiar to the following 
@@ -39,21 +39,21 @@ In this lab we will understand how to implement health checks when deploying new
     ```
     Our test application has multiple endpoints so we will want to make sure they are all monitored. 
     Let's implement HTTP Health Check for the rest of our endpoints.    
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> http --endpoint /port
     ```
     
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> http --endpoint /index
     ```
     
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> http --endpoint /env
     ```
       
       
 - Next let's configure the health check to monitor the port(s) our app is listening on. 
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> port
     ```
     
@@ -66,7 +66,7 @@ In this lab we will understand how to implement health checks when deploying new
     
     
 - Finally let's configure the health check to monitor our app's processes. 
-    ```
+    ```copy-and-edit
     cf set-health-check test-app-<team name> process
     ```
     
