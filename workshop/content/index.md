@@ -88,10 +88,13 @@ Break
 ### Day 2
 
 <img src="images/tanzu01.png" alt="VMware Tanzu" align="left" style="width:100px;background-color:transparent;border:none;" />
+
+<br/>
 <br/>
 
 ### Tanzu Application Service
 
+<br/>
 <br/>
 <br/>
 
