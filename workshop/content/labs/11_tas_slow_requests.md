@@ -21,9 +21,11 @@ Let's imagine our spring-music app is experiencing latency.
     cf apps
     ```
    Now with this information, run the following curl command with the time command to measure the total round trip of your request.   
-    ```
+    
+    ```copy-and-edit
     time curl -v <your-app-spring-music.vmware.com>
     ```
+    
     Examine the output and take note of the "real" time.  
     
     ```
@@ -113,7 +115,7 @@ Example Output:
     Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
     
     List the vms within your bosh environment 
-    ```execute-1
+    ```execute
     bosh vms 
     ```
     Select one of your router vms and record its GUID and deployment ID. 
@@ -148,7 +150,7 @@ Example Output:
     
     
     Since this list may be extensive, use grep to filter your options.  
-    ```execute-2
+    ```execute
     bosh vms |grep router
     ```
     
@@ -302,7 +304,7 @@ Example Output:
     
     
     Let's run env with grep to check if cfdot is setup. 
-    ```execute-2
+    ```execute
     env |grep cfdot
     ```
     
@@ -321,7 +323,7 @@ Example Output:
     
     If it is not setup, please run the following command to source the cfdot binary to your PATH
     
-    ```execute-2
+    ```execute
     source /var/vcap/jobs/cfdot/bin/setup
     ```
     
@@ -329,7 +331,7 @@ Example Output:
     
     The following command will list the number of desired number of application instanes on your diego cell.  
     
-    ```execute-2
+    ```execute
     cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
     ```
     
