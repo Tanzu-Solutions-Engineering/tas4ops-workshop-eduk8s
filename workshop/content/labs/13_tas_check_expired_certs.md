@@ -6,11 +6,11 @@ One of the worst thing that could happen to your platform is letting your certif
 
 # Lets check for expired certificates using the CredHub CLI 
 1. First SSH to the Bosh Director VM 
-    ```
+    ```execute
     ssh boshvm
     ```
 2.  Set your credhub target to point to the Bosh Director  
-    ```
+    ```copy-and-edit
     credhub api https://<Bosh-Endpoint>:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
     ```
     
@@ -22,13 +22,13 @@ One of the worst thing that could happen to your platform is letting your certif
 
 
 3.  Next authenticate to CredHub using your bosh credentials 
-    ```
+    ```copy-and-edit
     credhub login \
       --client-name=<BoshClient> \
       --client-secret=<BoshSecret>
     ```
 4.  Run the following credhub command to view any expired certificates. 
-    ```
+    ```execute
     credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout | grep -A 2 "Validity"
     ```
     
@@ -46,7 +46,7 @@ One of the worst thing that could happen to your platform is letting your certif
     The second date will show when your certificate expires.
     
     Alternatively you could run this command without grep to get more details.  
-    ```
+    ```execute
     credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout
     ```
     
