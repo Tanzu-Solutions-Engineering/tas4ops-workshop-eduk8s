@@ -9,6 +9,8 @@
 
 ### Typical Deployment Steps 
 
+<br/>
+
 - Setup Postgres  
   - We need CentOS 7 machine  
   - With 8 GB RAM, 10GB Disk, and one IP Address  
@@ -30,6 +32,7 @@
   - Start tomcat  
 
 <br/>
+
 ---
 
 ### Deployment Steps Mapped to BOSH Concepts 
@@ -41,6 +44,8 @@
 ---
 
 ### BOSH Release
+
+<br/>
 
 - A BOSH release is similar to a collection of traditional software packages, such as Debian APT or MacOS Homebrew packages.
 
@@ -89,6 +94,8 @@ packages:
 
 ### BOSH Packages
 
+<br/>
+
 - A BOSH release contains a set of software packages that can be installed 
 - Each package is stored as a single .tgz file inside of the packages/ directory of the release  
 - A BOSH package must contain a shell script called packaging that will invoked to produce the binaries that will be installed on a VM
@@ -99,6 +106,8 @@ packages:
 ---
 
 ### BOSH Jobs
+
+<br/>
 
 - A BOSH job is a set of processes that are configured on a VM 
 - Each job is stored as a single .tgz file inside of the jobs/ directory of the release 
@@ -132,14 +141,19 @@ properties: {}
 ### Monit script and templates
 
 <img src="https://mmonit.com/monit/img/logo.png" alt="Monit" align="left" width="100px" style="background-color:transparent;border:none;"/> 
+
+<br/>
+
 Monit is a small Open Source utility for managing and monitoring Unix systems. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations.
 
+<br/>
 <br/>
 
 https://mmonit.com/monit/ 
 
 <br/>
 <br/>
+
 ---
 
 ##### Monit Control script
@@ -151,6 +165,7 @@ check process sample_app
   stop program "/var/vcap/jobs/sample_job/bin/ctl stop"
   group vcap
 ```
+<br/>
 
 Ctl.erb generates ctl shell script used from monit
 

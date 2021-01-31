@@ -1,6 +1,8 @@
 
 ### What is a Stemcell?
 
+<br/>
+
 - In biology a stemcell is a cell that can morph into a specialized cell  
   - stemcell → bone cell  
   - stemcell → liver cell  
@@ -14,6 +16,8 @@
 <br/>
 
 ### BOSH Stemcell
+
+<br/>
 
 - Secured, hardened, and versioned operating system image wrapped with IaaS specific packaging
 
@@ -29,6 +33,8 @@
 
 ### Stemcell Metadata
 
+<br/>
+
 - stemcell.MF
 - stemcell_dpkg_l.txt
 - MAJOR.MINOR format
@@ -39,6 +45,8 @@
 <br/>
 
 ### Light Stemcells
+
+<br/>
 
 - Available for public IaaS providers only 
   - AWS  
@@ -58,6 +66,8 @@
 <br/>
 
 ### The concept of stemcell solves the following problems
+
+<br/>
 
 - Provides a base operating system image for installing software packages on 
 

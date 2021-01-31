@@ -1,12 +1,18 @@
 ### Goal
 
+<br/>
+
 Learn how to inspect BOSH tasks as updates are applied to deployments.
 
 <br/>
 
 ### Inspect BOSH tasks when changes are applied to BOSH deployments
 
+<br/>
+
 #### Change the number of Compilation Jobs VMs
+
+<br/>
 
 1. Access the Ops Mgr web interface > BOSH Director tile > Resource Config panel
 
@@ -21,6 +27,8 @@ Learn how to inspect BOSH tasks as updates are applied to deployments.
 <br/>
 
 ####  Monitor the logs of tasks
+
+<br/>
 
 After you trigger the Apply Changes process in Ops Mgr, the Apply Changes log view is displayed.
 

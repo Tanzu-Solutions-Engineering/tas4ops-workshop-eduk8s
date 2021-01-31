@@ -1,11 +1,16 @@
 ### Goal
 
+<br/>
+
 In order for BOSH to communicate with specific infrastructures (GCP/AWS/vSphere/etc.) we abstract these details into a BOSH cloud-config. 
+
 Lets inspect the Cloud Config defined in the BOSH director.
 
 <br/>
 
 ### Part 1: Inspecting the Cloud Config
+
+<br/>
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), inspect the cloud config with the following command:
 

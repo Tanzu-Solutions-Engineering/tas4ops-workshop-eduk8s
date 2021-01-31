@@ -1,5 +1,7 @@
 ### Goal
 
+<br/>
+
 Deploying software systems with BOSH is done with BOSH Releases. 
 Releases abstract code away from the underlying OS and create a specific packing structure all software systems must adhere to. 
 
@@ -8,6 +10,8 @@ Lets explore the BOSH Releases currently available on your environment.
 <br/>
 
 ### Exploring BOSH Releases
+
+<br/>
 
 1. In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop), issue the following bosh command:
 
@@ -54,6 +58,8 @@ Lets explore the BOSH Releases currently available on your environment.
 <br/>
 
 ### Clean-up of Unused Releases 
+
+<br/>
 
 As new versions of releases are uploaded and upgraded in the system, a clean-up is recommended to be done in BOSH on a regular basis, since it does not do it automatically.
 

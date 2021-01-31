@@ -1,6 +1,8 @@
 
 ### Goal
 
+<br/>
+
 Persistence and monitoring are two of the most important pieces of a BOSH release. 
 
 Lets explore how both of these are done, and where the important files are by examining a VM (instance) deployed by BOSH.
@@ -10,6 +12,8 @@ Lets explore how both of these are done, and where the important files are by ex
 ---
 
 ### Part 1: How does persistence work with BOSH?
+
+<br/>
 
 1. As a continuation from the previous lab, lets understand how and where BOSH places persistent disks vs ephemeral disks. In an `bosh ssh` session with an instance, issue the following command:
 
@@ -44,6 +48,8 @@ Lets explore how both of these are done, and where the important files are by ex
 ---
 
 ### Part 2: How does BOSH monitor software packages?
+
+<br/>
 
 1. In the same bosh instance ssh session, issue the following commands.
 
@@ -89,6 +95,8 @@ Lets explore how both of these are done, and where the important files are by ex
 
 ### Part 3: How does a BOSH Release get deployed on the running BOSH instance?
 
+<br/>
+
 1. When deploying BOSH releases, BOSH places compiled code and other resources in the `/var/vcap/` directory tree, which BOSH creates on the BOSH instances. Two directories seen in the BOSH release, `jobs`, and `packages` appear on BOSH instances as `/var/vcap/jobs` and `/var/vcap/packages` respectively. Once `SSH`ed into the BOSH instance lets use the `tree` utility to show these.
 
 ```execute
@@ -104,6 +112,8 @@ tree /var/vcap
 
 ### Part 4: Where can we see logs?
 
+<br/>
+
 1. All logs on the BOSH instances are stored relative to which BOSH job they come from starting from the `/var/vcap/sys/log/` directory. Once `SSH`ed into the BOSH instance lets use the `tree` utility to show these.
 
   ```execute
@@ -114,6 +124,8 @@ tree /var/vcap
 ---
 
 ### Part 5: Other commands
+
+<br/>
 
 1. Check the number of CPU cores via the `nproc` utility.
 
@@ -139,6 +151,8 @@ tree /var/vcap
 ---
 
 ### Part 6: Understanding BOSH 'start', 'stop', 'restart' and 'recreate'
+
+<br/>
 
 1. Exit the ssh session with the instance used i the previous section
 

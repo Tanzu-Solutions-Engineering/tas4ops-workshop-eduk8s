@@ -1,22 +1,28 @@
 ### Goal
 
+<br/>
+
 Familiarization with Workshop Lab environment.
 
 <br/>
 
 ### Workshop Lab Architecture: Tanzu Application Service
 
-<img src="../images/Workshop_architecture1.png" alt="Workshop Lab Architecture"/>
+<img src="../images/Workshop_architecture1.png" alt="Workshop Lab Architecture" style="border:none;"/>
 
 <br/>
 
 ### Using the TAS Operations Manager VM as a Jumpbox
+
+<br/>
 
 The TAS Operations Manager VM can be used as a jump box to access and inspect a TAS deployment infrastructure, given that it is usually deployed inside of the TAS infrastructure network along with the BOSH Director VM and that it contains PCF and BOSH management tools pre-installed (e.g. uaac and bosh CLI's). ([TAS Knowledge Base article](https://community.pivotal.io/s/article/Using-bosh-and-uaac-cli-to-inspect-and-manage-pivotal-cloud-foundry-from-an-ops-manager-vm)).
 
 <br/>
 
 ### Part 1: Connect to the Ops Manager VM
+
+<br/>
 
 1. Provide TAS Ops Manager VM's fully-qualified domain name from provided pre-workshop email
 
@@ -56,6 +62,8 @@ The TAS Operations Manager VM can be used as a jump box to access and inspect a 
 <br/>
 
 ### Part 2: Inspect the Bosh Director environment
+
+<br/>
 
 1. Check which BOSH deployments exist 
 

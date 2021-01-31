@@ -5,6 +5,8 @@
 
 Hint: manifests
 
+<br/>
+
 ### Deployment Steps Mapped to BOSH Concepts 
 
 <img src="../images/Bosh_Releases_02.png" alt="Bosh Releases" style="width:100%;max-width: 800px;border:none;" />
@@ -12,6 +14,8 @@ Hint: manifests
 <br/>
 
 #### Manifests 
+
+<br/>
 
 Typically when creating a machine to run software on you perform the following:
 - Open an admin console to a server virtualization platform.
@@ -29,6 +33,8 @@ The same deployment manifest deployed today should produce the same running syst
 <br/>
 
 #### Example sample-bosh-manifest.yml
+
+<br/>
 
 ```
 name: sample-bosh-deployment

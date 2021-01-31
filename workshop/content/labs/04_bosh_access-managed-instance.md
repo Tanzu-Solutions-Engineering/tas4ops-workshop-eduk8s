@@ -1,5 +1,7 @@
 ### Goal
 
+<br/>
+
 BOSH runs software systems on virtual machines referred to as BOSH instances. 
 
 Since BOSH deploys instances behind firewalls, without public IPs, and with secured ssh keys, it can be hard to get access to these machines via the typical SSH client. Lets explore how to access these machines via the BOSH CLI directly.
@@ -9,6 +11,8 @@ Since BOSH deploys instances behind firewalls, without public IPs, and with secu
 ---
 
 ### Part 1: Inspect the manifest file of a BOSH deployment
+
+<br/>
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
@@ -31,6 +35,8 @@ In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this worksh
 ---
 
 ### Part 2: Accessing a deployed instance
+
+<br/>
 
 1. Find the instance we want to SSH into by listing all instances in the selected deployment from Part 1. Use command `bosh -d <name-of-deployment> instances`.
 

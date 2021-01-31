@@ -1,5 +1,7 @@
 ### Goal
 
+<br/>
+
 BOSH Errands enable on demand execution of tasks within the deployment. 
 
 This could be checking the status on a resource, adding a new user, running tests, or even when doing a `cf push` for an application! Let's inspect the errands of your current deployments.
@@ -7,6 +9,8 @@ This could be checking the status on a resource, adding a new user, running test
 <br/>
 
 ### List the errands of a deployment
+
+<br/>
 
 In the same terminal where you ssh'ed into the Ops Mgr VM (step 3 of this workshop):
 
@@ -37,8 +41,11 @@ Enageld errands are executed automatically with the corresponding tile's process
 
 The section below is provided just for training purposes.
 
+<br/>
 
 ### Run a BOSH Errand
+
+<br/>
 
 1. Run the CF release's smoke-test errand.
 

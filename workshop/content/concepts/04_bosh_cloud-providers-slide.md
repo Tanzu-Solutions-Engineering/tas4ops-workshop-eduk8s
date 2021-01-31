@@ -1,6 +1,8 @@
 
 ### Cloud Provider Interface (CPI)
 
+<br/>
+
 - The bosh director uses the CPI to interact with an IaaS to create and manage stemcells, VMs, and disks. 
 - The CPI abstracts infrastructure differences from the rest of BOSH.
 - The CPI is a command line executable that can be called to perform any of the actions below 
@@ -14,6 +16,8 @@
 
 --- 
 
+<br/>
+
 ### BOSH Component Architecture (Simplified) 
 
 <img src="../images/Bosh_CPI_architecture.png" alt="Bosh CPI" style="border:none;"/>
@@ -23,6 +27,8 @@
 ---
 
 ### How do I abstract the cloud away?
+
+<br/>
 
 - The specific details about the size of the servers is specific to each cloud infrastructure. 
 
@@ -38,6 +44,8 @@
 --- 
 
 ### Example GCP cloud-config.yml
+
+<br/>
 
 ```
 azs:
