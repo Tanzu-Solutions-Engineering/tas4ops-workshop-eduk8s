@@ -324,12 +324,30 @@ Let's imagine our spring-music app is experiencing latency.
     
    The following command will list the actual state of your application instanes on this diego cell.  
     
+   ```execute 
+    cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
+   ```
+   
+   Example Output: 
    ```
    diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
    RUNNING: 26
    ```
+   
+   Just for fun, let's try curling our spring-music application from within the diego cell.   
+   
+   ```copy-and-edit
+   time curl -v <your-app-spring-music.vmware.com>  
+   ```
+   
+   Now let's try hittig the IP address of our diego cell from our router VM.  
+   
+   Exit the diego cell
+   
+   ```execute
+   exit
+   ```
     
-
    
    We will also use bosh to ssh back into our router VM
    ```copy-and-edit
