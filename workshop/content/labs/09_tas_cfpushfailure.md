@@ -19,7 +19,7 @@ cf login -a https://api.run.haas-<Your Slot Number>.pez.pivotal.io -u admin  --s
 Please target the Workshop Org
 
 ```execute-2
-cf target org Workshop 
+cf target -o Workshop 
 ```
 
 Example Output: 
@@ -71,6 +71,13 @@ We can now target our space, which ensures we are deploying to the appropriate e
 cf target -o "workshop" -s <Your Space Name>
 ```
 
+Now try running cf apps to list any apps deployed to your space.  
+There should be no apps deployed since we just created this space.    
+
+```execute-2
+cf apps
+```
+
 
 ## Application fails to start after issuing cf push command.  Let's troubleshoot this issue to get to a root cause and resolution.     
 
@@ -115,8 +122,8 @@ cf push
 It looks like our app didn't start.  Let's see what could be the issue.   
 Typically the first thing to check are the logs.  This can be done with the following command.  
 
-```copy-and-edit
-cf logs spring-music-<team name> --recent
+```execute-2
+cf logs spring-music --recent
 ```
 
 
@@ -177,8 +184,8 @@ Get https://log-cache.run.haas-236.pez.pivotal.io/api/v1/read/8dac8193-ee26-44ec
 
 Please try running the cf events command to get a list of key events with their corresponding timestamps.   
 
-```copy-and-edit
-cf events spring-music-<team name>
+```execute-2
+cf events spring-music
 ```
 
 Example Output:
@@ -204,8 +211,8 @@ Example Output:
     
 Use the cf env command to view the environment variables that you have set using the cf set-env command and the variables in the container environment:
 
-```copy-and-edit
-    cf env spring-music-<team-name> 
+```execute-2
+    cf env spring-music
 ```    
 Example Output: 
             
