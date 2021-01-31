@@ -8,20 +8,24 @@ One of the worst thing that could happen to your platform is letting your certif
   Since this is a very disruptive process we will NOT implement these steps during the workshop.   
   The following steps will show you how to rotate your Services TLS Certificate.  
 1. Check if CredHub has a new temporary certificate from a previous rotation attempt.
+
     ```execute
     credhub get -n /services/new_ca
     ```
     
     You should see a generic error which states that no certificate is present.   
+    
     ```
         ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ credhub get -n /services/new_ca
         The request could not be completed because the credential does not exist or you do not have sufficient authorization.
-
     ```
+    
 2. If any older temporary certificate exists, delete it before proceeding. 
+
     ```execute
     credhub delete -n /services/new_ca
     ```
+    
 3. You have the option to bring your own certificate or use a self signed certificate. 
     If you select to use a self signed certificate, please see the following command to create the self signed certificate.  
     ```copy-and-edit
@@ -35,6 +39,7 @@ One of the worst thing that could happen to your platform is letting your certif
     ```
     This will create a self signed certificate called opsmgr-services-tls-ca which expires in 5 years.
     Default duration is 1 year if no input is given.   
+    
 4. Now retrieve the current TLS CA Certificate 
     ```execute
     credhub get --name=/services/tls_ca -k ca
