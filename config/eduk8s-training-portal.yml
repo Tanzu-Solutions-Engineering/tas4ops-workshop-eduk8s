@@ -8,10 +8,10 @@ spec:
     catalog:
       visibility: public
     password: VMware
-    # registration:
-      # type: anonymous
-      # type: one-step
-      # enabled: false
+     registration:
+       type: anonymous
+       type: one-step
+       enabled: false
   workshops:
   - name: tas4ops-fundamentals
     capacity: 10
