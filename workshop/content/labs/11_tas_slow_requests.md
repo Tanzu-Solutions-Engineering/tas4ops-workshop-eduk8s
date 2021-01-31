@@ -8,6 +8,11 @@ Our application is experiencing extreme latency and causing our systems to becom
 
 Let's imagine our spring-music app is experiencing latency.  
 
+0. Let's exit the previous SSH Session. 
+   ```
+   exit
+   ```
+   
 1. To better understand the issue lets measure the total round-trip of our app.  
    To do this you will need to know the URI or route to your application.  
    
@@ -37,12 +42,12 @@ Let's imagine our spring-music app is experiencing latency.
 
 
    From one terminal enter the following command:
-    ```
+    ```copy-and-edit
     cf logs spring-music-<team name>
     ```
     
     From another terminal send a request to the app using the same curl command from earlier:  
-    ```
+    ```copy-and-edit
     curl -v <your-app-spring-music.vmware.com>
     ```
     You should now see the requst in your terminal with the logs.   
@@ -66,11 +71,11 @@ Example Output:
 
     We will now use our test-app to measure the latency we are seeing in our spring-music app.   
     First SSH into our test-app 
-    ```
+    ```copy-and-edit
     cf ssh test-app-<team name>
     ```
     Now run the following curl command to measure the round trip back from our spring-music app.   
-    ```
+    ```copy-and-edit
     time curl -v <your-app-spring-music.vmware.com>  
     ```
     
@@ -90,19 +95,19 @@ Example Output:
     This means we need to SSH to our Jumphost which has connectivity to our Bosh Director.   
     Please use the instructions which were provided prior to the lab starting.   
     
-    ```
+    ```copy-and-edit
     ssh -i privatekey ubuntu@server.vmware.com 
     ```
     
     
     Once inside the jumphost we will need to SSH to our BOSH Director.  
-    ```
+    ```copy-and-edit
     ssh ubuntu@BoshDirector.vmware.com 
     ```
     
     
     Once inside of the BOSH Director we will need to authenticate.
-    ```
+    ```copy-and-edit
     export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=<BOSHSECRETHERE> BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate                                 BOSH_ENVIRONMENT=<BOSH-IPADDRESS> bosh
     ```
     Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
@@ -158,7 +163,7 @@ Example Output:
     
     Now run the following command to ssh into one of your routers.  
     Replace the variables below with your router's GUID and deployment ID.  
-    ```
+    ```copy-and-edit
     bosh ssh -d <deploymentID> router/<GUID>
     ```
     
@@ -200,7 +205,7 @@ Example Output:
     
     
     Run the same curl command from before.   
-    ```
+    ```copy-and-edit
     time curl -v <your-app-spring-music.vmware.com> 
     ```
 5. Remove Gorouter from the request path 
@@ -209,7 +214,7 @@ Example Output:
    
    Retrieve the IP Address and Port number of the Diego Cell where your app is running 
    
-    ```
+    ```copy-and-edit
     cf ssh spring-music-<team name> -c "env |grep CF_INSTANCE_ADDR"
     ```
     The output should provide you with an IP address (Save this for later) 
@@ -221,8 +226,8 @@ Example Output:
     ```
     
     You could have also ran the following command which provides slightly more detail.  
-    ```
-    cf curl /v2/apps/$(cf app test-app --guid)/stats
+    ```copy-and-edit
+    cf curl /v2/apps/$(cf app spring-music-<team name> --guid)/stats
     ```
     
     Example Output: 
@@ -258,7 +263,7 @@ Example Output:
     Let's use bosh to filter our vms with the above IP Address 
     
     
-    ```
+    ```copy-and-edit
     bosh vms  |grep <DiegoCellIPAddress>
     ```
     
@@ -270,7 +275,7 @@ Example Output:
     
     Lets now SSH into our diego cell. 
     
-    ```
+    ```copy-and-edit
     bosh ssh -d <deploymentID> diego_cell/<GUID>
     ```
     
@@ -345,14 +350,14 @@ Example Output:
 
 
    We will also use bosh to ssh back into our router VM
-    ```
+    ```copy-and-edit
     bosh ssh -d <deploymentID> router/<GUID>
     ```
 
 
     Now determine the amount of time a request takes when it skips Gorouter.  
     Run the following command. Replacing the variable with the IP Address we obtained earlier. 
-    ```
+    ```copy-and-edit
     time curl <IPaddressOfDiegoCellforSpringMusicApp>
     ```
     
