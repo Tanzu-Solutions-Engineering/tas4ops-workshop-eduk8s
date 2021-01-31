@@ -40,24 +40,26 @@ Let's imagine our spring-music app is experiencing latency.
     
 2. View the request time in your app's logs.  
 
-   If you suspect that you are experiencing latency, the most important logs are the access logs. The cf logs command streams log messages from Gorouter as well as from apps. 
+
+  If you suspect that you are experiencing latency, the most important logs are the access logs. The cf logs command streams log messages from Gorouter as well as from apps. 
 
 
-   From one terminal enter the following command:
 
-    ```copy-and-edit
-    cf logs spring-music-<team name>
-    ```
-    
-    From another terminal send a request to the app using the same curl command from earlier:  
-    
-    ```copy-and-edit
-    curl -v <your-app-spring-music.vmware.com>
-    ```
-    
-    You should now see the requst in your terminal with the logs.   
-    Type ctrl+c to exit the streaming logs.   
-    
+From one terminal enter the following command:
+
+ ```copy-and-edit
+ cf logs spring-music-<team name>
+ ```
+
+ From another terminal send a request to the app using the same curl command from earlier:  
+
+ ```copy-and-edit
+ curl -v <your-app-spring-music.vmware.com>
+ ```
+
+ You should now see the requst in your terminal with the logs.   
+ Type ctrl+c to exit the streaming logs.   
+
 Example Output: 
     
         bash-5.0$ cf logs spring-music-fixme
