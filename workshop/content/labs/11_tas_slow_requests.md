@@ -46,13 +46,14 @@ Let's imagine our spring-music app is experiencing latency.
       
    Enter the following command to view streaming logs:
    
-   ```copy-and-edit
-   cf logs spring-music-<team name>
+   ```execute-2
+   cf logs spring-music
    ```
    
    From any web browser navigate to your app's route:  
    
    You could also do this via curl 
+   
    ```copy-and-edit
    curl -v <your-app-spring-music.vmware.com>
    ```
@@ -79,10 +80,13 @@ Let's imagine our spring-music app is experiencing latency.
       
    We will now use our test-app to measure the latency we are seeing in our spring-music app.   
    First SSH into our test-app 
-   ```copy-and-edit
-   cf ssh test-app-<team name>
+   
+   ```execute-2
+   cf ssh test-app
    ```
-   Now run the following curl command to measure the round trip back from our spring-music app.   
+   
+   Now run the following curl command to measure the round trip back from our spring-music app.  
+   
    ```copy-and-edit
    time curl -v <your-app-spring-music.vmware.com>  
    ```
@@ -100,26 +104,33 @@ Let's imagine our spring-music app is experiencing latency.
 
    In order to do this we will need to obtain the deployment id and router guid using bosh 
    
-   This means we need to SSH to our Jumphost which has connectivity to our Bosh Director.   
+   If you lost connectivity to the jumpbox from our prior labs you will need to SSH again to our Jumphost.   
    Please use the instructions which were provided prior to the lab starting.   
     
-   ```copy-and-edit
-   ssh -i privatekey ubuntu@server.vmware.com 
-   ```    
+    ```execute
+    ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-{{ LAB_SLOT_ID }}.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+    ```
     
-   Once inside the jumphost we will need to SSH to our BOSH Director.  
+   Once inside the jumphost we will need to SSH to our Ops Manager.  
+
+    ```execute
+    ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+    ```
+    
+    
+   Once inside of Ops Manager we will need to authenticate.
+   
+    
+    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+
    ```copy-and-edit
-   ssh ubuntu@BoshDirector.vmware.com 
+   alias bosh="<command-from-ops-mgr-panel>"
    ```
-    
-    
-   Once inside of the BOSH Director we will need to authenticate.
-   ```copy-and-edit
-   export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=<BOSHSECRETHERE> BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate                                BOSH_ENVIRONMENT=<BOSH-IPADDRESS> bosh
-   ```
+   
    Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
    
    List the vms within your bosh environment 
+   
    ```execute
    bosh vms 
    ```
