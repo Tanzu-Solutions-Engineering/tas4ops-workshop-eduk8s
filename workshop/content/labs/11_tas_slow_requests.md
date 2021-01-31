@@ -206,7 +206,7 @@ Let's imagine our spring-music app is experiencing latency.
    Retrieve the IP Address and Port number of the Diego Cell where your app is running 
    
    ```copy-and-edit
-   cf ssh spring-music-<team name> -c "env |grep CF_INSTANCE_ADDR"
+   cf ssh spring-music -c "env |grep CF_INSTANCE_ADDR"
    ```
    The output should provide you with an IP address (Save this for later) 
     
@@ -217,7 +217,7 @@ Let's imagine our spring-music app is experiencing latency.
     
    You could have also ran the following command which provides slightly more detail.  
    ```copy-and-edit
-   cf curl /v2/apps/$(cf app spring-music-<team name> --guid)/stats
+   cf curl /v2/apps/$(cf app spring-music --guid)/stats
    ```
     
    Example Output: 
