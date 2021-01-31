@@ -4,14 +4,16 @@ metadata:
   name: the-bosh-fundamentals
 spec:
   portal:
+    registration:
+      type: anonymous
     # index: https://www.example.com/
     catalog:
       visibility: public
     password: VMware
-     registration:
-       type: anonymous
-       type: one-step
-       enabled: false
+     #registration:
+       #type: anonymous
+       #type: one-step
+       #enabled: false
   workshops:
   - name: tas4ops-fundamentals
     capacity: 10
