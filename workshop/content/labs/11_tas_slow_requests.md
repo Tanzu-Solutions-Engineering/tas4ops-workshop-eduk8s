@@ -15,7 +15,7 @@ Let's imagine our spring-music app is experiencing latency.
    
 1. To better understand the issue lets measure the total round-trip of our app.  
    To do this you will need to know the URI or route to your application.  
-   
+      
    Run cf apps to get a list of your applications and their corresponding urls.  
     ```execute-2
     cf apps
@@ -40,59 +40,58 @@ Let's imagine our spring-music app is experiencing latency.
     
 2. View the request time in your app's logs.  
 
+   
+   If you suspect that you are experiencing latency, the most important logs are the access logs. The cf logs command streams log messages from Gorouter as well as from apps. 
+   
+      
+   From one terminal enter the following command:
 
-  If you suspect that you are experiencing latency, the most important logs are the access logs. The cf logs command streams log messages from Gorouter as well as from apps. 
+    ```copy-and-edit
+    cf logs spring-music-<team name>
+    ```
 
+    From another terminal send a request to the app using the same curl command from earlier:  
 
+    ```copy-and-edit
+    curl -v <your-app-spring-music.vmware.com>
+    ```
 
-From one terminal enter the following command:
+    You should now see the requst in your terminal with the logs.   
+    Type ctrl+c to exit the streaming logs.   
 
- ```copy-and-edit
- cf logs spring-music-<team name>
- ```
+    Example Output: 
 
- From another terminal send a request to the app using the same curl command from earlier:  
-
- ```copy-and-edit
- curl -v <your-app-spring-music.vmware.com>
- ```
-
- You should now see the requst in your terminal with the logs.   
- Type ctrl+c to exit the streaming logs.   
-
-Example Output: 
-    
-        bash-5.0$ cf logs spring-music-fixme
-        Retrieving logs for app spring-music-fixme in org system / space workshop as admin...
-           2021-01-29T03:41:47.04+0000 [RTR/0] OUT spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io - [2021-01-29T03:41:47.036839627Z] 
-           "GET / HTTP/1.1" 200 0 2020 "-" "curl/7.64.1" "100.64.16.3:39080" "192.168.128.10:61001" x_forwarded_for:"76.211.113.136, 100.64.16.3"
-           x_forwarded_proto:"http" vcap_request_id:"bc32d8fb-dfbb-492d-542d-96c3d9c75486" response_time:0.005739 gorouter_time:0.000492 app_time:0.005247 
-           app_id:"8dac8193-ee26-44ec-81d8-de9753649be5" app_index:"0" x_b3_traceid:"3892855d75b961f7" x_b3_spanid:"3892855d75b961f7" 
-           x_b3_parentspanid:"-" b3:"3892855d75b961f7-3892855d75b961f7"
-           2021-01-29T03:41:47.04+0000 [RTR/0] OUT 
+           bash-5.0$ cf logs spring-music-fixme
+           Retrieving logs for app spring-music-fixme in org system / space workshop as admin...
+              2021-01-29T03:41:47.04+0000 [RTR/0] OUT spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io - [2021-01-29T03:41:47.036839627Z] 
+              "GET / HTTP/1.1" 200 0 2020 "-" "curl/7.64.1" "100.64.16.3:39080" "192.168.128.10:61001" x_forwarded_for:"76.211.113.136, 100.64.16.3"
+              x_forwarded_proto:"http" vcap_request_id:"bc32d8fb-dfbb-492d-542d-96c3d9c75486" response_time:0.005739 gorouter_time:0.000492 app_time:0.005247 
+              app_id:"8dac8193-ee26-44ec-81d8-de9753649be5" app_index:"0" x_b3_traceid:"3892855d75b961f7" x_b3_spanid:"3892855d75b961f7" 
+              x_b3_parentspanid:"-" b3:"3892855d75b961f7-3892855d75b961f7"
+              2021-01-29T03:41:47.04+0000 [RTR/0] OUT 
 
 
     
     
 3. Duplicate latency on another endpoint
-
-    We will now use our test-app to measure the latency we are seeing in our spring-music app.   
-    First SSH into our test-app 
-    ```copy-and-edit
-    cf ssh test-app-<team name>
-    ```
-    Now run the following curl command to measure the round trip back from our spring-music app.   
-    ```copy-and-edit
-    time curl -v <your-app-spring-music.vmware.com>  
-    ```
+   
+   We will now use our test-app to measure the latency we are seeing in our spring-music app.   
+   First SSH into our test-app 
+   ```copy-and-edit
+   cf ssh test-app-<team name>
+   ```
+   Now run the following curl command to measure the round trip back from our spring-music app.   
+   ```copy-and-edit
+   time curl -v <your-app-spring-music.vmware.com>  
+   ```
     
    ### If this experiment shows that something in your app is causing latency, use the following questions to start troubleshooting your app:
-    * Did you recently push any changes?
-    * Does your app make database calls?
-        * If so, have your database queries changed?
-    * Does your app make requests to other microservices?
-        * If so, is there a problem in a downstream app?
-    * Does your app log where it spends time? 
+   * Did you recently push any changes?
+   * Does your app make database calls?
+       * If so, have your database queries changed?
+   * Does your app make requests to other microservices?
+       * If so, is there a problem in a downstream app?
+   * Does your app log where it spends time? 
     
     
 4. Remove the load balancer from the request path 
