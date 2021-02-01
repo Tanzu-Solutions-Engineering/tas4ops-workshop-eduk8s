@@ -25,10 +25,10 @@ If no other apps are available for testing you can deploy a test app to test con
     cd test-app 
     ```
     
-3. Change the name of your app to your team name. (Edit the manifest.yml file) 
+3. Take a quick peek at your manifest file.   
   
     ```execute-2
-    vi manifest.yml
+    cat manifest.yml
     ```
     
 4. Run "cf push" to deploy the app
