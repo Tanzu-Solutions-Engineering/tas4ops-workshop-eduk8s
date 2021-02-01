@@ -385,6 +385,12 @@ Let's imagine our spring-music app is experiencing latency.
    ```copy-and-edit
    time curl <IPaddressOfDiegoCellforSpringMusicApp>
    ```
+   
+   Now that we are done with the router VM.  Let's exit it.  
+   
+   ```execute
+   exit
+   ```
     
       
    For additional detail on troubleshooting slow connectivity please see the following url. 
