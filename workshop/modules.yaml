@@ -40,11 +40,12 @@ modules:
         name: Health Checks
     labs/13_blue-green-deploy:
         name: Zero Downtime 
-    labs/14_tas_check_expired_certs:
+    labs/:14_cf-curl-api:
+        name: API Endpoints
+    labs/15_tas_check_expired_certs:
         name: Check for Expired Certs
-    labs/15_tas_cert_rotation:
+    labs/16_tas_cert_rotation:
         name: Rotate Certs
-
 
     finish:
         name: Workshop Summary
