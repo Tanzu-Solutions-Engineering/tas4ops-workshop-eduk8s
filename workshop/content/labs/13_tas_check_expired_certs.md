@@ -62,7 +62,8 @@ One of the worst thing that could happen to your platform is letting your certif
     credhub login \
      --client-name=$BOSH_CLIENT \
      --client-secret=$BOSH_CLIENT_SECRET
-  ```
+    ```
+  
 4.  Run the following credhub command to view any expired certificates. 
 
     ```execute
@@ -71,11 +72,10 @@ One of the worst thing that could happen to your platform is letting your certif
     
     Example Output: 
     ```
-            ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout | grep -A 2 "Validity"
-                Validity
-                    Not Before: Jan 20 15:13:47 2021 GMT
-                    Not After : Jan 19 15:13:47 2026 GMT
-
+    ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout | grep -A 2 "Validity"
+       Validity
+           Not Before: Jan 20 15:13:47 2021 GMT
+           Not After : Jan 19 15:13:47 2026 GMT
     ```
     
     The output should show two dates.  
@@ -83,6 +83,7 @@ One of the worst thing that could happen to your platform is letting your certif
     The second date will show when your certificate expires.
     
     Alternatively you could run this command without grep to get more details.  
+    
     ```execute
     credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout
     ```
