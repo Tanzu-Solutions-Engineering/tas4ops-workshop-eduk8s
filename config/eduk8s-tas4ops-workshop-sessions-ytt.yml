@@ -20,3 +20,5 @@ spec:
       value: #@ labenv.env_id
     - name: LAB_DOMAIN
       value: pez.pivotal.io      
+    - name: LAB_CF_DEPLOYID
+      value: #@ labenv.env_cf_apiID
