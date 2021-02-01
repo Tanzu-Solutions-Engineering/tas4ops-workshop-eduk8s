@@ -117,7 +117,10 @@ git clone https://github.com/jrobinsonvm/broken-spring-music.git
 cd broken-spring-music
 ```
 
-3. Change the name of your app to your team name. (Edit the manifest.yml file) 
+3. Take a look at the manifest file.   
+
+Manifests provide consistency and reproducibility, and can help you automate deploying apps. Both manifests and command line options allow you to override the default attribute values of cf push. These attributes include things like number of instances, disk space limit, and memory limit.
+
 
 ```execute-2
 vi manifest.yml
