@@ -117,13 +117,13 @@ git clone https://github.com/jrobinsonvm/broken-spring-music.git
 cd broken-spring-music
 ```
 
-3. Take a look at the manifest file.   
+3. Let's check the contents of your manifest file.   
 
 Manifests provide consistency and reproducibility, and can help you automate deploying apps. Both manifests and command line options allow you to override the default attribute values of cf push. These attributes include things like number of instances, disk space limit, and memory limit.
 
 
 ```execute-2
-vi manifest.yml
+cat manifest.yml
 ```
 
 4. Run "cf push" to deploy the app
