@@ -80,8 +80,15 @@ if something unexpected happens with your new version on Green, you can immediat
       Adding route blue-tired-gnu-gl.cfapps.haas-236.pez.pivotal.io to app Green in org workshop / space test as admin...
       OK
    ```
+   
+    Now let's run cf apps to see if your Green app was mapped to the new subdomain.    
+    
+    ```execute-2
+    cf apps
+    ```
 
-5. The last step in this process will unmap our old app from the route. 
+5. The last step in this process will unmap our old app from the route.
+   (This will ensure all new requests to my test-app will resolve to our new version with zero downtime) 
 
     ```copy-and-edit
     cf unmap-route Blue cfapps.haas-<slotNumber>.pez.pivotal.io -n <subdomain of Live route>
