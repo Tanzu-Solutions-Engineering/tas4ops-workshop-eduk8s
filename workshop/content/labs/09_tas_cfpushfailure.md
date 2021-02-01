@@ -10,7 +10,18 @@ Before we begin this excercise, let's make sure we have our ORG and Space setup 
 But before we can target anything, we must first authenticate ourselves via cf login while pointing to our TAS API.  
 Please refer to login instructions which were sent prior to the lab.  
 
-Please ensure the url matches your TAS environment. (Make sure to enter your slot number)
+You can obtain your CF API Credentials from Ops Manager 
+
+[Click here to launch the Ops Manager user interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }})
+
+Login with credentials: `admin` / `<the same password provided by your instructor>`
+
+
+From the Ops Mgr web UI > TAS Tile > Credentials tab
+
+([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/products/{{ LAB_CF_DEPLOYID }}/credentials/.uaa.admin_credentials)), please save the password for use in the next step.    
+
+<br/>
 
 ```copy-and-edit
 cf login -a https://api.run.haas-<Your Slot Number>.pez.pivotal.io -u admin  --skip-ssl-validation
