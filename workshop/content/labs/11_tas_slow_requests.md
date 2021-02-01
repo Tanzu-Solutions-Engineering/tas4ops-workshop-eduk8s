@@ -98,6 +98,14 @@ Let's imagine our spring-music app is experiencing latency.
    * Does your app make requests to other microservices?
        * If so, is there a problem in a downstream app?
    * Does your app log where it spends time? 
+   
+   
+   Now let's exit our test-app 
+   
+   
+   ```execute-2
+   exit 
+   ```
     
        
 4. Remove the load balancer from the request path 
