@@ -41,7 +41,7 @@ modules:
     labs/13_blue-green-deploy:
         name: Zero Downtime 
     labs/14_tas_check_expired_certs:
-        name: Rotate Certs
+        name: Check for Expired Certs
     labs/15_tas_cert_rotation:
         name: Rotate Certs
 
