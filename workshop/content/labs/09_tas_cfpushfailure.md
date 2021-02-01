@@ -85,15 +85,15 @@ Let's begin by cloning a repository of a broken springboot application.
 
 0. Create new directory and switch to it.   
 
-   Create new directory 
-   ```execute-2
-   mkdir -p myApps
-   ```
+Create new directory 
+```execute-2
+mkdir -p myApps
+```
 
-   Change directories 
-   ```execute-2
-   cd myApps
-   ```
+Change directories 
+```execute-2
+cd myApps
+```
 1. Clone the broken-spring-music git repo. 
 
 ```execute-2
