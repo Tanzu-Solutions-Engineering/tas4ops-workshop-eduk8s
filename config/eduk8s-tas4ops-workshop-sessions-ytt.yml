@@ -10,7 +10,7 @@ metadata:
   name: #@ "tas4ops-" + labenv.env_id + "-" + labenv.env_instance
 spec:
   environment:
-    name: tas4ops-fundamentals-env
+    name: tas4ops
   session:
     username: tas4ops
     password: #@ labenv.env_password
