@@ -32,14 +32,24 @@ One of the worst thing that could happen to your platform is letting your certif
    ```copy-and-edit
    alias bosh="<command-from-ops-mgr-panel>"
    ```
+   
+   Or 
+   
+   You could also temporarily export these credentials to your environment 
+   
+   ```copy-and-edit
+   export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET="examplesecret" BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=192.168.1.x bosh
+   ```
 
     
 2.  Set your credhub target to point to the Bosh Director  
-    ```copy-and-edit
-    credhub api https://<Bosh-Endpoint>:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
+
+    ```execute
+    credhub api https://$BOSH_ENVIRONMENT:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
     ```
     
     Example Output: 
+    
    ``` 
         ubuntu@opsmgr-01-haas-236-pez-pivotal-i:~$ credhub api https://192.168.1.11:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
         Setting the target url: https://192.168.1.11:8844
@@ -48,11 +58,11 @@ One of the worst thing that could happen to your platform is letting your certif
 
 3.  Next authenticate to CredHub using your bosh credentials 
 
-    ```copy-and-edit
+    ```execute
     credhub login \
-      --client-name=<BoshClient> \
-      --client-secret=<BoshSecret>
-    ```
+     --client-name=$BOSH_CLIENT \
+     --client-secret=$BOSH_CLIENT_SECRET
+  ```
 4.  Run the following credhub command to view any expired certificates. 
 
     ```execute
