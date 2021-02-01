@@ -206,6 +206,12 @@ Let's imagine our spring-music app is experiencing latency.
    ```copy-and-edit
    time curl -v <your-app-spring-music.vmware.com> 
    ```
+   
+   Now let's exit our router.  
+   
+   ```execute
+   exit
+   ```
          
 5. Remove Gorouter from the request path 
 
