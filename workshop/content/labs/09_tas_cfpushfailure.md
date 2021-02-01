@@ -24,7 +24,7 @@ From the Ops Mgr web UI > TAS Tile > Credentials tab
 <br/>
 
 ```copy-and-edit
-cf login -a https://api.run.haas-<Your Slot Number>.pez.pivotal.io -u admin  --skip-ssl-validation
+cf login -a https://api.run.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io -u admin  --skip-ssl-validation
 ```
 
 Please target the Workshop Org
