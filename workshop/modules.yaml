@@ -38,10 +38,13 @@ modules:
         name: Slow Requests
     labs/12_tas_healthcheck:
         name: Health Checks
-    labs/13_tas_check_expired_certs:
-        name: Expired Certs 
-    labs/14_tas_cert_rotation:
+    labs/13_blue-green-deploy:
+        name: Zero Downtime 
+    labs/14_tas_check_expired_certs:
         name: Rotate Certs
+    labs/15_tas_cert_rotation:
+        name: Rotate Certs
+
 
     finish:
         name: Workshop Summary
