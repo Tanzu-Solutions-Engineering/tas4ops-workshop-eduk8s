@@ -56,3 +56,5 @@ config:
       value: 236
     - name: LAB_DOMAIN
       value: pez.pivotal.io
+    - name: LAB_CF_DEPLOYID
+      value: cf-a7b9ebc208b14dec252e      
