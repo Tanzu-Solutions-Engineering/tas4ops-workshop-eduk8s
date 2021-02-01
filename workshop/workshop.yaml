@@ -21,6 +21,7 @@ modules:
     - labs/10_tas_app_connectivity
     - labs/11_tas_slow_requests
     - labs/12_tas_healthcheck
-    - labs/13_tas_check_expired_certs
-    - labs/14_tas_cert_rotation
+    - labs/13_blue-green-deploy
+    - labs/14_tas_check_expired_certs
+    - labs/15_tas_cert_rotation
     - finish
