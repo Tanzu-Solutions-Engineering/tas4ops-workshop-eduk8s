@@ -22,6 +22,7 @@ modules:
     - labs/11_tas_slow_requests
     - labs/12_tas_healthcheck
     - labs/13_blue-green-deploy
-    - labs/14_tas_check_expired_certs
-    - labs/15_tas_cert_rotation
+    - labs/14_cf-curl-api
+    - labs/15_tas_check_expired_certs
+    - labs/16_tas_cert_rotation    
     - finish
