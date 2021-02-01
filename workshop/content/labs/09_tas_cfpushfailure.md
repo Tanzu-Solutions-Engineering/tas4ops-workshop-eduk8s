@@ -133,6 +133,23 @@ From the log output you can easily identify the issue.
 ```
 The memory limit which we set within the manifest yaml file was not sufficent to run our app.  
 
+## Your application logs are made available to you by Loggregator.  
+
+
+Loggregator gathers and streams logs and metrics from user apps in an Ops Manager deployment. It also gathers and streams metrics from Ops Manager components and health metrics from BOSH-deployed VMs. Loggregator allows you to view these logs and metrics through the Loggregator CLI plugins or through a third-party service. For more information, see the Loggregator repository on GitHub.
+
+
+In VMware Tanzu Application Service for VMs (TAS for VMs) v2.10, Loggregator architecture uses Syslog Agents and removes Syslog Adapters.
+
+Platform operators can also enable System Metrics Agents on all VMs deployed with TAS for VMs to collect system-level metrics.
+
+
+Loggregator Architecture
+The following diagram shows the architecture of a Loggregator deployment.
+
+  <img src="https://docs.pivotal.io/application-service/2-10/loggregator/images/architecture/loggregator.png" alt="IT Models "/>
+
+
 In another scanario where our logs are not as straight forward we could use other methods to investigate the issue.   
 
 If a command fails or produces unexpected results, re-run it with HTTP tracing enabled to view requests and responses between the cf CLI and the Cloud Controller REST API.
