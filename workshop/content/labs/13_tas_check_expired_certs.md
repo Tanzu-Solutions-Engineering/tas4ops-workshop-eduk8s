@@ -5,11 +5,34 @@ One of the worst thing that could happen to your platform is letting your certif
 ---
 
 # Lets check for expired certificates using the CredHub CLI 
-1. First SSH to the Bosh Director VM 
+0. First ensure we are still logged into our ops manager.   
+   If not, please follow the steps provided prior to the workshop.   
+
+   SSH into the jumpbox VM of your Lab environment
 
     ```execute
-    ssh boshvm
+    ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-{{ LAB_SLOT_ID }}.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
     ```
+    Type in the password for the environment provided by your instructor.
+
+   Once logged in to the jumpbox, SSH into the Ops Manager VM of your environment
+
+    ```execute
+    ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+    ```
+    
+1. Configure an alias for BOSH commands  
+
+    The BOSH CLI requires several parameters to run commands, such as the targeted BOSH Director environment and authentication credentials. 
+
+    To make that easier, you can define an alias containing all of those parameters and the Ops Manager web interface makes the content for that alias readily available in its credentials tab page.
+
+    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+
+   ```copy-and-edit
+   alias bosh="<command-from-ops-mgr-panel>"
+   ```
+
     
 2.  Set your credhub target to point to the Bosh Director  
     ```copy-and-edit
