@@ -23,7 +23,7 @@ From the Ops Mgr web UI > TAS Tile > Credentials tab
 
 <br/>
 
-```copy-and-edit
+```execute-2
 cf login -a https://api.run.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io -u admin  --skip-ssl-validation
 ```
 
