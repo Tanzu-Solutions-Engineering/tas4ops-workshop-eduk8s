@@ -6,3 +6,5 @@
 frontend-src/db.sqlite3
 __pycache__
 credentials.yml
+*.crt 
+*.key 
