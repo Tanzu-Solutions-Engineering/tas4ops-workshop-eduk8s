@@ -293,10 +293,12 @@ Example Output:
 
     
     
-Know your app's estimated startup time (timeout issue)
+Knowing your application's start time and base line behaviors can play a critical role in the RCA (Root Cause Analysis) process.   
+
+In this case it's important to know your app's estimated startup time in case of possible timeout issues. 
+
 By default, applications must start within 60 seconds.  
 This timeout can be extended to a max of 180 seconds  
-You configure the CLI staging, startup, and timeout settings to override settings in the manifest, as necessary. 
 
 Controls the maximum time that the cf CLI waits for an app to stage after it successfully uploads and packages the app. Value set in minutes.
 
