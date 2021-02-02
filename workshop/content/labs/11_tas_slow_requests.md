@@ -9,6 +9,7 @@ Our application is experiencing extreme latency and causing our systems to becom
 Let's imagine our spring-music app is experiencing latency.  
 
 0. Let's exit the previous SSH Session. 
+
 ```execute-2
 exit
 ```
@@ -16,7 +17,8 @@ exit
 1. To better understand the issue lets measure the total round-trip of our app.  
    To do this you will need to know the URI or route to your application.  
       
-   Run cf apps to get a list of your applications and their corresponding urls.  
+   Run cf apps to get a list of your applications and their corresponding urls. 
+   
 ```execute-2
 cf apps
 ```
@@ -33,7 +35,6 @@ time curl -v <your-app-spring-music.vmware.com>
      real	0m0.201s
      user	0m0.002s
      sys     	0m0.010s
-
 ```
     
     
