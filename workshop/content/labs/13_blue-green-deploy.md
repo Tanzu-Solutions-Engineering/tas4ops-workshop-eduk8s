@@ -68,7 +68,7 @@ if something unexpected happens with your new version on Green, you can immediat
    Do this by mapping the original URL route to the Green app using the cf map-route command.
    
    ```copy-and-edit
-   cf map-route Green cfapps.haas-{{ LAB_CF_DEPLOYID }}.pez.pivotal.io -n <subdomain of live route>
+   cf map-route Green cfapps.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io -n <subdomain of live route>
    ```
    
    Example Output: 
@@ -91,7 +91,7 @@ if something unexpected happens with your new version on Green, you can immediat
    (This will ensure all new requests to my test-app will resolve to our new version with zero downtime) 
 
     ```copy-and-edit
-    cf unmap-route Blue cfapps.haas-{{ LAB_CF_DEPLOYID }}.pez.pivotal.io -n <subdomain of Live route>
+    cf unmap-route Blue cfapps.haas-{{ LAB_SLOT_ID }}.pez.pivotal.io -n <subdomain of Live route>
     ```
 
    Example Output
