@@ -26,7 +26,7 @@ cf apps
 time curl -v <your-app-spring-music.vmware.com>
 ```
     
-    Examine the output and take note of the "real" time.  
+   Examine the output and take note of the "real" time.  
     
 ```
  * Connection #0 to host spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io left intact
