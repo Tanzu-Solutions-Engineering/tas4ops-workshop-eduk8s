@@ -1,6 +1,6 @@
 ## Goal
 
-Let's assume your application is having trouble communicating with another applicaiton instance.   
+Let's assume your application is having trouble communicating with another application instance.   
 Let's see what steps we can take to get to a resolution.   
 
 ---
