@@ -133,6 +133,13 @@ cat manifest.yml
 cf push
 ```
 
+ While our app is deploying, let's take a look at the flow chart below.  
+ It describes the process that's currently taking place.  
+ <img src="https://docs.cloudfoundry.org/concepts/images/app_push_flow_diagram_diego.png" alt="Push"/>
+
+
+
+
 It looks like our app didn't start.  Let's see what could be the issue.   
 Typically the first thing to check are the logs.  This can be done with the following command.  
 
@@ -316,6 +323,7 @@ Controls the maximum time that TAS allows to elapse between starting an app and 
  ```execute-2
  cf push 
  ```
+ 
     
     
  For additional details on troubleshooting your application starting please see the following.  
