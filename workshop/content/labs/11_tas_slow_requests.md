@@ -219,20 +219,21 @@ bosh vms
    
    Retrieve the IP Address and Port number of the Diego Cell where your app is running 
    
-   ```execute-2
-   cf ssh spring-music -c "env |grep CF_INSTANCE_ADDR"
-   ```
+```execute-2
+cf ssh spring-music -c "env |grep CF_INSTANCE_ADDR"
+```
    The output should provide you with an IP address (Save this for later) 
     
-   ```
-   bash-5.0$ cf ssh spring-music-fixme -c "env |grep CF_INSTANCE_ADDR"
-   CF_INSTANCE_ADDR=192.168.2.38:61012
-   ```
+```
+bash-5.0$ cf ssh spring-music-fixme -c "env |grep CF_INSTANCE_ADDR"
+CF_INSTANCE_ADDR=192.168.2.38:61012
+```
     
    You could have also ran the following command which provides slightly more detail.  
-   ```execute-2
-   cf curl /v2/apps/$(cf app spring-music --guid)/stats
-   ```
+
+```execute-2
+cf curl /v2/apps/$(cf app spring-music --guid)/stats
+```
     
    Example Output: 
     
@@ -267,9 +268,9 @@ bosh vms
    Let's use bosh to filter our vms with the above IP Address 
     
     
-   ```copy-and-edit
-   bosh vms  |grep <DiegoCellIPAddress>
-   ```
+```copy-and-edit
+bosh vms  |grep <DiegoCellIPAddress>
+```
              
    Example Output: 
     
@@ -280,117 +281,121 @@ bosh vms
     
    Lets now SSH into our diego cell. 
    
-   ```copy-and-edit
-   bosh ssh -d <deploymentID> diego_cell/<GUID>
-   ```
+```copy-and-edit
+bosh ssh -d <deploymentID> diego_cell/<GUID>
+```
     
    Example Output: 
    
-   ```
-      bosh ssh -d cf-a801abefab398f5d1a82 diego_cell/551314d8-f176-4450-8627-8431564d1b79
-      Using environment '192.168.1.11' as client 'ops_manager'
+```
+   bosh ssh -d cf-a801abefab398f5d1a82 diego_cell/551314d8-f176-4450-8627-8431564d1b79
+   Using environment '192.168.1.11' as client 'ops_manager'
 
-      Using deployment 'cf-a801abefab398f5d1a82'
+   Using deployment 'cf-a801abefab398f5d1a82'
 
-      Task 272. Done
-      Unauthorized use is strictly prohibited. All access and activity
-      is subject to logging and monitoring.
-      Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-72-generic x86_64)
+   Task 272. Done
+   Unauthorized use is strictly prohibited. All access and activity
+   is subject to logging and monitoring.
+   Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-72-generic x86_64)
 
-      Last login: Fri Jan 29 14:39:06 2021 from 192.168.1.10
-      To run a command as administrator (user "root"), use "sudo <command>".
-      See "man sudo_root" for details.
-      diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ 
+   Last login: Fri Jan 29 14:39:06 2021 from 192.168.1.10
+   To run a command as administrator (user "root"), use "sudo <command>".
+   See "man sudo_root" for details.
+   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ 
 
-   ```
+```
              
    Once inside of the diego cell, let's run env to get a list of our current environment variables.   
     
     
    Let's run env with grep to check if cfdot is setup. 
    
-   ```execute
-   env |grep cfdot
-   ```
+```execute
+env |grep cfdot
+```
     
    If cfdot is setup properly you will see the following output
     
    
    Example Output: 
    
-   ```
-   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ env |grep cfdot
-   CA_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/ca.crt
-   PATH=/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/bin:/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/.local/bin:/var/vcap/packages/cfdot/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
-   CLIENT_KEY_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.key
-   CLIENT_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.crt
-   ```
+```
+diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ env |grep cfdot
+CA_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/ca.crt
+PATH=/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/bin:/var/vcap/bosh_ssh/bosh_eb5da8d9e71e4ec/.local/bin:/var/vcap/packages/cfdot/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
+CLIENT_KEY_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.key
+CLIENT_CERT_FILE=/var/vcap/jobs/cfdot/config/certs/cfdot/client.crt
+```
        
    If it is not setup, please run the following command to source the cfdot binary to your PATH
        
-   ```execute
-   source /var/vcap/jobs/cfdot/bin/setup
-   ```
+```execute
+source /var/vcap/jobs/cfdot/bin/setup
+```
     
    Just for kicks, let's run a few cfdot commands to see what to expect.
    
    The following command will list the number of desired number of application instanes on your diego cell.  
     
-   ```execute
-   cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
-   ```
+```execute
+cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+```
     
    Example Output: 
-   ```
-   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
-   26
-   ```
+
+```
+diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot desired-lrp-scheduling-infos | jq '.instances' | jq -s 'add'
+26
+```
     
     
    The following command will list the actual state of your application instanes on this diego cell.  
     
-   ```execute 
-    cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
-   ```
+```execute 
+ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
+```
    
    Example Output: 
-   ```
-   diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
-   RUNNING: 26
-   ```
+
+```
+diego_cell/551314d8-f176-4450-8627-8431564d1b79:~$ cfdot actual-lrps | jq -s -r 'group_by(.state)[] | .[0].state + ": " + (length | tostring)'
+RUNNING: 26
+```
    
    Just for fun, let's try curling our spring-music application from within the diego cell.   
    
-   ```copy-and-edit
-   time curl -v <your-app-spring-music.vmware.com>  
-   ```
+```copy-and-edit
+time curl -v <your-app-spring-music.vmware.com>  
+```
    
    Now let's try hittig the IP address of our diego cell from our router VM.  
    
    Exit the diego cell
    
-   ```execute
-   exit
-   ```
+```execute
+exit
+```
     
    
    We will also use bosh to ssh back into our router VM
-   ```copy-and-edit
-   bosh ssh -d <deploymentID> router/<GUID>
-   ```
+
+```copy-and-edit
+bosh ssh -d <deploymentID> router/<GUID>
+```
 
    
    Now determine the amount of time a request takes when it skips Gorouter.  
    Run the following command. Replacing the variable with the IP Address we obtained earlier. 
-   ```copy-and-edit
-   time curl <IPaddressOfDiegoCellforSpringMusicApp>
-   ```
+
+```copy-and-edit
+time curl <IPaddressOfDiegoCellforSpringMusicApp>
+```
    
    Now that we are done with the router VM.  Let's exit it.  
    
-   ```execute
-   exit
-   ```
+```execute
+exit
+```
     
       
    For additional detail on troubleshooting slow connectivity please see the following url. 
