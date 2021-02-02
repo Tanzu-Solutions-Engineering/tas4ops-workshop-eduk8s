@@ -33,9 +33,10 @@ One of the worst thing that could happen to your platform is letting your certif
    alias bosh="<command-from-ops-mgr-panel>"
    ```
    
-   Or 
+   As an extra step for this lab, let's export our BOSH variables to our environment.
    
-   You could also temporarily export these credentials to your environment 
+   We will use them in the next couple of steps.   
+   
    
    ```copy-and-edit
    export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET="examplesecret" BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=192.168.1.x bosh
