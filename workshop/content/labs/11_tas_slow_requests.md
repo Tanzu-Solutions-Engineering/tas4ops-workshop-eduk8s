@@ -28,13 +28,13 @@ time curl -v <your-app-spring-music.vmware.com>
     
     Examine the output and take note of the "real" time.  
     
-    ```
-    * Connection #0 to host spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io left intact
-        real	0m0.201s
-        user	0m0.002s
-        sys     	0m0.010s
-        
-    ```
+```
+ * Connection #0 to host spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io left intact
+     real	0m0.201s
+     user	0m0.002s
+     sys     	0m0.010s
+
+```
     
     
     
@@ -46,33 +46,33 @@ time curl -v <your-app-spring-music.vmware.com>
       
    Enter the following command to view streaming logs:
    
-   ```execute-2
-   cf logs spring-music
-   ```
+```execute-2
+cf logs spring-music
+```
    
    From any web browser navigate to your app's route:  
    
    You could also do this via curl 
    
-   ```copy-and-edit
-   curl -v <your-app-spring-music.vmware.com>
-   ```
+```copy-and-edit
+curl -v <your-app-spring-music.vmware.com>
+```
    
    You should now see the requst in your terminal with the logs.   
    Type ctrl+c to exit the streaming logs.   
 
    Example Output: 
    
-   ```
-   bash-5.0$ cf logs spring-music-fixme
-   Retrieving logs for app spring-music-fixme in org system / space workshop as admin...
-     2021-01-29T03:41:47.04+0000 [RTR/0] OUT spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io - [2021-01-29T03:41:47.036839627Z] 
-     "GET / HTTP/1.1" 200 0 2020 "-" "curl/7.64.1" "100.64.16.3:39080" "192.168.128.10:61001" x_forwarded_for:"76.211.113.136, 100.64.16.3"
-     x_forwarded_proto:"http" vcap_request_id:"bc32d8fb-dfbb-492d-542d-96c3d9c75486" response_time:0.005739 gorouter_time:0.000492 app_time:0.005247 
-     app_id:"8dac8193-ee26-44ec-81d8-de9753649be5" app_index:"0" x_b3_traceid:"3892855d75b961f7" x_b3_spanid:"3892855d75b961f7" 
-     x_b3_parentspanid:"-" b3:"3892855d75b961f7-3892855d75b961f7"
-     2021-01-29T03:41:47.04+0000 [RTR/0] OUT 
-   ```
+```
+bash-5.0$ cf logs spring-music-fixme
+Retrieving logs for app spring-music-fixme in org system / space workshop as admin...
+  2021-01-29T03:41:47.04+0000 [RTR/0] OUT spring-music-fixme-active-roan-bn.cfapps.haas-236.pez.pivotal.io - [2021-01-29T03:41:47.036839627Z] 
+  "GET / HTTP/1.1" 200 0 2020 "-" "curl/7.64.1" "100.64.16.3:39080" "192.168.128.10:61001" x_forwarded_for:"76.211.113.136, 100.64.16.3"
+  x_forwarded_proto:"http" vcap_request_id:"bc32d8fb-dfbb-492d-542d-96c3d9c75486" response_time:0.005739 gorouter_time:0.000492 app_time:0.005247 
+  app_id:"8dac8193-ee26-44ec-81d8-de9753649be5" app_index:"0" x_b3_traceid:"3892855d75b961f7" x_b3_spanid:"3892855d75b961f7" 
+  x_b3_parentspanid:"-" b3:"3892855d75b961f7-3892855d75b961f7"
+  2021-01-29T03:41:47.04+0000 [RTR/0] OUT 
+```
 
     
     
@@ -81,15 +81,15 @@ time curl -v <your-app-spring-music.vmware.com>
    We will now use our test-app to measure the latency we are seeing in our spring-music app.   
    First SSH into our test-app 
    
-   ```execute-2
-   cf ssh test-app
-   ```
+```execute-2
+cf ssh test-app
+```
    
    Now run the following curl command to measure the round trip back from our spring-music app.  
    
-   ```copy-and-edit
-   time curl -v <your-app-spring-music.vmware.com>  
-   ```
+```copy-and-edit
+time curl -v <your-app-spring-music.vmware.com>  
+```
     
    ### If this experiment shows that something in your app is causing latency, use the following questions to start troubleshooting your app:
    * Did you recently push any changes?
@@ -103,9 +103,9 @@ time curl -v <your-app-spring-music.vmware.com>
    Now let's exit our test-app 
    
    
-   ```execute-2
-   exit 
-   ```
+```execute-2
+exit 
+```
     
        
 4. Remove the load balancer from the request path 
@@ -115,33 +115,33 @@ time curl -v <your-app-spring-music.vmware.com>
    If you lost connectivity to the jumpbox from our prior labs you will need to SSH again to our Jumphost.   
    Please use the instructions which were provided prior to the lab starting.   
     
-    ```execute
-    ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-{{ LAB_SLOT_ID }}.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
-    ```
+```execute
+ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-{{ LAB_SLOT_ID }}.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+```
     
    Once inside the jumphost we will need to SSH to our Ops Manager.  
 
-    ```execute
-    ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
-    ```
+```execute
+ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+```
     
     
    Once inside of Ops Manager we will need to authenticate.
    
     
-    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+ From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
 
-   ```copy-and-edit
-   alias bosh="<command-from-ops-mgr-panel>"
-   ```
+```copy-and-edit
+alias bosh="<command-from-ops-mgr-panel>"
+```
    
    Now that we have setup our environment with our BOSH Credentials we can now run bosh commands.   
    
    List the vms within your bosh environment 
    
-   ```execute
-   bosh vms 
-   ```
+```execute
+bosh vms 
+```
    Select one of your router vms and record its GUID and deployment ID. 
     
    Example Output: 
