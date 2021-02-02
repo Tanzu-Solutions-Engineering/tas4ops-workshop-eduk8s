@@ -29,7 +29,7 @@ This workshop is intended to give you a quick hands introduction to BOSH, one of
 
 <br/>
 
-**1:15apm – 2:30pm**  
+**1:15pm – 2:30pm**  
 
 2: What is BOSH, Whiteboard [1](https://youtu.be/PBiX5nRCHPs) [2](https://youtu.be/HoY5KgYcx0I)
 
@@ -93,8 +93,14 @@ Break
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+
 
 **1:00pm – 1:15pm**  
+
+
 
 Agenda Review
 
@@ -102,7 +108,10 @@ Recap and Q&A
 
 <br/>
 
-**1:15apm – 2:30pm**  
+
+
+**1:15pm – 2:30pm**  
+
 
 15: TAS Intro and Whiteboard
 
@@ -124,9 +133,13 @@ Break
 
 19: Health Checks
 
-20: Expired Certs
+20: Zero Downtime
 
-21: Rotate Certs
+21: API Endpoints
+
+22: Check for expired Certs
+
+23: Rotate Certs
 
 <br/>
 
@@ -138,7 +151,7 @@ Break
 
 **4:10pm – 5:00pm**
 
-22: Workshop Summary
+24: Workshop Summary
 
 Q&A
 
