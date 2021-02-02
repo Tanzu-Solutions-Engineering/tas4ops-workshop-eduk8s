@@ -92,6 +92,7 @@ One of the worst thing that could happen to your platform is letting your certif
     For more detail on checking your certificates please see -> https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/check-expiration.html
  
 
+
     If your certificate has already expired please follow the knowledge base article below. 
     
     https://community.pivotal.io/s/article/How-to-rotate-and-already-expired-services-tls-ca-certificate?language=en_US
