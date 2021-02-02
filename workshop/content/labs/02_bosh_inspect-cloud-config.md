@@ -29,7 +29,7 @@ Inspect the output and find the contents for the following main sections:
 - vm_types
 ```
 
-Then visit the [Ops Manager web interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials), click on the "Bosh Director tile" configuration and compare it with the inspected cloud-config content obtained in the previous step.
+Then visit the [Ops Manager web interface](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}), click on the "Bosh Director tile" configuration and compare it with the inspected cloud-config content obtained in the previous step.
 
 <br/>
 
