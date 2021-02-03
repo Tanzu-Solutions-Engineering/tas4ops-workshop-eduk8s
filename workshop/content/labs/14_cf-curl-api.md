@@ -64,6 +64,29 @@ Let's try a few API Calls to see what's available.
    cf curl /v2/apps/$(cf app spring-music --guid)/summary
    ```
 
+5.  Next let's try listing our foundation's tasks.  
+
+    ```execute-2
+    cf curl "/v3/tasks" -X GET -H "Content-Type: application/x-www-form-urlencoded"    
+    ```
+
+6.  Now let's try listing our tasks for our spring-music app.
+
+    Since this API requires knowing the GUID of our spring-music app we will use a CF CLI command to get the GUID.   
+
+    ```execute-2
+    cf curl "/v3/apps/$(cf app spring-music --guid)/tasks" -X GET -H "Content-Type: application/x-www-form-urlencoded"    
+    ```
+    
+    Let's now get the tasks for our test-app.   
+    
+    ```execute-2
+    cf curl "/v3/apps/$(cf app test-app --guid)/tasks" -X GET -H "Content-Type: application/x-www-form-urlencoded"
+    ```
+    
+
+  
+
 
 For more detail on TAS / Cloud Foundry APIs 
 
