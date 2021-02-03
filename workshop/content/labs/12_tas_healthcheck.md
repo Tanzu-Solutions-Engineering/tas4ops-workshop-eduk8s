@@ -80,6 +80,7 @@ In this lab we will understand how to implement health checks when deploying new
 
 
 <br/>
+
 - Now let's try configuring a health check while we are creating a new instance of our test-app application.   
 
 1.  Let's switch to our test-app repo. 
