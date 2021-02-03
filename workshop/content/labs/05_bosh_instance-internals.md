@@ -161,6 +161,10 @@ tree /var/vcap
 
 1. Use `bosh start ...` and `bosh stop ...` to restart some of the jobs of an instance of your deployment
 
-<br/>
+  <br/>
 
+  Hint: to list alls jobs of all instances of a deployment, use `bosh instances --ps`
+
+
+<br/>
 ---
