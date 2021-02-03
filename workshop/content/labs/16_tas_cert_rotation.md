@@ -1,12 +1,17 @@
 ## Goal
 
-One of the worst thing that could happen to your platform is letting your certificates expire.   Once they expire normal operations can and will be eventually affected.   Let's see how we can rotate your certificates to prevent this from happening.    
+  The following steps will only show you how to rotate your Services TLS Certificate.
+  
+  In the real world you are responsible for rotating more than just your Services TLS CA and Leaf certificates 
+  However this lab's goal is to get you famailiar with some steps in the process.   
 
 ---
 
 ## Part 1 of Cert Rotation 
-  Since this is a very disruptive process we will NOT implement these steps during the workshop.   
-  The following steps will show you how to rotate your Services TLS Certificate.  
+  Since this is a very disruptive process we will NOT implement the steps after Part 1 - step 6 during the workshop.   
+  
+  Let's get started! 
+  
 1. Check if CredHub has a new temporary certificate from a previous rotation attempt.
 
     ```execute
