@@ -7,6 +7,7 @@ For this lab we will investigate how to update your applications without any dow
 
 
 ## Implement a rolling update of your application with zero downtime.
+   - Let's try implementing this as a manual step first.   
 
 When using this method, only one of the environments are live, with the live environment serving all production traffic. 
 For this example, Blue is currently live and Green is idle.
@@ -107,6 +108,45 @@ if something unexpected happens with your new version on Green, you can immediat
     ```execute-2
     cf apps
     ```
+  
+  
+- Rolling updates are possible without manual intervention.   
+
+
+1.  First let's navigate back to our test-app's git repo.
+
+    ```execute-2
+    cd /home/eduk8s/myApps/test-app
+    ```
+    
+2.  Let's scale our test-app to ensure it's made highly available.    
+
+     ```execute-2
+     cf scale test-app -i 3
+     ```
+
+3.  Let's assume we have new updates to release for our test-app however we want to use something a bit more out of the box and automated.  
+
+    For this workshop we are using CF CLI v6 which requires the following command to initial a rolling app deployment. 
+    
+     ```execute-2
+     cf v3-zdt-push test-app
+     ```
+     
+    CF CLI v7 would use the following command: 
+    
+     ```copy-and-edit
+     cf push APP-NAME --strategy rolling
+     ```
+     
+4.  Let's view our app and check the timestamps which should show different start times for your app.     
+    
+     ```execute-2
+     cf app test-app
+     ```    
+  
+     
+    
 
 ## This process could also be automated via CF Plugins.  
 
