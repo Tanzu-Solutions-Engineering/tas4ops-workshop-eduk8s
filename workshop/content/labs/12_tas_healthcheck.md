@@ -47,79 +47,80 @@ In this lab we will understand how to implement health checks when deploying new
     ```
 
     
-    Our test application has multiple endpoints so we will want to make sure they are all monitored. 
-    Let's implement HTTP Health Check for the rest of our endpoints.   
-    
-    Let's apply a health check for the /port endpoint
-    
-    ```execute-2
-    cf set-health-check test-app http --endpoint /port
-    ```
-    
-    - Now to ensure our changes take place we must restart our application.    
-    
-    ```execute-2
-    cf restart test-app 
-    ```
-    
-    Let's apply a health check for the /index endpoint
+Our test application has multiple endpoints so we will want to make sure they are all monitored. 
+Let's implement HTTP Health Check for the rest of our endpoints.   
 
-    ```execute-2
-    cf set-health-check test-app http --endpoint /index
-    ```
-    - Now to ensure our changes take place we must restart our application.    
+Let's apply a health check for the /port endpoint
     
-    ```execute-2
-    cf restart test-app 
-    ```
+```execute-2
+cf set-health-check test-app http --endpoint /port
+```
+    
+- Now to ensure our changes take place we must restart our application.    
 
-    Let's apply a health check for the /env endpoint
+```execute-2
+cf restart test-app 
+```
 
-    ```execute-2
-    cf set-health-check test-app http --endpoint /env
-    ```
-    
-    - Now to ensure our changes take place we must restart our application.    
-    
-    ```execute-2
-    cf restart test-app 
-    ```
+Let's apply a health check for the /index endpoint
+
+```execute-2
+cf set-health-check test-app http --endpoint /index
+```
+- Now to ensure our changes take place we must restart our application.    
+
+```execute-2
+cf restart test-app 
+```
+
+Let's apply a health check for the /env endpoint
+
+```execute-2
+cf set-health-check test-app http --endpoint /env
+```
+
+- Now to ensure our changes take place we must restart our application.    
+
+```execute-2
+cf restart test-app 
+```
       
-    - Next let's configure the health check to monitor the port(s) our app is listening on. 
-    
-    ```execute-2
-    cf set-health-check test-app port
-    ```
-    
-    ```
-        bash-5.0$ cf set-health-check test-app port 
-        Updating health check type for app test-app in org system / space workshop as admin...
-        OK
-        TIP: An app restart is required for the change to take effect.
-    ```
+- Next let's configure the health check to monitor the port(s) our app is listening on. 
 
-    - Now to ensure our changes take place we must restart our application.    
-    
-    ```execute-2
-    cf restart test-app 
-    ```
-    
+```execute-2
+cf set-health-check test-app port
+```
+
+```
+    bash-5.0$ cf set-health-check test-app port 
+    Updating health check type for app test-app in org system / space workshop as admin...
+    OK
+    TIP: An app restart is required for the change to take effect.
+```
+
+- Now to ensure our changes take place we must restart our application.    
+
+```execute-2
+cf restart test-app 
+```
+
 - Finally let's configure the health check to monitor our app's processes. 
-    ```execute-2
-    cf set-health-check test-app process
-    ```
-    
-    ```
-        bash-5.0$ cf set-health-check test-app process
-        Updating health check type for app test-app in org system / space workshop as admin...
-        OK
-        TIP: An app restart is required for the change to take effect.
-    ```
-    
-    - Now to ensure our changes take place we must restart our application.    . 
-    ```execute-2
-    cf restart test-app 
-    ```
+
+```execute-2
+cf set-health-check test-app process
+```
+
+```
+    bash-5.0$ cf set-health-check test-app process
+    Updating health check type for app test-app in org system / space workshop as admin...
+    OK
+    TIP: An app restart is required for the change to take effect.
+```
+
+- Now to ensure our changes take place we must restart our application.    . 
+```execute-2
+cf restart test-app 
+```
 
 <br/>
 
