@@ -3,6 +3,7 @@
   The following steps will only show you how to rotate your Services TLS Certificate.
   
   In the real world you are responsible for rotating more than just your Services TLS CA and Leaf certificates 
+  
   However this lab's goal is to get you famailiar with some steps in the process.   
 
 ---
