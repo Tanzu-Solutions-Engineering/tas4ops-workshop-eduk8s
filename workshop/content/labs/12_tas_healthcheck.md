@@ -77,3 +77,27 @@ In this lab we will understand how to implement health checks when deploying new
         OK
         TIP: An app restart is required for the change to take effect.
     ```
+
+- Now let's try configuring a health check while we are creating a new instance of our test-app application.   
+
+To configure a health check while creating or updating an app, run:
+
+1.  Let's switch to our test-app repo. 
+
+    ```execute-2
+    cd /home/eduk8s/myApps/test-app
+    ``` 
+    
+2.  Define an inital health check while pushing your applicaiton.   
+    Let's set a HTTP health check with a timeout of 60 seconds.   
+    
+    ```execute-2
+    cf push test-app-health -u http -t 60
+    ```
+    
+3.  Success! Your new test app should be deployed with a default health check defined for it's "/" endpoint.
+
+    To learn more about configuring health checks please see the following doc. 
+    
+    https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/healthchecks.html
+
