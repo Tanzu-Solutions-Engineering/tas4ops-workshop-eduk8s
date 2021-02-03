@@ -127,7 +127,7 @@ if something unexpected happens with your new version on Green, you can immediat
 
 3.  Let's assume we have new updates to release for our test-app however we want to use something a bit more out of the box and automated.  
 
-    For this workshop we are using CF CLI v6 which requires the following command to initial a rolling app deployment. 
+    For this workshop we are using CF CLI v6 which requires the following command to initiate a rolling app deployment. 
     
      ```execute-2
      cf v3-zdt-push test-app
