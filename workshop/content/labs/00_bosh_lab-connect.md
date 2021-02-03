@@ -57,12 +57,14 @@ The TAS Operations Manager VM can be used as a jump box to access and inspect a 
 
     From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias with the following command:  
 
-   `alias bosh="<command-from-ops-mgr-panel>"`
+    ```copy-and-edit
+    alias bosh="<command-from-ops-mgr-panel>"
+    ```
 
-   Example: 
+    Example: 
 
-   `alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=... BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=192.168.1.11 bosh "`
-   
+    `alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=... BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=192.168.1.11 bosh "`
+
 
 <br/>
 
