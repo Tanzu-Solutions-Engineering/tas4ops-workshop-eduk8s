@@ -1,6 +1,6 @@
 ## Goal
 
-With TAS you are able to apply health checks to all of your applications.   This ensures that you applications behaves as expected with little effort.  
+With TAS you are able to apply health checks to all of your applications.   This ensures that your applications behave as expected with little effort.  
 In this lab we will understand how to implement health checks when deploying new applications and for existing applications.   
 
 ---
