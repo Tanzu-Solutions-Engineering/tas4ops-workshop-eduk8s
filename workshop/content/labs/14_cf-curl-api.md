@@ -8,7 +8,13 @@ This can be extremely useful when needing to do quick troubleshooting tasks or i
 
 ## Cloud Foundry's API via CF CLI 
 
+Many users will think of interactions with Cloud Foundry in terms of a single operation like cf push in order to upload an application to the platform, have it compiled, and schedule it to be run. Performing a push operation actually requires a client to orchestrate several requests to the API to accomplish the entire operation. 
+
+
 Cloud Foundry's API can be invoked via the CF CLI.  This is a very easy way to execute Cloud foundry API calls without the need to understand OAUTH and Token Authentication.  
+
+
+
 
 Let's try a few API Calls to see what's available.  
 
