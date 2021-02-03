@@ -102,6 +102,11 @@ if something unexpected happens with your new version on Green, you can immediat
     OK
     ```
     
+    Now let's run cf apps to see if your Blue app was un-mapped from the old subdomain.    
+    
+    ```execute-2
+    cf apps
+    ```
 
 ## This process could also be automated via CF Plugins.  
 
