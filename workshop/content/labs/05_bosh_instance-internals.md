@@ -24,17 +24,16 @@ Lets explore how both of these are done, and where the important files are by ex
   You should see something like the following:
     
     ```
-            Filesystem      Size  Used Avail Use% Mounted on
-            udev            7.4G  4.0K  7.4G   1% /dev
-            tmpfs           1.5G  268K  1.5G   1% /run
-            /dev/sda1       2.8G  1.2G  1.5G  46% /
-            none            4.0K     0  4.0K   0% /sys/fs/cgroup
-            none            5.0M     0  5.0M   0% /run/lock
-            none            7.4G     0  7.4G   0% /run/shm
-            none            100M     0  100M   0% /run/user
-            /dev/sda3       8.4G   22M  7.9G   1% /var/vcap/data
-            tmpfs           1.0M  4.0K 1020K   1% /var/vcap/data/sys/run
-            /dev/sdb1       4.8G   10M  4.6G   1% /var/vcap/store
+      Filesystem      Size  Used Avail Use% Mounted on
+      devtmpfs        479M     0  479M   0% /dev
+      tmpfs           493M     0  493M   0% /dev/shm
+      tmpfs           493M   62M  432M  13% /run
+      tmpfs           5.0M     0  5.0M   0% /run/lock
+      tmpfs           493M     0  493M   0% /sys/fs/cgroup
+      /dev/sda1       2.9G  1.4G  1.4G  50% /
+      /dev/sdb2       6.9G  952M  5.6G  15% /var/vcap/data
+      tmpfs           1.0M   40K  984K   4% /var/vcap/data/sys/run
+      /dev/sdc1       197G   60M  187G   1% /var/vcap/store
     ```
 
   Any persistent disk specified in this instance's deployment manifest is attached to the `/var/vcap/store` mount point.   
@@ -82,6 +81,8 @@ Lets explore how both of these are done, and where the important files are by ex
     ```execute 
     monit restart metrics-agent
     ```
+
+    Then issue the `monit summary` command a few times while the process restarts in order to inspect the status updates provided by monit.  
 
     ```execute
     monit summary
@@ -139,7 +140,7 @@ tree /var/vcap
   free -g
   ```
 
-1. Exit the vm when done.
+1. Exit the vm when done and go back to the Ops Mgr VM ssh session.
 
    ```execute
    exit

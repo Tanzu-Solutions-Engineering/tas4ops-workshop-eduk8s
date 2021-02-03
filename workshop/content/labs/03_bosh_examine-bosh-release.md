@@ -37,7 +37,9 @@ Lets explore the BOSH Releases currently available on your environment.
     Notice that the release versions listed with asterisks are currently in use by the deployments.
     You can only delete BOSH releases that are not currently in use.
 
-    *Best Practice*
+    <br/>
+
+    **Best Practice**
 
     BOSH Directors deployed by OpsMgr for a TAS installation should not be used for ad-hoc release deployments to minimize the risk of deployment misconfiguration accidents (e.g. delete the TAS deployment by accident).
 

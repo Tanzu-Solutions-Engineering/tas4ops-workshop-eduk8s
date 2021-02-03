@@ -51,13 +51,18 @@ The TAS Operations Manager VM can be used as a jump box to access and inspect a 
 
 1. Configure an alias for BOSH commands  
 
-    The BOSH CLI requires several parameters to run commands, such as the targeted BOSH Director environment and authentication credentials. 
+    The BOSH CLI requires several parameters to run commands, such as the targeted BOSH Director environment and credentials for authentication. 
 
-    To make that easier, you can define an alias containing all of those parameters and the Ops Manager web interface makes the content for that alias readily available in its credentials tab page.
+    To make that easier, you can define an alias containing all of those parameters. And the Ops Manager web interface makes the content for that alias readily available in its credentials tab page.
 
-    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+    From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias with the following command:  
 
    `alias bosh="<command-from-ops-mgr-panel>"`
+
+   Example: 
+
+   `alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=... BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=192.168.1.11 bosh "`
+   
 
 <br/>
 

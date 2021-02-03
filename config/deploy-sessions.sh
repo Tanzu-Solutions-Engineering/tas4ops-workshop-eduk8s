@@ -16,7 +16,7 @@ kubectl apply -k "github.com/eduk8s/eduk8s?ref=20.12.03.1"
 
 sleep 2
 
-kubectl create secret tls -n eduk8s yourcompanyku-tls --cert=./yourcompany.crt --key=./yourcompany.key
+kubectl create secret tls -n eduk8s yourcompany-tls --cert=./yourcompany.crt --key=./yourcompany.key
 
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_DOMAIN=yourcompany.pw
 kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_CLASS=nginx

@@ -8,7 +8,7 @@
 <br/>
 <br/>
 
-This workshop is intended to give you a quick hands introduction to BOSH, one of the foundation components of Tanzu Application Service, and to common tasks performed by platform engineers to inspect, diagnose and troubleshoot issues with the runtime. 
+This workshop is intended to give you a quick hands-on introduction to BOSH, one of the foundation components of Tanzu Application Service, and to common tasks performed by platform engineers to inspect, diagnose and troubleshoot issues with the runtime. 
 
 <br/>
 <br/>

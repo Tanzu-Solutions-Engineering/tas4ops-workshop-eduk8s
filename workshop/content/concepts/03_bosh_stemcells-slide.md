@@ -36,7 +36,14 @@
 <br/>
 
 - stemcell.MF
-- stemcell_dpkg_l.txt
+- packages.txt
+
+<br/>
+
+### Stemcell Versions
+
+<br/>
+
 - MAJOR.MINOR format
 - Major version is incremented when new features are added to stemcells
 - Minor versions are incremented if certain security fixes backported on top of existing stemcell line. 
