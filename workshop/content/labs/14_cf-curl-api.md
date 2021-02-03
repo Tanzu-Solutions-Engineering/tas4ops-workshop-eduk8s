@@ -56,6 +56,13 @@ Let's try a few API Calls to see what's available.
    cf curl /v2/apps/<GUID>/summary
 
    ```
+   
+   
+   You could also do the above steps in the same command.  
+   
+   ```execute-2
+   cf curl /v2/apps/$(cf app spring-music --guid)/summary
+   ```
 
 
 For more detail on TAS / Cloud Foundry APIs 
