@@ -133,8 +133,20 @@ Let's try a few API Calls to see what's available.
     ```
     
     
+    Finally, let's check our task's state.   
+    
+    ```execute-2
+    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks
+    ```
     
     
+    To narrow down to the task let's grep for it's "state".
+    
+    ```execute-2
+    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks |grep state
+    ```
+   
+   
     
 
   
