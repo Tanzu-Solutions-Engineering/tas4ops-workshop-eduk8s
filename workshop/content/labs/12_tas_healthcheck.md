@@ -38,22 +38,55 @@ In this lab we will understand how to implement health checks when deploying new
 
     ```
     
+    - Now to ensure our changes take place we must restart our application.
+    
+      We must do this everytime we add a health check.   
+      
+    ```execute-2
+    cf restart test-app 
+    ```
+
+    
     Our test application has multiple endpoints so we will want to make sure they are all monitored. 
-    Let's implement HTTP Health Check for the rest of our endpoints.    
+    Let's implement HTTP Health Check for the rest of our endpoints.   
+    
+    Let's apply a health check for the /port endpoint
+    
     ```execute-2
     cf set-health-check test-app http --endpoint /port
     ```
     
+    - Now to ensure our changes take place we must restart our application.    
+    
+    ```execute-2
+    cf restart test-app 
+    ```
+    
+    Let's apply a health check for the /index endpoint
+
     ```execute-2
     cf set-health-check test-app http --endpoint /index
     ```
+    - Now to ensure our changes take place we must restart our application.    
     
+    ```execute-2
+    cf restart test-app 
+    ```
+
+    Let's apply a health check for the /env endpoint
+
     ```execute-2
     cf set-health-check test-app http --endpoint /env
     ```
+    
+    - Now to ensure our changes take place we must restart our application.    
+    
+    ```execute-2
+    cf restart test-app 
+    ```
       
-      
-- Next let's configure the health check to monitor the port(s) our app is listening on. 
+    - Next let's configure the health check to monitor the port(s) our app is listening on. 
+    
     ```execute-2
     cf set-health-check test-app port
     ```
@@ -64,7 +97,12 @@ In this lab we will understand how to implement health checks when deploying new
         OK
         TIP: An app restart is required for the change to take effect.
     ```
+
+    - Now to ensure our changes take place we must restart our application.    
     
+    ```execute-2
+    cf restart test-app 
+    ```
     
 - Finally let's configure the health check to monitor our app's processes. 
     ```execute-2
@@ -78,7 +116,7 @@ In this lab we will understand how to implement health checks when deploying new
         TIP: An app restart is required for the change to take effect.
     ```
     
-- Now to ensure our changes take place we must restart our application.    . 
+    - Now to ensure our changes take place we must restart our application.    . 
     ```execute-2
     cf restart test-app 
     ```
