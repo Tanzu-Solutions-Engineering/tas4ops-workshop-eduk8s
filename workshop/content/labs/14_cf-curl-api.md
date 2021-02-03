@@ -89,6 +89,52 @@ Let's try a few API Calls to see what's available.
     ```execute-2
     cf curl "/v3/apps/$(cf app test-app --guid)/tasks" -X GET -H "Content-Type: application/x-www-form-urlencoded"
     ```
+
+7.  Let's try a simple workflow with our APIs.  
+
+    First let's push a new app called "v3-tasks-sample"
+
+    Change to your test-app directory 
+    ```execute-2
+    cd /home/eduk8s/myApps/test-app
+    ```
+    
+    Let's push our app. 
+    ```execute-2
+    cf push v3-tasks-sample
+    ```
+    
+    Now let's view our newly deployed app.  
+    ```execute-2
+    cf app v3-tasks-sample
+    ```
+    
+    
+    Let's now construct a task creation to echo "I love TAS"
+    
+    (Just a simple example of what could be done) 
+    
+    ```execute-2
+    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks -X POST -d '{"command":"echo foo; sleep 5; echo I love TAS;"}'
+    ```
+ 
+    
+    Let's view our logs, we should see log messages from our tasks.   
+    
+    ```execute-2
+    cf logs v3-tasks-sample --recent 
+    ```
+    
+    
+    Since there may be a number of rolling logs, let's grep for our expected output.   
+    
+    ```execute-2
+    cf logs v3-tasks-sample --recent |grep "I love TAS"
+    ```
+    
+    
+    
+    
     
 
   
