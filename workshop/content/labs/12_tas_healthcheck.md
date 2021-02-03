@@ -78,9 +78,9 @@ In this lab we will understand how to implement health checks when deploying new
         TIP: An app restart is required for the change to take effect.
     ```
 
-- Now let's try configuring a health check while we are creating a new instance of our test-app application.   
 
-To configure a health check while creating or updating an app, run:
+<br/>
+- Now let's try configuring a health check while we are creating a new instance of our test-app application.   
 
 1.  Let's switch to our test-app repo. 
 
