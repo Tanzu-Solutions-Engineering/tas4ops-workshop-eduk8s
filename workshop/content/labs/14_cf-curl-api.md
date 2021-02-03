@@ -110,42 +110,42 @@ Let's try a few API Calls to see what's available.
     ```
     
     
-    Let's now construct a task creation to echo "I love TAS"
+Let's now construct a task creation to echo "I love TAS"
+
+(Just a simple example of what could be done) 
+
+```execute-2
+cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks -X POST -d '{"command":"echo foo; sleep 5; echo I love TAS;"}'
+```
+
+
+Let's view our logs, we should see log messages from our tasks.   
+
+```execute-2
+cf logs v3-tasks-sample --recent 
+```
     
-    (Just a simple example of what could be done) 
-    
-    ```execute-2
-    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks -X POST -d '{"command":"echo foo; sleep 5; echo I love TAS;"}'
-    ```
- 
-    
-    Let's view our logs, we should see log messages from our tasks.   
-    
-    ```execute-2
-    cf logs v3-tasks-sample --recent 
-    ```
-    
-    
-    Since there may be a number of rolling logs, let's grep for our expected output.   
-    
-    ```execute-2
-    cf logs v3-tasks-sample --recent |grep "I love TAS"
-    ```
-    
-    
-    Finally, let's check our task's state.   
-    
-    ```execute-2
-    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks
-    ```
-    
-    
-    To narrow down to the task let's grep for it's "state".
-    
-    ```execute-2
-    cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks |grep state
-    ```
-   
+
+Since there may be a number of rolling logs, let's grep for our expected output.   
+
+```execute-2
+cf logs v3-tasks-sample --recent |grep "I love TAS"
+```
+
+
+Finally, let's check our task's state.   
+
+```execute-2
+cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks
+```
+
+
+To narrow down to the task let's grep for it's "state".
+
+```execute-2
+cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks |grep state
+```
+
    
     
 
