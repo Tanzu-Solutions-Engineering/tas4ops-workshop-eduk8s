@@ -77,7 +77,11 @@ In this lab we will understand how to implement health checks when deploying new
         OK
         TIP: An app restart is required for the change to take effect.
     ```
-
+    
+- Now to ensure our changes take place we must restart our application.    . 
+    ```execute-2
+    cf restart test-app 
+    ```
 
 <br/>
 
