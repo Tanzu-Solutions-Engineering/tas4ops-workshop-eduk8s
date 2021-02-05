@@ -20,9 +20,10 @@ modules:
     - labs/09_tas_cfpushfailure
     - labs/10_tas_app_connectivity
     - labs/11_tas_slow_requests
-    - labs/12_tas_healthcheck
-    - labs/13_blue-green-deploy
-    - labs/14_cf-curl-api
-    - labs/15_tas_check_expired_certs
-    - labs/16_tas_cert_rotation    
+    - labs/12_cf-curl-api
+    - labs/13_tas_healthcheck
+    - labs/14_healthwatch
+    - labs/15_blue-green-deploy
+    - labs/16_tas_check_expired_certs
+    - labs/17_tas_cert_rotation 
     - finish
