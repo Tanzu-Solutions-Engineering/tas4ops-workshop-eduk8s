@@ -48,7 +48,7 @@ From the Ops Mgr web UI > TAS Tile > Credentials tab
 ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/products/{{ LAB_CF_DEPLOYID }}/credentials/.uaa.admin_credentials)), please save the password for use in the next step.    
 
 
-Now navigate to  ([link](https://healthwatch.run.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}   and log in.  
+To access Healthwatch's UI navigate to  ([link](https://healthwatch.run.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }})   and log in.  
 
 <br/>
 
@@ -78,7 +78,7 @@ To investigate further let's walk through health watch to identify the affected 
     Direct link here: 
     
     ```copy-and-edit
-    ([link](https://healthwatch.run.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/jobHealth/details
+    https://healthwatch.run.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/jobHealth/details
     ```
     
 2. Now toggle the option to "Only Show Errors" off.   (Default view will only show errors) 
@@ -90,11 +90,11 @@ To investigate further let's walk through health watch to identify the affected 
 
 3. Now select the job for diego_cell.  
    
-   This view will give you a glance at how your diego cell's are preforming.   
+   This view will give you a glance at how your diego cells are preforming.   
    
    Notice that we have 3 diego cells which show up under Metric Summary and Instance ID.   
    
-   From this view we can gather high level statistics on how our diego cell's are preforming. 
+   From this view we can gather high level statistics on how our diego cells are preforming. 
    
    
       
@@ -137,7 +137,7 @@ To investigate further let's walk through health watch to identify the affected 
 
    Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
 
-   
+   ---
       
 
 5. Notice that we have 3 diego cells which show up under Metric Summary.
