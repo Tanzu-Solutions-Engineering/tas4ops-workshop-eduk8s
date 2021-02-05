@@ -21,6 +21,13 @@ There are three key capacity scaling indicators VMware recommends for a Diego Ce
 
 - Diego Cell container capacity is a measure of the percentage of remaining container capacity. 
 
+
+
+  For more detail on key capacity scaling indicator please see the following doc.  
+  https://docs.pivotal.io/application-service/2-10/overview/monitoring/key-cap-scaling.html#cell-container
+  
+ 
+  
 ---
 
 ### Let's take a look at what's inside of Healthwatch  
@@ -95,9 +102,39 @@ To investigate further let's walk through health watch to identify the affected 
 
    Their names can be seen under the category for Instance ID.   
    
-   From this view we can gather high level statistics about how our diego cell's are preforming. 
+   From this view we can gather high level statistics about how our diego cells are preforming. 
    
-   Let's copy the Instance ID of the diego cell which shows the highest load on CPU.  
+   Let's copy the Instance ID of the diego cell which shows the highest load on CPU and save this for later.   
+   
+   
+   Take a glance at all of the graphs from this view.  
+
+
+   - CPU
+   
+   The CPU utilization which is shown is a percentage of the total available memory across all cells/Diego VMs.  
+        
+   Investigate the cause of the spike. If the cause is a normal workload increase, then scale up the affected jobs.
+
+
+   - Memory 
+   
+   The Memory utilization shown is the total remaining available memory across all cells.  
+   
+   Responses to memory usage can vary depending on the type of workload or job that causing the spike.  
+
+
+   - System Disk 
+   
+   The System Disk utilization is the amount of space available across the system partition.   
+
+   Investigate what is filling the jobs system partition. This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+
+
+   - Persistent Disk 
+   
+   
+   
    
 
 5. Let's prepare to SSH into this diego cell so that we can continue our investigation.       
@@ -255,3 +292,16 @@ To investigate further let's walk through health watch to identify the affected 
     "name": "bosh-health-check",
     "name": "healthwatch",
     ```
+    
+    
+    
+    For more detail on key capacity scaling indicator please see the following doc.  
+    
+    https://docs.pivotal.io/application-service/2-10/overview/monitoring/key-cap-scaling.html#cell-container
+    
+    For more detail on healthwatch please see the following doc. 
+    
+    https://docs.pivotal.io/healthwatch/1-8/metrics.html#free-disk-chunks
+    
+    
+    
