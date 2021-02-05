@@ -140,11 +140,11 @@ To investigate further let's walk through health watch to identify the affected 
    ---
       
 
-5. Notice that we have 3 diego cells which show up under Metric Summary.
+5. Notice that we have 3 diego cells which are listed under Metric Summary.
 
    Their names can be seen under the category for Instance ID.   
      
-   Let's copy the Instance ID of the diego cell which show the highest load on CPU and save this for later.   
+   Let's copy the Instance ID of the diego cell which shows the highest load on CPU and save this for later.   
       
    
       
@@ -165,35 +165,35 @@ To investigate further let's walk through health watch to identify the affected 
    ```
 
 
-   Once inside of Ops Manager we will need to authenticate.
+     Once inside of Ops Manager we will need to authenticate.
 
 
-   From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+     From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
 
-   ```copy-and-edit
-   alias bosh="<command-from-ops-mgr-panel>"
-   ```
-   
-   Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
-   
-   To ssh to our diego cells or any bosh deployed VM we will need to know it's corresponding deployment ID.   
-   
-   The deployment ID can be seen from our previous healthwatch tab which shows the Diego Cell Job.   
-   The Deployment ID is shown in the top left corner of the page.   
-   
-   It will begin with the letters "cf-" following its guid.   
-   
-   Example: 
-   
-   ```
-   Foundation / All Jobs / cf-a9f06a06db4ae96934f2
-   ```
-   
-   You can also obtain the deployment ID by running the following command.   
-   
-   ```execute
-   bosh vms
-   ```
+     ```copy-and-edit
+     alias bosh="<command-from-ops-mgr-panel>"
+     ```
+
+     Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
+
+     To ssh to our diego cells or any bosh deployed VM we will need to know it's corresponding deployment ID.   
+
+     The deployment ID can be seen from our previous healthwatch tab which shows the Diego Cell Job.   
+     The Deployment ID is shown in the top left corner of the page.   
+
+     It will begin with the letters "cf-" following its guid.   
+
+     Example: 
+
+     ```
+     Foundation / All Jobs / cf-a9f06a06db4ae96934f2
+     ```
+
+     You can also obtain the deployment ID by running the following command.   
+
+     ```execute
+     bosh vms
+     ```
    
    The deployment ID can be seen above the Instance/VM details.   
    
@@ -234,7 +234,8 @@ To investigate further let's walk through health watch to identify the affected 
 
    
 10. Let's select the first guid from the list to determine it's application name.
-   Run the following command to identify application names while only providing its guid.  
+
+    Run the following command to identify application names while only providing its guid.  
       
    ```copy-and-edit
    cf curl /v2/apps/<guid>/stats | grep name | uniq
@@ -307,13 +308,13 @@ To investigate further let's walk through health watch to identify the affected 
     
     
     
-    For more detail on key capacity scaling indicator please see the following doc.  
-    
-    https://docs.pivotal.io/application-service/2-10/overview/monitoring/key-cap-scaling.html#cell-container
-    
-    For more detail on healthwatch please see the following doc. 
-    
-    https://docs.pivotal.io/healthwatch/1-8/metrics.html#free-disk-chunks
+  For more detail on key capacity scaling indicator please see the following doc.  
+
+  https://docs.pivotal.io/application-service/2-10/overview/monitoring/key-cap-scaling.html#cell-container
+
+  For more detail on healthwatch please see the following doc. 
+
+  https://docs.pivotal.io/healthwatch/1-8/metrics.html#free-disk-chunks
     
     
     
