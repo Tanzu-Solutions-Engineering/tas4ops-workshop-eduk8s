@@ -217,5 +217,24 @@ To investigate further let's walk through health watch to identify the affected 
    ```execute-2
    for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
    ```
-
+   
+   Example Output: 
+   ```
+   [~/myApps/broken-spring-music] $ for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
+    "name": "app-usage-scheduler",
+    "name": "apps-manager-js-green",
+    "name": "p-invitations-green",
+    "name": "apps-manager-js-green",
+    "name": "nfsbroker",
+    "name": "opsmanager-health-check",
+    "name": "app-usage-server",
+    "name": "autoscale",
+    "name": "healthwatch-api",
+    "name": "healthwatch-ingestor",
+    "name": "cf-health-check",
+    "name": "notifications-ui",
+    "name": "smbbroker",
+    "name": "bosh-health-check",
+    "name": "healthwatch",
+   ```
 
