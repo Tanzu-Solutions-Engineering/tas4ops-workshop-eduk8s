@@ -174,12 +174,14 @@ To investigate further let's walk through health watch to identify the affected 
    ```
    
 9. Using the above step can be very time consuming. 
-   Let's create a quick script to automate this step. 
+   Let's create a super simple script to automate this step. 
    
    First, let's copy the list of GUIDs from our prior cfdot command.   
    We will copy and paste the guids only to a new temporary file.   
-      
-   ```execute
+   
+   Create file named "tmpfile" using nano
+   
+   ```execute-2
    nano tmpfile
    ```
    
@@ -188,6 +190,8 @@ To investigate further let's walk through health watch to identify the affected 
    To save and exit your file press and hold "ctrl+x" then type "y" to save.   
    
    Your file should look like the following when complete.   
+   
+   Example: 
    ```
     [~/myApps/broken-spring-music] $ cat tmpfile 
     fac3c1a7-1f1c-43fb-bccb-6dd1250e5658
@@ -208,6 +212,10 @@ To investigate further let's walk through health watch to identify the affected 
     [~/myApps/broken-spring-music] $ 
    ```
       
+   Once your tmp file has been created with your list of guids you will now need to run the above cf command as a for loop. 
    
+   ```execute-2
+   for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
+   ```
 
 
