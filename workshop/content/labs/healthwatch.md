@@ -64,13 +64,20 @@ Our assumption here is that a "heavy" application or a combination of applicatio
 To investigate further let's walk through health watch to identify the affected diego cell.   
 
 
-1.  Run cf apps to get a list of your running applications.   You should see your test-app application deployed.   
-    ```execute-2
-    cf a
+1.  From the dashboard view, navigate to your left panel and select the 2nd tab called Foundation and select All Jobs.
+
+    Dashboard --> Foundation --> All Jobs. 
+    
+    Direct link here: 
+    
+    ```copy-and-edit
+    ([link](https://healthwatch.run.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/jobHealth/details
     ```
-2. TAS supports configuring 3 different types of health checks.  Port, Process and HTTP.   
-- First let's implement a HTTP Health Check for your test-app application.    
-   
+    
+2. Now toggle the option to "Only Show Errors" off.   (Default view will only show errors) 
+
+   We want to view all jobs regardless of state.   
+      
     ```execute-2
     cf set-health-check test-app http --endpoint /
     ```
