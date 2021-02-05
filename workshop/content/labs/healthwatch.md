@@ -192,25 +192,25 @@ To investigate further let's walk through health watch to identify the affected 
    ```
    
 10. Using the above step can be very time consuming. 
-   Let's create a super simple script to automate this step. 
+    Let's create a super simple script to automate this step. 
    
-   First, let's copy the list of GUIDs from our prior cfdot command.   
-   We will copy and paste the guids only to a new temporary file.   
+    First, let's copy the list of GUIDs from our prior cfdot command.   
+    We will copy and paste the guids only to a new temporary file.   
    
-   Create file named "tmpfile" using nano
+    Create file named "tmpfile" using nano
    
-   ```execute-2
-   nano tmpfile
-   ```
+    ```execute-2
+    nano tmpfile
+    ```
    
-   Now paste the list of guids to your file. 
+    Now paste the list of guids to your file. 
    
-   To save and exit your file press and hold "ctrl+x" then type "y" to save.   
+    To save and exit your file press and hold "ctrl+x" then type "y" to save.   
    
-   Your file should look like the following when complete.   
+    Your file should look like the following when complete.   
    
-   Example: 
-   ```
+    Example: 
+    ```
     [~/myApps/broken-spring-music] $ cat tmpfile 
     fac3c1a7-1f1c-43fb-bccb-6dd1250e5658
     0586bd28-beea-436f-aa3f-ae3c6c2358bf
@@ -228,17 +228,17 @@ To investigate further let's walk through health watch to identify the affected 
     ebd92ec2-a6e9-48c7-804b-414e27af9d8e
     b43ef658-fd3a-4950-b415-4a9e78423448
     [~/myApps/broken-spring-music] $ 
-   ```
+    ```
       
-   Once your tmp file has been created with your list of guids you will now need to run the above cf command as a for loop. 
+    Once your tmp file has been created with your list of guids you will now need to run the above cf command as a for loop. 
    
-   ```execute-2
-   for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
-   ```
+    ```execute-2
+    for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
+    ```
    
-   Example Output: 
-   ```
-   [~/myApps/broken-spring-music] $ for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
+    Example Output: 
+    ```
+    [~/myApps/broken-spring-music] $ for i in $(cat tmpfile); do      echo $(cf curl /v2/apps/$i/stats | grep name | uniq); done
     "name": "app-usage-scheduler",
     "name": "apps-manager-js-green",
     "name": "p-invitations-green",
@@ -254,4 +254,4 @@ To investigate further let's walk through health watch to identify the affected 
     "name": "smbbroker",
     "name": "bosh-health-check",
     "name": "healthwatch",
-   ```
+    ```
