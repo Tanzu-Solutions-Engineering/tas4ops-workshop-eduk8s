@@ -166,10 +166,48 @@ To investigate further let's walk through health watch to identify the affected 
    cfdot cell-state <diego's InstanceID> | jq -r '. | "\ndiego_cell:", .cell_id, "\n", "App-Guids:", .LRPs[].process_guid[0:36]'
    ```
    
-8. Let's use the guids from our previous step to lookup our application names.        
+8. Let's select the first guid from the list to determine it's application name.
+   Run the following command to identify application names while only providing its guid.  
       
    ```copy-and-edit
-   cfdot cell-state <diego's InstanceID> | jq -r '. | "\ndiego_cell:", .cell_id, "\n", "App-Guids:", .LRPs[].process_guid[0:36]'
+   cf curl /v2/apps/<guid>/stats | grep name | uniq
    ```
-  
+   
+9. Using the above step can be very time consuming. 
+   Let's create a quick script to automate this step. 
+   
+   First, let's copy the list of GUIDs from our prior cfdot command.   
+   We will copy and paste the guids only to a new temporary file.   
+      
+   ```execute
+   nano tmpfile
+   ```
+   
+   Now paste the list of guids to your file. 
+   
+   To save and exit your file press and hold "ctrl+x" then type "y" to save.   
+   
+   Your file should look like the following when complete.   
+   ```
+    [~/myApps/broken-spring-music] $ cat tmpfile 
+    fac3c1a7-1f1c-43fb-bccb-6dd1250e5658
+    0586bd28-beea-436f-aa3f-ae3c6c2358bf
+    a8af73e5-0a86-42c1-822d-d38ca12e9fe2
+    0586bd28-beea-436f-aa3f-ae3c6c2358bf
+    3d827b3b-c47a-46d1-a0e0-34d5edbd024f
+    56f7ac14-78d9-4113-86fb-0d0b6c95d769
+    a1d67487-c25e-4538-b8b4-a4dc8ae73042
+    9e4200eb-ce25-4e21-a5f2-993ce0dd7207
+    e51e41b5-4799-412f-b6ed-41f3d3a2247a
+    fd941736-bd3e-4428-8d66-5c80d25f1638
+    05fe88e4-f7fb-41b8-b022-5291ed74d188
+    be76e688-be58-46d3-b872-4e66d9e6aa78
+    ff89fb10-aac9-479d-9ce5-ab63e64dfafc
+    ebd92ec2-a6e9-48c7-804b-414e27af9d8e
+    b43ef658-fd3a-4950-b415-4a9e78423448
+    [~/myApps/broken-spring-music] $ 
+   ```
+      
+   
+
 
