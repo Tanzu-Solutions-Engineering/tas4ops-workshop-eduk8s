@@ -98,18 +98,11 @@ To investigate further let's walk through health watch to identify the affected 
    
    
       
-4. Notice that we have 3 diego cells which show up under Metric Summary.
-
-   Their names can be seen under the category for Instance ID.   
-   
+4. Take a glance at all of the graphs from this view.  
+ 
    From this view we can gather high level statistics about how our diego cells are preforming. 
+     
    
-   Let's copy the Instance ID of the diego cell which shows the highest load on CPU and save this for later.   
-   
-   
-   Take a glance at all of the graphs from this view.  
-
-
    #### CPU
    
    The CPU utilization which is shown is a percentage of the total available memory across all cells/Diego VMs.  
@@ -145,15 +138,18 @@ To investigate further let's walk through health watch to identify the affected 
    Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
 
    
-   
-   
+      
 
-   
-   
-   
-   
+5. Notice that we have 3 diego cells which show up under Metric Summary.
 
-5. Let's prepare to SSH into this diego cell so that we can continue our investigation.       
+   Their names can be seen under the category for Instance ID.   
+     
+   Let's copy the Instance ID of the diego cell which show the highest load on CPU and save this for later.   
+      
+   
+      
+
+6. Let's prepare to SSH into this diego cell so that we can continue our investigation.       
 
    If you lost connectivity to the jumpbox from our prior labs you will need to SSH again to our Jumphost.   
    Please use the instructions which were provided prior to the lab starting.   
@@ -204,13 +200,13 @@ To investigate further let's walk through health watch to identify the affected 
    
    
       
-6. SSH to our diego cell using it's instance name and deployment ID.  
+7. SSH to our diego cell using it's instance name and deployment ID.  
 
    ```copy-and-edit
    bosh ssh -d <cf-*******>  <diego_cell/*********>
    ```
       
-7. Now inside of the diego cell, let's use cfdot to output some useful information.   
+8. Now inside of the diego cell, let's use cfdot to output some useful information.   
 
    Let's export some values to a variable that we can use later.   
    
@@ -225,7 +221,7 @@ To investigate further let's walk through health watch to identify the affected 
    ```
 
 
-8. The last command outputs a lot of information, which can be overwhelming if you're looking for something specific.
+9. The last command outputs a lot of information, which can be overwhelming if you're looking for something specific.
    Let's use jq to ouput only the information we need.  ( ie. Our Application GUIDs ) 
    
    The following command will list the application guid's running in the diego cell.   
@@ -237,14 +233,14 @@ To investigate further let's walk through health watch to identify the affected 
    We can use this detail to lookup the names of these applications using our CF CLI.    
 
    
-9. Let's select the first guid from the list to determine it's application name.
+10. Let's select the first guid from the list to determine it's application name.
    Run the following command to identify application names while only providing its guid.  
       
    ```copy-and-edit
    cf curl /v2/apps/<guid>/stats | grep name | uniq
    ```
    
-10. Using the above step can be very time consuming. 
+11. Using the above step can be very time consuming. 
     Let's create a super simple script to automate this step. 
    
     First, let's copy the list of GUIDs from our prior cfdot command.   
