@@ -157,23 +157,41 @@ To investigate further let's walk through health watch to identify the affected 
    bosh ssh -d <cf-*******>  <diego_cell/*********>
    ```
       
-7. Now inside of the diego cell, let's use cfdot to output some useful information.     
+7. Now inside of the diego cell, let's use cfdot to output some useful information.   
+
+   Let's export some values to a variable that we can use later.   
+   
+   ```execute
+   CELL_IP=$(ip route  get 1 | awk '{print $NF;exit}')
+   ```
+   
+   Now run the following command to gather all of the applications running on our diego cell.  
+   
+   ```execute
+   cfdot actual-lrp-groups | grep "\"$CELL_IP\"" | jq
+   ```
+
+
+8. The last command outputs a lot of information, which can be overwhelming if you're looking for something specific.
+   Let's use jq to ouput only the information we need.  ( ie. Our Application GUIDs ) 
    
    The following command will list the application guid's running in the diego cell.   
-   With this detail we can lookup the names of these applications using CF CLI.    
    
    ```copy-and-edit
    cfdot cell-state <diego's InstanceID> | jq -r '. | "\ndiego_cell:", .cell_id, "\n", "App-Guids:", .LRPs[].process_guid[0:36]'
    ```
    
-8. Let's select the first guid from the list to determine it's application name.
+   We can use this detail to lookup the names of these applications using our CF CLI.    
+
+   
+9. Let's select the first guid from the list to determine it's application name.
    Run the following command to identify application names while only providing its guid.  
       
    ```copy-and-edit
    cf curl /v2/apps/<guid>/stats | grep name | uniq
    ```
    
-9. Using the above step can be very time consuming. 
+10. Using the above step can be very time consuming. 
    Let's create a super simple script to automate this step. 
    
    First, let's copy the list of GUIDs from our prior cfdot command.   
@@ -237,4 +255,3 @@ To investigate further let's walk through health watch to identify the affected 
     "name": "bosh-health-check",
     "name": "healthwatch",
    ```
-
