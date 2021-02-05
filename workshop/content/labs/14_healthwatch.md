@@ -309,9 +309,14 @@ To investigate further let's walk through health watch to identify the affected 
     "name": "healthwatch",
     ```
     
-12. From the output above we can begin investigating each app to determine if our spike in utilization was caused by normal activity or a problematic application. 
+12. From the output above we can begin investigating each app to determine if our spike in utilization was caused by normal activity or by a problematic application.
 
-    Look for our spring-music app in this list to determine if it's the problematic application.   
+
+    You will want to check the logs of these applications to determine if something is causing the applications to behave inappropriately.  
+    
+    
+
+    Now look for our spring-music app in this list to determine if it's the problematic application.   
     
     
     Just for kicks... 
