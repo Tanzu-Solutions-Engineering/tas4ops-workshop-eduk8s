@@ -110,28 +110,44 @@ To investigate further let's walk through health watch to identify the affected 
    Take a glance at all of the graphs from this view.  
 
 
-   - CPU
+   #### CPU
    
    The CPU utilization which is shown is a percentage of the total available memory across all cells/Diego VMs.  
         
    Investigate the cause of the spike. If the cause is a normal workload increase, then scale up the affected jobs.
 
 
-   - Memory 
+   #### Memory 
    
    The Memory utilization shown is the total remaining available memory across all cells.  
    
-   Responses to memory usage can vary depending on the type of workload or job that causing the spike.  
+   Responses to memory usage can vary depending on the type of workload or job that is causing the spike.  
 
 
-   - System Disk 
+   #### System Disk 
    
-   The System Disk utilization is the amount of space available across the system partition.   
+   The System Disk utilization is the amount of space available across the system partition of our diego cells.  
 
    Investigate what is filling the jobs system partition. This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
 
 
-   - Persistent Disk 
+   #### Persistent Disk 
+   
+   The Persistent disk utilization is the amount of space available across the system partition of our diego cells.  
+   
+   Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
+   
+   
+   #### Ephemeral Disk 
+   
+   The ephemeral disk utilization is the amount of space availabel across the system partition of our diego cells.   
+
+   Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
+
+   
+   
+   
+
    
    
    
