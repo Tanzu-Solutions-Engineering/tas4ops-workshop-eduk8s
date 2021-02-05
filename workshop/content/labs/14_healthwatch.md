@@ -2,7 +2,10 @@
 
 Pivotal Healthwatch is a service for monitoring and alerting on the current health, performance, and capacity of your TAS environment.  
 
-In this lab we will look at key performance indicators which helps drive decisions around capacity and scaling.    
+In this lab we will look at some key performance indicators which helps drive decisions around capacity and scaling.  
+
+We will also role play a scenario where our diego cells are experiencing unusual high utilization of its resources.  
+We must determine what is causing this issue.   
 
 ---
 
@@ -306,7 +309,25 @@ To investigate further let's walk through health watch to identify the affected 
     "name": "healthwatch",
     ```
     
+12. From the output above we can begin investigating each app to determine if our spike in utilization was caused by normal activity or a problematic application. 
+
+    Look for our spring-music app in this list to determine if it's the problematic application.   
     
+    
+    Just for kicks... 
+    
+    If you do not see your spring-music app, please scale your application instances to at least 3.   
+      
+   ```copy-and-edit
+   cf scale spring-music -i 3
+   ```
+   
+   
+   Now re-run steps 9 and 11 to see if your spring-music app was deployed to the diego cell you are currently working within.   
+   
+   
+   
+   ---
     
   For more detail on key capacity scaling indicator please see the following doc.  
 
