@@ -76,25 +76,60 @@ To investigate further let's walk through health watch to identify the affected 
     
 2. Now toggle the option to "Only Show Errors" off.   (Default view will only show errors) 
 
-   We want to view all jobs regardless of state.   
-      
-    ```execute-2
-    cf set-health-check test-app http --endpoint /
-    ```
-    The output from the above command should look similiar to the following 
-    
-    ```
-        bash-5.0$ cf set-health-check test-app http --endpoint /
-        Updating health check type for app test-app in org system / space workshop as admin...
-        OK
-        TIP: An app restart is required for the change to take effect.
+   We want to view all jobs regardless of state. 
+   
+   You will be presented with a number of jobs which represent our two deployments (healthwatch and TAS/PAS)
+   
 
-    ```
-    
-    - Now to ensure our changes take place we must restart our application.
-    
-      We must do this everytime we add a health check.   
+3. Now select the job for diego_cell.  
+   
+   This view will give you a glance at how your diego cell's are preforming.   
+   
+   Notice that we have 3 diego cells which show up under Metric Summary and Instance ID.   
+   
+   From this view we can gather high level statistics on how our diego cell's are preforming. 
+   
+   
       
-    ```execute-2
-    cf restart test-app 
-    ```
+4. Notice that we have 3 diego cells which show up under Metric Summary.
+
+   Their names can be seen under the category for Instance ID.   
+   
+   From this view we can gather high level statistics about how our diego cell's are preforming. 
+   
+   Let's copy the Instance ID of the diego cell which shows the highest load on CPU.  
+   
+
+5. Let's SSH into this diego cell to continue our investigation.       
+
+   If you lost connectivity to the jumpbox from our prior labs you will need to SSH again to our Jumphost.   
+   Please use the instructions which were provided prior to the lab starting.   
+
+   ```execute
+   ssh -o "StrictHostKeyChecking no" ubuntu@ubuntu-{{ LAB_SLOT_ID }}.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+   ```
+
+   Once inside the jumphost we will need to SSH to our Ops Manager.  
+
+   ```execute
+   ssh -o "StrictHostKeyChecking no" ubuntu@opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}
+   ```
+
+
+   Once inside of Ops Manager we will need to authenticate.
+
+
+   From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+
+   ```copy-and-edit
+   alias bosh="<command-from-ops-mgr-panel>"
+   ```
+   
+   Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
+   
+   
+   ```execute
+   
+   ```
+
+   
