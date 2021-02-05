@@ -311,20 +311,20 @@ To investigate further let's walk through health watch to identify the affected 
 12. From the output above we can begin investigating each app to determine if our spike in utilization was caused by normal activity or by a problematic application.
 
 
-    You will want to check the logs of these applications to determine if something is causing the applications to behave inappropriately.  
+  You will want to check the logs of these applications to determine if something is causing the applications to behave inappropriately.  
     
     
 
-    Now look for our spring-music app in this list to determine if it's the problematic application.   
+  Now look for our spring-music app in this list to determine if it's the problematic application.   
     
     
-    Just for kicks... 
-    
-    If you do not see your spring-music app, please scale your application instances to at least 3.   
+  Just for kicks... 
+  
+  If you do not see your spring-music app, please scale your application instances to at least 3.   
       
-   ```copy-and-edit
-   cf scale spring-music -i 3
-   ```
+  ```copy-and-edit
+  cf scale spring-music -i 3
+  ```
    
    
    Now re-run steps 9 and 11 to see if your spring-music app was deployed to the diego cell you are currently working within.   
