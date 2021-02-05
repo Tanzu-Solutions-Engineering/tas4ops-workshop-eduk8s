@@ -168,35 +168,34 @@ To investigate further let's walk through health watch to identify the affected 
    ```
 
 
-     Once inside of Ops Manager we will need to authenticate.
+   Once inside of Ops Manager we will need to authenticate.
 
 
-     From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
+   From the Ops Mgr web UI > Bosh Tile > Credentials tab ([link](https://opsmgr-01.haas-{{ LAB_SLOT_ID }}.{{ LAB_DOMAIN }}/api/v0/deployed/director/credentials/bosh_commandline_credentials)), copy the contents of "Bosh Command line Credentials" and then define the alias issue the following command:  
 
-     ```copy-and-edit
-     alias bosh="<command-from-ops-mgr-panel>"
-     ```
+   ```copy-and-edit
+   alias bosh="<command-from-ops-mgr-panel>"
+   ```
 
-     Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
+   Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
 
-     To ssh to our diego cells or any bosh deployed VM we will need to know it's corresponding deployment ID.   
+   To ssh to our diego cells or any bosh deployed VM we will need to know it's corresponding deployment ID.   
 
-     The deployment ID can be seen from our previous healthwatch tab which shows the Diego Cell Job.   
-     The Deployment ID is shown in the top left corner of the page.   
+   The deployment ID can be seen from our previous healthwatch tab which shows the Diego Cell Job.       The Deployment ID is shown in the top left corner of the page.   
 
-     It will begin with the letters "cf-" following its guid.   
+   It will begin with the letters "cf-" following its guid.   
 
-     Example: 
+   Example: 
 
-     ```
-     Foundation / All Jobs / cf-a9f06a06db4ae96934f2
-     ```
+   ```
+   Foundation / All Jobs / cf-a9f06a06db4ae96934f2
+   ```
+   
+   You can also obtain the deployment ID by running the following command.   
 
-     You can also obtain the deployment ID by running the following command.   
-
-     ```execute
-     bosh vms
-     ```
+   ```execute
+   bosh vms
+   ```
    
    The deployment ID can be seen above the Instance/VM details.   
    
