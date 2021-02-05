@@ -100,7 +100,7 @@ To investigate further let's walk through health watch to identify the affected 
    Let's copy the Instance ID of the diego cell which shows the highest load on CPU.  
    
 
-5. Let's SSH into this diego cell to continue our investigation.       
+5. Let's prepare to SSH into this diego cell so that we can continue our investigation.       
 
    If you lost connectivity to the jumpbox from our prior labs you will need to SSH again to our Jumphost.   
    Please use the instructions which were provided prior to the lab starting.   
@@ -127,9 +127,49 @@ To investigate further let's walk through health watch to identify the affected 
    
    Now that we have setup our environment with our BOSH Credentials we can now SSH to our diego cell.
    
+   To ssh to our diego cells or any bosh deployed VM we will need to know it's corresponding deployment ID.   
    
-   ```execute
+   The deployment ID can be seen from our previous healthwatch tab which shows the Diego Cell Job.   
+   The Deployment ID is shown in the top left corner of the page.   
+   
+   It will begin with the letters "cf-" following its guid.   
+   
+   Example: 
    
    ```
-
+   Foundation / All Jobs / cf-a9f06a06db4ae96934f2
+   ```
    
+   You can also obtain the deployment ID by running the following command.   
+   
+   ```execute
+   bosh vms
+   ```
+   
+   The deployment ID can be seen above the Instance/VM details.   
+   
+   
+   
+      
+6. SSH to our diego cell using it's instance name and deployment ID.  
+
+   ```copy-and-edit
+   bosh ssh -d <cf-*******>  <diego_cell/*********>
+   ```
+      
+7. Now inside of the diego cell, let's use cfdot to output some useful information.     
+   
+   The following command will list the application guid's running in the diego cell.   
+   With this detail we can lookup the names of these applications using CF CLI.    
+   
+   ```copy-and-edit
+   cfdot cell-state <diego's InstanceID> | jq -r '. | "\ndiego_cell:", .cell_id, "\n", "App-Guids:", .LRPs[].process_guid[0:36]'
+   ```
+   
+8. Let's use the guids from our previous step to lookup our application names.        
+      
+   ```copy-and-edit
+   cfdot cell-state <diego's InstanceID> | jq -r '. | "\ndiego_cell:", .cell_id, "\n", "App-Guids:", .LRPs[].process_guid[0:36]'
+   ```
+  
+
