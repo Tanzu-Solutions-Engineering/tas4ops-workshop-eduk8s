@@ -131,15 +131,13 @@ Break
 
 **2:40pm – 4:00pm**
 
-19: Health Checks
+19: API Endpoints
 
-20: Zero Downtime
+20: Health Checks
 
-21: API Endpoints
+21: Healthwatch
 
-22: Check for expired Certs
-
-23: Rotate Certs
+22: Zero Downtime
 
 <br/>
 
@@ -151,7 +149,11 @@ Break
 
 **4:10pm – 5:00pm**
 
-24: Workshop Summary
+23: Check Expired Certs
+
+24: Rotate Certs
+
+25: Workshop Summary
 
 Q&A
 
