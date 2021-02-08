@@ -312,6 +312,7 @@ Controls the maximum time that TAS allows to elapse between starting an app and 
     
     cf push -t 
     
+---
 
 5. To increase the memory limit edit the mainifest.yaml file and replace 0.5G with 1G.  
 
