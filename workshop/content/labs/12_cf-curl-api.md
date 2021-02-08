@@ -150,7 +150,7 @@ cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks |grep state
     
 
   
-
+---
 
 
 Please see the following for more detail on the CF CLI:
