@@ -141,7 +141,9 @@ cf restart test-app
     
 3.  Success! Your new test app should be deployed with a default health check defined for it's "/" endpoint.
 
-    To learn more about configuring health checks please see the following doc. 
+---
+
+To learn more about configuring health checks please see the following: 
     
-    https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/healthchecks.html
+https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/healthchecks.html
 
