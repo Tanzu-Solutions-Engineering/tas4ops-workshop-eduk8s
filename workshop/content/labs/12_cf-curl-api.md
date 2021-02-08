@@ -152,9 +152,11 @@ cf curl /v3/apps/$(cf app v3-tasks-sample --guid)/tasks |grep state
   
 
 
-For more detail on TAS / Cloud Foundry APIs 
 
-Please see the following:
+Please see the following for more detail on the CF CLI:
+
 https://docs.pivotal.io/application-service/2-10/cf-cli/cf7-help.html
+
+Please see the following for more detail on CF APIs: 
 
 https://v3-apidocs.cloudfoundry.org/version/3.94.0/index.html#list-apps
