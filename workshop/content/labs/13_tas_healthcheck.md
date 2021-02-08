@@ -19,32 +19,32 @@ In this lab we will understand how to implement health checks when deploying new
 - First we will configure a health check for our test-app application that's already deployed.   
 
 1.  Run cf apps to get a list of your running applications.   You should see your test-app application deployed.   
-    ```execute-2
-    cf a
-    ```
+```execute-2
+cf a
+```
+
 2. TAS supports configuring 3 different types of health checks.  Port, Process and HTTP.   
 - First let's implement a HTTP Health Check for your test-app application.    
    
-    ```execute-2
-    cf set-health-check test-app http --endpoint /
-    ```
-    The output from the above command should look similiar to the following 
+```execute-2
+cf set-health-check test-app http --endpoint /
+```
+The output from the above command should look similiar to the following 
     
-    ```
-        bash-5.0$ cf set-health-check test-app http --endpoint /
-        Updating health check type for app test-app in org system / space workshop as admin...
-        OK
-        TIP: An app restart is required for the change to take effect.
-
-    ```
+```
+bash-5.0$ cf set-health-check test-app http --endpoint /
+Updating health check type for app test-app in org system / space workshop as admin...
+OK
+TIP: An app restart is required for the change to take effect.
+```
     
-    - Now to ensure our changes take place we must restart our application.
+- Now to ensure our changes take place we must restart our application.
     
-      We must do this everytime we add a health check.   
+We must do this everytime we add a health check.   
       
-    ```execute-2
-    cf restart test-app 
-    ```
+```execute-2
+cf restart test-app 
+```
 
     
 Our test application has multiple endpoints so we will want to make sure they are all monitored. 
@@ -85,7 +85,7 @@ cf set-health-check test-app http --endpoint /env
 cf restart test-app 
 ```
       
-- Next let's configure the health check to monitor the port(s) our app is listening on. 
+2. Next let's configure the health check to monitor the port(s) our app is listening on. 
 
 ```execute-2
 cf set-health-check test-app port
@@ -104,7 +104,7 @@ cf set-health-check test-app port
 cf restart test-app 
 ```
 
-- Finally let's configure the health check to monitor our app's processes. 
+3. Finally let's configure the health check to monitor our app's processes. 
 
 ```execute-2
 cf set-health-check test-app process
