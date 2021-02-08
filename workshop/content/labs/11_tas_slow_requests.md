@@ -400,11 +400,11 @@ exit
 ```
     
       
-   For additional detail on troubleshooting slow connectivity please see the following url. 
+   For additional detail on troubleshooting slow connectivity please see the following:
 
    https://docs.pivotal.io/application-service/2-10/adminguide/troubleshooting-router-error-responses.html
    
    
-   For more detail on CFDOT please see the following URL: 
+   For more detail on CFDOT please see the following: 
    https://community.pivotal.io/s/article/how-to-use-cloud-foundry-cf-diego-operator-toolkit-cfdot?language=en_US
 
