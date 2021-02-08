@@ -146,7 +146,8 @@ if something unexpected happens with your new version on Green, you can immediat
      ```    
   
      
-    
+---
+
 
 ### This process could also be automated via CF Plugins.  
 
@@ -156,6 +157,7 @@ BlueGreenDeploy: cf-blue-green-deploy is a plugin, written in Go, for the Cloud 
 
 https://plugins.cloudfoundry.org/#blue-green-deploy
 
+---
 
 For additional detail regarding Blue-Green Deployments please see the following: 
 
