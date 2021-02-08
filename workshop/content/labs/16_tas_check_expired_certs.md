@@ -88,11 +88,14 @@ One of the worst thing that could happen to your platform is letting your certif
     ```execute
     credhub get -n /services/tls_ca -j | jq -r .value.ca  | openssl x509 -text -noout
     ```
+
+---
     
-    For more detail on checking your certificates please see -> https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/check-expiration.html
+For additional detail on verifying your certificates please see the following: 
+
+https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/check-expiration.html
  
 
+If your certificate has already expired please see the knowledge base article below: 
 
- If your certificate has already expired please follow the knowledge base article below. 
-
- https://community.pivotal.io/s/article/How-to-rotate-and-already-expired-services-tls-ca-certificate?language=en_US
+https://community.pivotal.io/s/article/How-to-rotate-and-already-expired-services-tls-ca-certificate?language=en_US
