@@ -157,6 +157,12 @@ Please see the following for more detail on the CF CLI:
 
 https://docs.pivotal.io/application-service/2-10/cf-cli/cf7-help.html
 
-Please see the following for more detail on CF APIs: 
+
+Please see the following for more detail on CF v3 APIs: 
 
 https://v3-apidocs.cloudfoundry.org/version/3.94.0/index.html#list-apps
+
+
+Please see the following for more detail on CF v2 APIs:  
+
+https://apidocs.cloudfoundry.org/15.3.0/
