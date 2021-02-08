@@ -129,14 +129,14 @@ There are three key capacity scaling indicators VMware recommends for a Diego Ce
 
    #### Persistent Disk 
    
-   The Persistent disk utilization is the amount of space available across the system partition of our diego cells.  
+   The Persistent disk utilization is the amount of space available across the persistent partition of our diego cells.  
    
    Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
    
    
    #### Ephemeral Disk 
    
-   The ephemeral disk utilization is the amount of space availabel across the system partition of our diego cells.   
+   The ephemeral disk utilization is the amount of space availabel across the ephemeral partition of our diego cells.   
 
    Use bosh to view jobs on affected deployments. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out affected jobs.
 
