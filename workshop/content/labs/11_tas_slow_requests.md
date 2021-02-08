@@ -406,5 +406,6 @@ exit
    
    
    For more detail on CFDOT please see the following: 
+   
    https://community.pivotal.io/s/article/how-to-use-cloud-foundry-cf-diego-operator-toolkit-cfdot?language=en_US
 
