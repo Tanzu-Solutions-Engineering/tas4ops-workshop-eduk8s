@@ -193,9 +193,9 @@ There are three key capacity scaling indicators VMware recommends for a Diego Ce
    
    You can also obtain the deployment ID by running the following command.   
 
-   ```execute
-   bosh vms
-   ```
+    ```execute
+    bosh vms
+    ```
    
    The deployment ID can be seen above the Instance/VM details.   
    
@@ -333,7 +333,7 @@ There are three key capacity scaling indicators VMware recommends for a Diego Ce
    
    ---
     
-  For more detail on key capacity scaling indicator please see the following doc.  
+  For more detail on key capacity scaling indicators please see the following doc.  
 
   https://docs.pivotal.io/application-service/2-10/overview/monitoring/key-cap-scaling.html#cell-container
 
