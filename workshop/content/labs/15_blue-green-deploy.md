@@ -148,10 +148,15 @@ if something unexpected happens with your new version on Green, you can immediat
      
     
 
-## This process could also be automated via CF Plugins.  
+### This process could also be automated via CF Plugins.  
 
 Cloud Foundry community members have written a plugin to automate the blue-green deployment process:
 
 BlueGreenDeploy: cf-blue-green-deploy is a plugin, written in Go, for the Cloud Foundry Command Line Interface (cf CLI) that automates a few steps involved in zero-downtime deploys.
 
 https://plugins.cloudfoundry.org/#blue-green-deploy
+
+
+For additional detail regarding Blue-Green Deployments please see the following: 
+
+https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/blue-green.html
