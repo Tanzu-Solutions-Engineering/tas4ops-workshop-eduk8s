@@ -306,10 +306,11 @@ bosh ssh -d <deploymentID> diego_cell/<GUID>
 
 ```
              
-   Once inside of the diego cell, let's run env to get a list of our current environment variables.   
-    
-    
-   Let's run env with grep to check if cfdot is setup. 
+   Once inside of the VM, run env with grep to check if cfdot is setup. 
+   
+   CFDOT (Cloud Foundry Diego Operator Toolkit) communicates directly with the Bulletin Board System (BBS) API to provide information about the Diego cells in your deployment. The cfdot CLI outputs a stream of JSON values that you can process with jq, bash, and other line-based UNIX tools.
+   
+
    
 ```execute
 env |grep cfdot
@@ -402,3 +403,8 @@ exit
    For additional detail on troubleshooting slow connectivity please see the following url. 
 
    https://docs.pivotal.io/application-service/2-10/adminguide/troubleshooting-router-error-responses.html
+   
+   
+   For more detail on CFDOT please see the following URL: 
+   https://community.pivotal.io/s/article/how-to-use-cloud-foundry-cf-diego-operator-toolkit-cfdot?language=en_US
+
