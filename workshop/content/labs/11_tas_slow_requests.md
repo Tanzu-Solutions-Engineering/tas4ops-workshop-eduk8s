@@ -388,6 +388,9 @@ bosh ssh -d <deploymentID> router/<GUID>
    
    Now determine the amount of time a request takes when it skips Gorouter.  
    Run the following command. Replacing the variable with the IP Address we obtained earlier. 
+   
+   (This step may not work due to the lab setup)
+   
 
 ```copy-and-edit
 time curl <IPaddressOfDiegoCellforSpringMusicApp>
