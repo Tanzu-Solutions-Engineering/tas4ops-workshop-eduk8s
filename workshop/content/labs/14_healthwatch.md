@@ -329,7 +329,11 @@ There are three key capacity scaling indicators VMware recommends for a Diego Ce
    
    Now re-run steps 9 and 11 to see if your spring-music app was deployed to the diego cell you are currently working within.   
    
-   
+
+
+13. (Optional Step) If necessary to continue troubleshooting; please see the following knowledge base article which demonstrates how to determine if an App's process is causing a diego cell to suffer from high CPU activity. 
+
+https://community.pivotal.io/s/article/how-to-know-if-an-app-is-responsible-for-high-cpu-in-a-diego-cell-and-how-to-find-it?language=en_US
    
    ---
     
