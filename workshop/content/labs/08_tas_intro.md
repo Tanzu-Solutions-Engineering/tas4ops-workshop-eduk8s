@@ -22,7 +22,10 @@
 
 - The following diagram shows open source Cloud Foundry components in blue and commercial features available with TAS for VMs in green:
   <img src="https://docs.pivotal.io/application-service/2-10/overview/images/pcf-commercialization.png" alt="CF"/>
-  For more details please visit.  https://docs.pivotal.io/application-service/2-10/concepts/overview.html#commercial-model
+  
+  For more details please visit the following: 
+  
+  https://docs.pivotal.io/application-service/2-10/concepts/overview.html#commercial-model
   
 
 ---
